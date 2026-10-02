@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MexiAventura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="pantalla">
+
+        <div class="fondo"></div>
+
+        <div class="gradiente-superior"></div>
+        <div class="gradiente-inferior"></div>
+
+        <!-- BORDES DECORATIVOS -->
+
+        <div class="borde-superior"></div>
+        <div class="borde-inferior"></div>
+
+        <!-- ORNAMENTOS -->
+
+        <div class="ornamento esquina-superior-izquierda">
+            ✦◈✦
+        </div>
+
+        <div class="ornamento esquina-superior-derecha">
+            ✦◈✦
+        </div>
+
+        <div class="ornamento esquina-inferior-izquierda">
+            ✦◈✦
+        </div>
+
+        <div class="ornamento esquina-inferior-derecha">
+            ✦◈✦
+        </div>
+
+        <!--BOTONES AUDIO/IDIOMA/SALIR-->
+        <div class="botones-menu">
+            <button class="boton-menu" id="botonAudio" title="Audio">
+                <img src="img/audio.png">
+                <span>AUDIO</span>
+            </button>
+
+            <button class="boton-menu" id="botonIdioma" title="Idioma">
+                <img src="img/idioma.png">
+                <span>ES</span>
+            </button>
+
+            <button class="boton-menu" id="botonSalir" title="Salir">
+                <img src="img/salir.png">
+            </button>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+
+        <section class="contenido">
+
+            <div class="anillo anillo-exterior"></div>
+            <div class="anillo anillo-interior"></div>
+
+
+            <div class="eyebrow">
+                ✦ EL ORIGEN DE UN IMPERIO ✦
+            </div>
+
+
+            <h1>
+                <span>Mexi</span>
+                <span>Aventura</span>
+            </h1>
+
+
+            <div class="divisor">
+
+                <span></span>
+
+                <b>⬡</b>
+
+                <span></span>
+
+            </div>
+
+
+            <p class="tagline">
+                Aztecas, Mayas y Conquistadores
+            </p>
+
+
+            <button id="botonInicio" onclick="iniciarJuego()">
+                ⚔ INICIAR JUEGO ⚔
+            </button>
+
+            <p class="ayuda"> TOCA LA PANTALLA PARA EFECTOS</p>
+
+            <div id="escenaBienvenida" style="display: none;">
+                <h2>Bienvenido a MexiAventura</h2>
+                <P>Tu aventura por la Historia de México está por comenzar...</P>
+            </div>
+
+        </section>
+
+        <div id="decoraciones"></div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
