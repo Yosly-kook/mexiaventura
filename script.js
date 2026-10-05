@@ -3,15 +3,10 @@
 // ==========================================
 
 function iniciarJuego() {
-
-    // Ocultar la pantalla de inicio
     document.getElementById("pantallaInicio").style.display = "none";
-
-    // Mostrar el mapa
     document.getElementById("mapaJuego").style.display = "block";
-
+    document.querySelector(".botones-menu").style.display = "none";
 }
-
 
 // ==========================================
 // INFORMACIÓN DE LOS NIVELES
