@@ -556,6 +556,118 @@ button:active {
         0 0 80px rgba(255, 215, 0, 0.7),
         0 8px 20px rgba(0, 0, 0, 0.5);
 }
+
+.nivel1:hover {
+    transform: scale(1.12);
+    border-color: #006847;
+    filter: brightness(1.25);
+    box-shadow:
+        0 0 8px #00ffaa,
+        0 0 18px #00ff88,
+        0 0 30px #00a870,
+        0 0 45px rgba(0, 168, 84, 0.6),
+        0 7px 0 rgba(0, 0, 0, 0.15);
+}
+.nivel2:hover {
+    transform: scale(1.12);
+    border-color: #d4c81c;
+    filter: brightness(1.25);
+    box-shadow:
+        0 0 8px #fffb00,
+        0 0 18px #fbff00,
+        0 0 30px #a5a800,
+        0 0 45px rgba(165, 168, 0, 0.6),
+        0 7px 0 rgba(0, 0, 0, 0.15);
+}
+.nivel3:hover {
+    transform: scale(1.12);
+    border-color: #E97850;
+    filter: brightness(1.25);
+    box-shadow:
+        0 0 8px #ff5e00,
+        0 0 18px #ff5e00,
+        0 0 30px #a85f00,
+        0 0 45px rgba(168, 76, 0, 0.6),
+        0 7px 0 rgba(0, 0, 0, 0.15);
+}
+.nivel4:hover {
+    transform: scale(1.12);
+    border-color: #32C5C7;
+    filter: brightness(1.25);
+    box-shadow:
+        0 0 8px #00f7ff,
+        0 0 18px #00fff2,
+        0 0 30px #00a8a8,
+        0 0 45px rgba(0, 162, 168, 0.6),
+        0 7px 0 rgba(0, 0, 0, 0.15);
+}
+.nivel5:hover {
+    transform: scale(1.12);
+    border-color: #F35B9A;
+    filter: brightness(1.25);
+    box-shadow:
+        0 0 8px #ff0095,
+        0 0 18px #ff00aa,
+        0 0 30px #a80084,
+        0 0 45px rgba(168, 0, 126, 0.6),
+        0 7px 0 rgba(0, 0, 0, 0.15);
+}
+.nivel6:hover {
+    transform: scale(1.12);
+    border-color: #A477D8;
+    filter: brightness(1.25);
+    box-shadow:
+        0 0 8px #8c00ff,
+        0 0 18px #a200ff,
+        0 0 30px #8600a8,
+        0 0 45px rgba(129, 0, 168, 0.6),
+        0 7px 0 rgba(0, 0, 0, 0.15);
+}
+.nivel7:hover {
+    transform: scale(1.12);
+    border-color: #E95B51;
+    filter: brightness(1.25);
+    box-shadow:
+        0 0 10px #ff0800,
+        0 0 18px #ff0800,
+        0 0 30px #ff0800,
+        0 0 45px rgba(168, 39, 0, 0.6),
+        0 7px 0 rgba(0, 0, 0, 0.15);
+}
+.nivel8:hover {
+    transform: scale(1.12);
+    border-color: #00a870;
+    filter: brightness(1.30);
+    box-shadow: 
+        0 0 10px #00a870,
+        0 0 20px #00a870,
+        0 0 30px #00a870,
+        0 0 50px #019262,
+        0 9px 0 rgba(0, 0, 0, 0.15);
+}
+.nivel9:hover {
+    transform: scale(1.14);
+    border-color: #A22B1F;
+    filter: brightness(1.30);
+    box-shadow: 
+     0 0 10px #ff1500,
+        0 0 20px #ff1500,
+        0 0 30px #910c00,
+        0 0 50px #860b00a8,
+        0 9px 0 rgba(0, 0, 0, 0.15);
+}
+.nivel10:hover {
+    transform: scale(1.12);
+    border-color: #73C2FB;
+    filter: brightness(1.30);
+    box-shadow: 
+    0 0 10px #008cff,
+        0 0 20px #0099ff,
+        0 0 30px #005791,
+        0 0 50px #004a86a8,
+        0 9px 0 rgba(0, 0, 0, 0.15);
+}
+
 /* =========================================
    COLORES DE LOS NIVELES
    ========================================= */
