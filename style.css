@@ -416,5 +416,267 @@ button:active {
 .boton-menu:hover img {
     transform: scale(1.08);
 }
+/* =========================================
+   MAPA DE MEXIAVENTURA
+   ========================================= */
+
+/* El mapa comienza oculto */
+.mapa-juego {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 8;
+
+    background-image: url("img/mundo.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* TÍTULO DEL MAPA */
+
+.mapa-juego .titulo {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+}
+
+.mapa-juego .titulo h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: #f0c040;
+    text-shadow:
+        0 0 5px #1f5c32,
+        0 0 10px #1f5c32,
+        2px 2px 0 #1f5c32;
+}
+
+.mapa-juego .titulo p {
+    margin-top: 5px;
+    color: white;
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+}
+
+
+/* =========================================
+   MAPA / CAMINITO
+   ========================================= */
+
+.mapa {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================
+   NIVELES
+   ========================================= */
+
+.nivel {
+    position: absolute;
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: white;
+
+    background: linear-gradient(
+        145deg,
+        #d4a017,
+        #9b6b12
+    );
+
+    border: 5px solid #f0c040;
+
+    box-shadow:
+        0 5px 0 #5c3d0b,
+        0 0 15px rgba(240, 192, 64, 0.6);
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* ESTRELLAS */
+
+.nivel .estrellas {
+    position: absolute;
+
+    bottom: -24px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    white-space: nowrap;
+
+    font-size: 13px;
+}
+
+
+/* BRILLO AL PASAR EL MOUSE */
+
+.nivel:hover {
+    transform: scale(1.15);
+
+    box-shadow:
+        0 5px 0 #5c3d0b,
+        0 0 20px #f0c040,
+        0 0 35px rgba(240, 192, 64, 0.7);
+}
+
+
+/* =========================================
+   POSICIONES DE LOS NIVELES
+   ========================================= */
+
+.nivel1 {
+    left: 12%;
+    top: 72%;
+}
+
+.nivel2 {
+    left: 24%;
+    top: 57%;
+}
+
+.nivel3 {
+    left: 38%;
+    top: 68%;
+}
+
+.nivel4 {
+    left: 50%;
+    top: 50%;
+}
+
+.nivel5 {
+    left: 63%;
+    top: 62%;
+}
+
+.nivel6 {
+    left: 74%;
+    top: 45%;
+}
+
+.nivel7 {
+    left: 61%;
+    top: 30%;
+}
+
+.nivel8 {
+    left: 46%;
+    top: 22%;
+}
+
+.nivel9 {
+    left: 31%;
+    top: 32%;
+}
+
+.nivel10 {
+    left: 17%;
+    top: 20%;
+}
+
+
+/* =========================================
+   VENTANA DE INFORMACIÓN
+   ========================================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 50;
+}
+
+.contenido-modal {
+    width: min(500px, 85%);
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: #21170d;
+
+    border: 3px solid #d4a017;
+
+    border-radius: 15px;
+
+    color: white;
+
+    box-shadow:
+        0 0 30px rgba(240, 192, 64, 0.6);
+}
+
+.contenido-modal h2 {
+    color: #f0c040;
+}
+
+.contenido-modal .cerrar {
+    margin-top: 15px;
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .nivel {
+        width: 60px;
+        height: 60px;
+
+        font-size: 22px;
+
+        border-width: 4px;
+    }
+
+    .nivel .estrellas {
+        font-size: 10px;
+        bottom: -20px;
+    }
+
+    .mapa-juego .titulo h1 {
+        font-size: 2.2rem;
+    }
+
+    .mapa-juego .titulo p {
+        font-size: 0.8rem;
+    }
+
+}
 
 
