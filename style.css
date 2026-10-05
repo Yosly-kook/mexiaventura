@@ -417,40 +417,57 @@ button:active {
     transform: scale(1.08);
 }
 /* =========================================
-   MAPA DE MEXIAVENTURA
+   MAPA ORIGINAL DE MEXIAVENTURA
    ========================================= */
 
-/* El mapa comienza oculto */
+/* EL MAPA COMIENZA OCULTO */
 .mapa-juego {
     display: none;
     position: absolute;
     inset: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
     z-index: 8;
 
-    background-image: url("img/mundo.png");
+    background-image: url("fondo a.png");
     background-size: cover;
     background-position: center;
 }
 
-/* TÍTULO DEL MAPA */
+
+/* =========================================
+   TÍTULO DEL MAPA
+   ========================================= */
 
 .mapa-juego .titulo {
-    position: absolute;
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
     text-align: center;
-    z-index: 20;
+    padding: 25px 10px;
+    color: #6b2800;
 }
 
 .mapa-juego .titulo h1 {
     margin: 0;
-    font-size: clamp(2rem, 5vw, 4rem);
-    color: #f0c040;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(
+        to bottom,
+        #fac637,
+        #ecb017,
+        #c0810c
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
     text-shadow:
         0 0 5px #1f5c32,
         0 0 10px #1f5c32,
@@ -458,9 +475,11 @@ button:active {
 }
 
 .mapa-juego .titulo p {
-    margin-top: 5px;
-    color: white;
-    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    margin: 5px 0 0;
+
+    color: black;
+
+    font-size: 22px;
 }
 
 
@@ -468,11 +487,12 @@ button:active {
    MAPA / CAMINITO
    ========================================= */
 
-.mapa {
-    position: absolute;
-    inset: 0;
+.mapa-juego .mapa {
+    position: relative;
+
     width: 100%;
-    height: 100%;
+
+    height: calc(100vh - 120px);
 }
 
 
@@ -480,70 +500,109 @@ button:active {
    NIVELES
    ========================================= */
 
-.nivel {
+.mapa-juego .nivel {
     position: absolute;
 
-    width: 75px;
-    height: 75px;
+    width: 85px;
+    height: 85px;
 
     border-radius: 50%;
+
+    border: 3px solid #dfdad1;
+
+    cursor: pointer;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
 
-    color: white;
-
-    background: linear-gradient(
-        145deg,
-        #d4a017,
-        #9b6b12
-    );
-
-    border: 5px solid #f0c040;
+    color: rgb(218, 206, 206);
 
     box-shadow:
-        0 5px 0 #5c3d0b,
-        0 0 15px rgba(240, 192, 64, 0.6);
-
-    cursor: pointer;
-
-    z-index: 10;
+        0 5px 10px rgba(0, 0, 0, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
 
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
-/* ESTRELLAS */
+/* =========================================
+   COLORES DE LOS NIVELES
+   ========================================= */
 
-.nivel .estrellas {
-    position: absolute;
-
-    bottom: -24px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    white-space: nowrap;
-
-    font-size: 13px;
+.mapa-juego .nivel1 {
+    background: linear-gradient(
+        #006847,
+        #008F7A
+    );
 }
 
+.mapa-juego .nivel2 {
+    background: linear-gradient(
+        #FFD95A,
+        #E6A817
+    );
+}
 
-/* BRILLO AL PASAR EL MOUSE */
+.mapa-juego .nivel3 {
+    background: linear-gradient(
+        #E97850,
+        #C65D3A
+    );
+}
 
-.nivel:hover {
-    transform: scale(1.15);
+.mapa-juego .nivel4 {
+    background: linear-gradient(
+        #32C5C7,
+        #159A9C
+    );
+}
 
-    box-shadow:
-        0 5px 0 #5c3d0b,
-        0 0 20px #f0c040,
-        0 0 35px rgba(240, 192, 64, 0.7);
+.mapa-juego .nivel5 {
+    background: linear-gradient(
+        #F35B9A,
+        #E83E8C
+    );
+}
+
+.mapa-juego .nivel6 {
+    background: linear-gradient(
+        #A477D8,
+        #7547A8
+    );
+}
+
+.mapa-juego .nivel7 {
+    background: linear-gradient(
+        #E95B51,
+        #C93C35
+    );
+}
+
+.mapa-juego .nivel8 {
+    background: linear-gradient(
+        #54B96F,
+        #278A4B
+    );
+}
+
+.mapa-juego .nivel9 {
+    background: linear-gradient(
+        #A22B1F,
+        #b64439
+    );
+}
+
+.mapa-juego .nivel10 {
+    background: linear-gradient(
+        #73C2FB,
+        #7fbfec
+    );
 }
 
 
@@ -551,54 +610,144 @@ button:active {
    POSICIONES DE LOS NIVELES
    ========================================= */
 
-.nivel1 {
-    left: 12%;
-    top: 72%;
+.mapa-juego .nivel1 {
+    left: 14%;
+    top: 78%;
 }
 
-.nivel2 {
-    left: 24%;
-    top: 57%;
+.mapa-juego .nivel2 {
+    left: 25%;
+    top: 66%;
 }
 
-.nivel3 {
-    left: 38%;
+.mapa-juego .nivel3 {
+    left: 41%;
+    top: 73%;
+}
+
+.mapa-juego .nivel4 {
+    left: 58%;
+    top: 74%;
+}
+
+.mapa-juego .nivel5 {
+    left: 73%;
     top: 68%;
 }
 
-.nivel4 {
-    left: 50%;
+.mapa-juego .nivel6 {
+    left: 83%;
     top: 50%;
 }
 
-.nivel5 {
-    left: 63%;
-    top: 62%;
+.mapa-juego .nivel7 {
+    left: 64%;
+    top: 49%;
 }
 
-.nivel6 {
-    left: 74%;
-    top: 45%;
+.mapa-juego .nivel8 {
+    left: 42%;
+    top: 51%;
 }
 
-.nivel7 {
-    left: 61%;
-    top: 30%;
+.mapa-juego .nivel9 {
+    left: 24%;
+    top: 46%;
 }
 
-.nivel8 {
-    left: 46%;
-    top: 22%;
+.mapa-juego .nivel10 {
+    left: 12%;
+    top: 26%;
 }
 
-.nivel9 {
-    left: 31%;
-    top: 32%;
+
+/* =========================================
+   BRILLO DE LOS NIVELES
+   ========================================= */
+
+.mapa-juego .nivel1:hover {
+    box-shadow:
+        0 0 15px #00ff88,
+        0 0 30px #00ff88;
 }
 
-.nivel10 {
-    left: 17%;
-    top: 20%;
+.mapa-juego .nivel2:hover {
+    box-shadow:
+        0 0 15px #fff000,
+        0 0 30px #fff000;
+}
+
+.mapa-juego .nivel3:hover {
+    box-shadow:
+        0 0 15px #ff7b39,
+        0 0 30px #ff7b39;
+}
+
+.mapa-juego .nivel4:hover {
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 30px #00ffff;
+}
+
+.mapa-juego .nivel5:hover {
+    box-shadow:
+        0 0 15px #ff4fa3,
+        0 0 30px #ff4fa3;
+}
+
+.mapa-juego .nivel6:hover {
+    box-shadow:
+        0 0 15px #c878ff,
+        0 0 30px #c878ff;
+}
+
+.mapa-juego .nivel7:hover {
+    box-shadow:
+        0 0 15px #ff3b30,
+        0 0 30px #ff3b30;
+}
+
+.mapa-juego .nivel8:hover {
+    box-shadow:
+        0 0 15px #39ff88,
+        0 0 30px #39ff88;
+}
+
+.mapa-juego .nivel9:hover {
+    box-shadow:
+        0 0 15px #ff3325,
+        0 0 30px #ff3325;
+}
+
+.mapa-juego .nivel10:hover {
+    box-shadow:
+        0 0 15px #39a9ff,
+        0 0 30px #39a9ff;
+}
+
+.mapa-juego .nivel:hover {
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   ESTRELLAS
+   ========================================= */
+
+.mapa-juego .estrellas {
+    position: absolute;
+
+    bottom: -25px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    white-space: nowrap;
+
+    color: yellow;
+
+    font-size: 20px;
 }
 
 
@@ -606,46 +755,94 @@ button:active {
    VENTANA DE INFORMACIÓN
    ========================================= */
 
-.modal {
-    display: none;
-
+.mapa-juego .modal {
     position: fixed;
 
     inset: 0;
 
     background: rgba(0, 0, 0, 0.65);
 
+    display: none;
+
     align-items: center;
     justify-content: center;
 
-    z-index: 50;
+    z-index: 100;
+
+    padding: 20px;
 }
 
-.contenido-modal {
-    width: min(500px, 85%);
+.mapa-juego .modal.activo {
+    display: flex;
+}
+
+
+/* CONTENIDO DEL MODAL */
+
+.mapa-juego .contenido-modal {
+    width: 100%;
+    max-width: 600px;
+
+    background: #fff4dc;
+
+    border: 8px solid #e97850;
+
+    border-radius: 25px;
 
     padding: 30px;
 
     text-align: center;
 
-    background: #21170d;
+    box-shadow:
+        0 0 30px rgba(0, 0, 0, 0.5);
 
-    border: 3px solid #d4a017;
+    animation: aparecer-mapa 0.3s ease;
+}
 
-    border-radius: 15px;
+.mapa-juego .contenido-modal h2 {
+    color: #6b2800;
+
+    font-size: 30px;
+}
+
+.mapa-juego .contenido-modal p {
+    color: #333;
+
+    font-size: 18px;
+}
+
+.mapa-juego .cerrar {
+    margin-top: 15px;
+
+    padding: 12px 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    background: #e97850;
 
     color: white;
 
-    box-shadow:
-        0 0 30px rgba(240, 192, 64, 0.6);
+    font-weight: bold;
 }
 
-.contenido-modal h2 {
-    color: #f0c040;
+.mapa-juego .cerrar:hover {
+    background: #c65d3a;
 }
 
-.contenido-modal .cerrar {
-    margin-top: 15px;
+@keyframes aparecer-mapa {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 
@@ -653,30 +850,134 @@ button:active {
    CELULAR
    ========================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-    .nivel {
-        width: 60px;
-        height: 60px;
+    .mapa-juego {
+        background-image: url("fondo vertical.png");
 
-        font-size: 22px;
+        background-size: cover;
+        background-position: center;
 
-        border-width: 4px;
+        overflow-y: auto;
     }
 
-    .nivel .estrellas {
-        font-size: 10px;
-        bottom: -20px;
+    .mapa-juego .titulo {
+        padding: 15px 5px;
     }
 
     .mapa-juego .titulo h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .mapa-juego .titulo p {
-        font-size: 0.8rem;
+        font-size: 16px;
     }
 
+    .mapa-juego .mapa {
+        height: 750px;
+    }
+
+    .mapa-juego .nivel {
+        width: 48px;
+        height: 48px;
+
+        font-size: 18px;
+
+        transform: translateX(-50%);
+    }
+
+    .mapa-juego .nivel:hover {
+        transform: translateX(-50%) scale(1.08);
+    }
+
+
+    /* POSICIONES EN CELULAR */
+
+    .mapa-juego .nivel1 {
+        left: 52%;
+        top: 94%;
+    }
+
+    .mapa-juego .nivel2 {
+        left: 66%;
+        top: 86%;
+    }
+
+    .mapa-juego .nivel3 {
+        left: 41%;
+        top: 80%;
+    }
+
+    .mapa-juego .nivel4 {
+        left: 50%;
+        top: 70%;
+    }
+
+    .mapa-juego .nivel5 {
+        left: 80%;
+        top: 66%;
+    }
+
+    .mapa-juego .nivel6 {
+        left: 82%;
+        top: 55%;
+    }
+
+    .mapa-juego .nivel7 {
+        left: 55%;
+        top: 57%;
+    }
+
+    .mapa-juego .nivel8 {
+        left: 35%;
+        top: 55%;
+    }
+
+    .mapa-juego .nivel9 {
+        left: 23%;
+        top: 44%;
+    }
+
+    .mapa-juego .nivel10 {
+        left: 43%;
+        top: 34%;
+    }
+
+
+    /* ESTRELLAS */
+
+    .mapa-juego .estrellas {
+        bottom: -19px;
+
+        font-size: 13px;
+    }
+
+
+    /* MODAL */
+
+    .mapa-juego .modal {
+        padding: 15px;
+    }
+
+    .mapa-juego .contenido-modal {
+        width: 95%;
+
+        padding: 20px 15px;
+
+        border-width: 5px;
+    }
+
+    .mapa-juego .contenido-modal h2 {
+        font-size: 23px;
+    }
+
+    .mapa-juego .contenido-modal p {
+        font-size: 15px;
+    }
+
+    .mapa-juego .cerrar {
+        font-size: 14px;
+
+        padding: 10px 18px;
+    }
 }
-
-
