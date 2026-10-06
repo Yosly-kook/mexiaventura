@@ -251,7 +251,7 @@ body {
    2. ESTILOS DEL MAPA Y NIVELES
    ========================================== */
 #pantallaMapa {
-    background-image: url("fondo a.png");
+    background-image: url("img/fondo a.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -437,7 +437,7 @@ body {
    ========================================== */
 @media (max-width: 700px) {
     #pantallaMapa {
-        background-image: url("fondo vertical.png");
+        background-image: url("img/fondo vertical.png");
         min-height: 100vh;
         overflow-y: auto;
         background-size: 100% 100%;
