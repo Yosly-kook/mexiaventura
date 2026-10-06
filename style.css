@@ -127,6 +127,7 @@ body {
 }
 
 .titulo-menu {
+    text-align: center;
     margin: 0;
     font-family: "Cinzel", serif;
     font-weight: 900;
