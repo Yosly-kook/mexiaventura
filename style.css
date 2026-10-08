@@ -1,13 +1,19 @@
-
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
     background: #0a0805;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
+/* ==========================================
+   1. ESTILOS DEL MENÚ DE INICIO
+   ========================================== */
 .pantalla {
     position: relative;
     width: 100%;
@@ -19,77 +25,41 @@ body {
     align-items: center;
 }
 
-/* FONDO */
 .fondo {
     position: absolute;
     inset: 0;
-    background-image:
-        url("img/mundo.png");
+    background-image: url("img/mundo.png");
     background-size: cover;
     background-position: center;
-    filter:
-        brightness(0.62)
-        saturate(1.3);
+    filter: brightness(0.62) saturate(1.3);
     z-index: 0;
 }
 
-/* GRADIENTES */
 .gradiente-superior {
     position: absolute;
     inset: 0;
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(10, 8, 5, 0.85),
-            transparent 45%
-        );
-
+    background: linear-gradient(to bottom, rgba(10, 8, 5, 0.85), transparent 45%);
     z-index: 1;
 }
-
 
 .gradiente-inferior {
     position: absolute;
     inset: 0;
-    background:
-        linear-gradient(
-            to top,
-            rgba(10, 8, 5, 0.95),
-            rgba(139, 58, 26, 0.18),
-            transparent 60%
-        );
-
+    background: linear-gradient(to top, rgba(10, 8, 5, 0.95), rgba(139, 58, 26, 0.18), transparent 60%);
     z-index: 1;
 }
 
-/* BORDES */
-
-.borde-superior,
-.borde-inferior {
+.borde-superior, .borde-inferior {
     position: absolute;
     left: 0;
     width: 100%;
     height: 10px;
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            #f0c040,
-            transparent
-        );
-
+    background: linear-gradient(to right, transparent, #f0c040, transparent);
     z-index: 5;
 }
 
-.borde-superior {
-    top: 0;
-}
-
-.borde-inferior {
-    bottom: 0;
-}
-
-/* ORNAMENTOS */
+.borde-superior { top: 0; }
+.borde-inferior { bottom: 0; }
 
 .ornamento {
     position: absolute;
@@ -98,29 +68,12 @@ body {
     z-index: 5;
 }
 
-.esquina-superior-izquierda {
-    top: 25px;
-    left: 30px;
-}
+.esquina-superior-izquierda { top: 25px; left: 30px; }
+.esquina-superior-derecha { top: 25px; right: 30px; transform: scaleX(-1); }
+.esquina-inferior-izquierda { bottom: 25px; left: 30px; }
+.esquina-inferior-derecha { bottom: 25px; right: 30px; transform: scaleX(-1); }
 
-.esquina-superior-derecha {
-    top: 25px;
-    right: 30px;
-    transform: scaleX(-1);
-}
-
-.esquina-inferior-izquierda {
-    bottom: 25px;
-    left: 30px;
-}
-
-.esquina-inferior-derecha {
-    bottom: 25px;
-    right: 30px;
-    transform: scaleX(-1);
-}
-/* CONTENIDO */
-
+/* CONTENIDO Y ANILLOS DE INICIO */
 .contenido {
     position: relative;
     z-index: 3;
@@ -130,8 +83,6 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
-/* ANILLOS */
 
 .anillo {
     position: absolute;
@@ -143,7 +94,6 @@ body {
 }
 
 .anillo-exterior {
-
     width: 340px;
     height: 340px;
     border: 1px solid rgba(240, 192, 64, 0.25);
@@ -158,25 +108,15 @@ body {
 }
 
 @keyframes girar {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 @keyframes girar-reversa {
-
-    from {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(-360deg);
-    }
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(-360deg); }
 }
-/* EYEBROW */
+
 .eyebrow {
     font-family: "Cinzel", serif;
     font-size: 20px;
@@ -186,45 +126,20 @@ body {
     animation: aparecer-arriba 0.7s ease forwards;
 }
 
-/* TITULO */
-h1 {
+.titulo-menu {
+    text-align: center;
     margin: 0;
     font-family: "Cinzel", serif;
     font-weight: 900;
     font-size: clamp(3rem, 8vw, 5.5rem);
     line-height: 0.9;
-    display: flex;
-    flex-direction: column;
-    text-transform: none;
-    background:
-        linear-gradient(
-            to bottom,
-            #fac637,
-            #ecb017,
-            #c0810c
-        );
+    background: linear-gradient(to bottom, #fac637, #ecb017, #c0810c);
     -webkit-background-clip: text;
     color: transparent;
-    text-shadow:
-        0 0 15px rgba(240, 192, 64, 0.25);
-    animation:
-        aparecer-arriba 0.7s ease,
-        brillo 3s infinite;
+    text-shadow: 0 0 15px rgba(240, 192, 64, 0.25);
+    animation: aparecer-arriba 0.7s ease, brillo 3s infinite;
 }
 
-@keyframes brillo {
-
-    0%, 100% {
-        filter: drop-shadow(0 0 5px rgba(240, 192, 64, 0.3));
-    }
-
-    50% {
-        filter: drop-shadow(0 0 18px rgba(240, 192, 64, 0.8));
-    }
-
-}
-
-/* DIVISOR */
 .divisor {
     width: min(500px, 80vw);
     display: flex;
@@ -236,21 +151,11 @@ h1 {
 .divisor span {
     height: 1px;
     flex: 1;
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            #d4a017
-        );
+    background: linear-gradient(to right, transparent, #d4a017);
 }
 
 .divisor span:last-child {
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            #d4a017
-        );
+    background: linear-gradient(to left, transparent, #d4a017);
 }
 
 .divisor b {
@@ -258,8 +163,6 @@ h1 {
     font-size: 20px;
 }
 
-
-/* TAGLINE */
 .tagline {
     font-family: "Crimson Text", serif;
     font-style: italic;
@@ -268,8 +171,7 @@ h1 {
     margin: 0 0 30px;
 }
 
-/* BOTON */
-button {
+.btn-iniciar {
     position: relative;
     border: none;
     cursor: pointer;
@@ -278,95 +180,23 @@ button {
     font-weight: 700;
     letter-spacing: 0.15em;
     color: #0a0805;
-    background:
-        linear-gradient(
-            135deg,
-            #f0c040,
-            #d4a017,
-            #b8861a
-        );
-    clip-path:
-        polygon(
-            10% 0,
-            90% 0,
-            100% 25%,
-            100% 75%,
-            90% 100%,
-            10% 100%,
-            0 75%,
-            0 25%
-        );
-
-    box-shadow:
-        0 0 25px rgba(240, 192, 64, 0.4);
+    background: linear-gradient(135deg, #f0c040, #d4a017, #b8861a);
+    clip-path: polygon(10% 0, 90% 0, 100% 25%, 100% 75%, 90% 100%, 10% 100%, 0 75%, 0 25%);
+    box-shadow: 0 0 25px rgba(240, 192, 64, 0.4);
     transition: 0.3s;
     animation: aparecer-abajo 0.7s ease 0.5s backwards;
 }
 
-button:hover {
+.btn-iniciar:hover {
     transform: scale(1.05);
-    box-shadow:
-        0 0 40px rgba(240, 192, 64, 0.8);
+    box-shadow: 0 0 40px rgba(240, 192, 64, 0.8);
 }
 
-button:active {
+.btn-iniciar:active {
     transform: scale(0.98);
 }
 
-
-/* ANIMACIONES */
-@keyframes aparecer-arriba {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-@keyframes aparecer-abajo {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-#escenaBienvenida {
-    position: relative;
-    z-index: 10;
-}
-
-/* DECORACIONES AL HACER CLIC */
-.decoracion {
-    position: fixed;
-    pointer-events: none;
-    color: #f0c040;
-    font-size: 40px;
-    z-index: 20;
-    animation: aparecer-decoracion 1.8s ease-out forwards;
-}
-
-@keyframes aparecer-decoracion {
-
-    0% {
-        opacity: 1;
-        transform: scale(0.4) translate(0,0) rotate(0deg);
-    }
-
-    100% {
-        opacity: 0;
-         transform: scale(1.4) translate(var(--movimiento-x), var(--movimiento-y)) rotate(180deg);
-    }
-
-}
-
-/* BOTONES DEL MENÚ */
+/* BOTONES DE MENÚ ESQUINA */
 .botones-menu {
     position: absolute;
     top: 30px;
@@ -376,6 +206,7 @@ button:active {
     gap: 12px;
     z-index: 10;
 }
+
 .boton-menu {
     width: 48px;
     height: 48px;
@@ -386,35 +217,268 @@ button:active {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: 
-        background 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .boton-menu img {
     width: 25px;
     height: 25px;
     object-fit: contain;
-    transition:
-        filter 0.3s ease,
-        transform 0.3s ease;
+    transition: 0.3s ease;
 }
-
-/* EFECTO AL PASAR EL CURSOR */
 
 .boton-menu:hover {
     background: rgba(212, 175, 55, 0.30);
     border-color: rgba(212, 175, 55, 1);
-    box-shadow:
-        0 0 10px rgba(212, 175, 55, 0.45),
-        inset 0 0 8px rgba(212, 175, 55, 0.15);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.45), inset 0 0 8px rgba(212, 175, 55, 0.15);
     transform: translateY(-2px);
 }
 
-.boton-menu:hover img {
-    transform: scale(1.08);
+.decoracion {
+    position: fixed;
+    pointer-events: none;
+    color: #f0c040;
+    font-size: 40px;
+    z-index: 20;
+    animation: aparecer-decoracion 1.8s ease-out forwards;
 }
 
+@keyframes aparecer-decoracion {
+    0% { opacity: 1; transform: scale(0.4) translate(0,0) rotate(0deg); }
+    100% { opacity: 0; transform: scale(1.4) translate(var(--movimiento-x), var(--movimiento-y)) rotate(180deg); }
+}
 
+/* ==========================================
+   2. ESTILOS DEL MAPA Y NIVELES
+   ========================================== */
+#pantallaMapa {
+    background-image: url("img/fondo a.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.titulo {
+    text-align: center;
+    padding: 25px 10px;
+    color: #6b2800;
+}
+
+.titulo h1 {
+    margin: 0;
+    font-family: "Cinzel", serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 0.9;
+    background: linear-gradient(to bottom, #fac637, #ecb017, #c0810c);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 15px rgba(240, 192, 64, 0.25);
+    animation: aparecer-arriba 0.7s ease, brillo 3s infinite;
+}
+
+.titulo p {
+    font-size: 22px;
+    font-family: cursive;
+    color: #000000;
+}
+
+.mapa {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 120px);
+}
+
+.nivel {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: 3px solid #dfdad1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(218, 206, 206);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 7px 0 rgba(0, 0, 0, 0.15), 0 10px 15px rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+    z-index: 5;
+}
+
+.nivel:active { transform: scale(0.95); }
+
+/* COLORES NIVELES */
+.nivel:nth-child(1)  { background: linear-gradient(#006847, #008F7A); }
+.nivel:nth-child(2)  { background: linear-gradient(#FFD95A, #E6A817); }
+.nivel:nth-child(3)  { background: linear-gradient(#E97850, #C65D3A); }
+.nivel:nth-child(4)  { background: linear-gradient(#32C5C7, #159A9C); }
+.nivel:nth-child(5)  { background: linear-gradient(#F35B9A, #E83E8C); }
+.nivel:nth-child(6)  { background: linear-gradient(#A477D8, #7547A8); }
+.nivel:nth-child(7)  { background: linear-gradient(#E95B51, #C93C35); }
+.nivel:nth-child(8)  { background: linear-gradient(#54B96F, #278A4B); }
+.nivel:nth-child(9)  { background: linear-gradient(#A22B1F, #b64439); }
+.nivel:nth-child(10) { background: linear-gradient(#73C2FB, #7fbfec); }
+
+/* HOVERS MAPA */
+.nivel1:hover  { transform: scale(1.12); border-color: #006847; filter: brightness(1.25); box-shadow: 0 0 8px #00ffaa, 0 0 18px #00ff88, 0 0 30px #00a870, 0 0 45px rgba(0, 168, 84, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel2:hover  { transform: scale(1.12); border-color: #d4c81c; filter: brightness(1.25); box-shadow: 0 0 8px #fffb00, 0 0 18px #fbff00, 0 0 30px #a5a800, 0 0 45px rgba(165, 168, 0, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel3:hover  { transform: scale(1.12); border-color: #E97850; filter: brightness(1.25); box-shadow: 0 0 8px #ff5e00, 0 0 18px #ff5e00, 0 0 30px #a85f00, 0 0 45px rgba(168, 76, 0, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel4:hover  { transform: scale(1.12); border-color: #32C5C7; filter: brightness(1.25); box-shadow: 0 0 8px #00f7ff, 0 0 18px #00fff2, 0 0 30px #00a8a8, 0 0 45px rgba(0, 162, 168, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel5:hover  { transform: scale(1.12); border-color: #F35B9A; filter: brightness(1.25); box-shadow: 0 0 8px #ff0095, 0 0 18px #ff00aa, 0 0 30px #a80084, 0 0 45px rgba(168, 0, 126, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel6:hover  { transform: scale(1.12); border-color: #A477D8; filter: brightness(1.25); box-shadow: 0 0 8px #8c00ff, 0 0 18px #a200ff, 0 0 30px #8600a8, 0 0 45px rgba(129, 0, 168, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel7:hover  { transform: scale(1.12); border-color: #E95B51; filter: brightness(1.25); box-shadow: 0 0 10px #ff0800, 0 0 18px #ff0800, 0 0 30px #ff0800, 0 0 45px rgba(168, 39, 0, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel8:hover  { transform: scale(1.12); border-color: #00a870; filter: brightness(1.30); box-shadow: 0 0 10px #00a870, 0 0 20px #00a870, 0 0 30px #00a870, 0 0 50px #019262, 0 9px 0 rgba(0, 0, 0, 0.15); }
+.nivel9:hover  { transform: scale(1.14); border-color: #A22B1F; filter: brightness(1.30); box-shadow: 0 0 10px #ff1500, 0 0 20px #ff1500, 0 0 30px #910c00, 0 0 50px #860b00a8, 0 9px 0 rgba(0, 0, 0, 0.15); }
+.nivel10:hover { transform: scale(1.12); border-color: #73C2FB; filter: brightness(1.30); box-shadow: 0 0 10px #008cff, 0 0 20px #0099ff, 0 0 30px #005791, 0 0 50px #004a86a8, 0 9px 0 rgba(0, 0, 0, 0.15); }
+
+/* POSICIONES DE ESCRITORIO */
+.nivel1  { left: 14%; top: 78%; }
+.nivel2  { left: 25%; top: 66%; }
+.nivel3  { left: 41%; top: 73%; }
+.nivel4  { left: 58%; top: 74%; }
+.nivel5  { left: 73%; top: 68%; }
+.nivel6  { left: 83%; top: 50%; }
+.nivel7  { left: 64%; top: 49%; }
+.nivel8  { left: 42%; top: 51%; }
+.nivel9  { left: 24%; top: 46%; }
+.nivel10 { left: 12%; top: 26%; }
+
+.estrellas {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    color: #ffd83d;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px #765000;
+}
+
+/* MODAL DE INFORMACIÓN */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+}
+
+.modal.activo { display: flex; }
+
+.contenido-modal {
+    width: 100%;
+    max-width: 600px;
+    background: #fff8df;
+    border: 8px solid #e8a83e;
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    animation: aparecer 0.3s ease;
+}
+
+.contenido-modal h2 {
+    color: #7b3900;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.contenido-modal p {
+    color: #493b30;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.cerrar {
+    margin-top: 20px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 25px;
+    background: #e84d77;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cerrar:hover { background: #c9365e; }
+
+/* ANIMACIONES COMUNES */
+@keyframes aparecer-arriba {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aparecer-abajo {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes brillo {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(240, 192, 64, 0.3)); }
+    50% { filter: drop-shadow(0 0 18px rgba(240, 192, 64, 0.8)); }
+}
+
+@keyframes aparecer {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================
+   3. ADAPTACIÓN RESPONSIVA (MÓVIL)
+   ========================================== */
+@media (max-width: 700px) {
+    #pantallaMapa {
+        background-image: url("img/fondo vertical.png");
+        min-height: 100vh;
+        overflow-y: auto;
+        background-size: 100% 100%;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+    }
+
+    .titulo { padding: 12px 5px 5px; }
+    .titulo h1 { font-size: 32px; line-height: 0.9; }
+    .titulo p { font-size: 15px; margin-top: 12px; padding: 0 10px; }
+
+    .mapa { width: 100%; height: 750px; min-height: 750px; }
+
+    .nivel {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+        transform: translateX(-50%);
+    }
+
+    .nivel:hover { transform: translateX(-50%) scale(1.08); }
+    .nivel:active { transform: translateX(-50%) scale(0.95); }
+
+    /* POSICIONES MÓVIL */
+    .nivel1  { left: 52%; top: 94%; }
+    .nivel2  { left: 66%; top: 86%; }
+    .nivel3  { left: 41%; top: 80%; }
+    .nivel4  { left: 50%; top: 70%; }
+    .nivel5  { left: 80%; top: 66%; }
+    .nivel6  { left: 82%; top: 55%; }
+    .nivel7  { left: 55%; top: 57%; }
+    .nivel8  { left: 35%; top: 55%; }
+    .nivel9  { left: 23%; top: 44%; }
+    .nivel10 { left: 43%; top: 34%; }
+
+    .estrellas { bottom: -19px; font-size: 13px; }
+
+    .contenido-modal { width: 95%; padding: 20px 15px; border-width: 5px; }
+    .contenido-modal h2 { font-size: 23px; }
+    .contenido-modal p { font-size: 15px; line-height: 1.5; }
+    .cerrar { padding: 10px 22px; font-size: 15px; }
+}

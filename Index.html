@@ -4,111 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MexiAventura</title>
+    
+    <!-- FUENTES DE GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Crimson+Text:ital@1&display=swap" rel="stylesheet">
+    
+    <!-- ESTILOS LOCALES -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <main class="pantalla">
-
+    <!-- ==========================================
+         1. MENÚ DE INICIO
+         ========================================== -->
+    <main class="pantalla" id="pantallaInicio">
         <div class="fondo"></div>
-
         <div class="gradiente-superior"></div>
         <div class="gradiente-inferior"></div>
 
         <!-- BORDES DECORATIVOS -->
-
         <div class="borde-superior"></div>
         <div class="borde-inferior"></div>
 
         <!-- ORNAMENTOS -->
+        <div class="ornamento esquina-superior-izquierda">✦◈✦</div>
+        <div class="ornamento esquina-superior-derecha">✦◈✦</div>
+        <div class="ornamento esquina-inferior-izquierda">✦◈✦</div>
+        <div class="ornamento esquina-inferior-derecha">✦◈✦</div>
 
-        <div class="ornamento esquina-superior-izquierda">
-            ✦◈✦
-        </div>
-
-        <div class="ornamento esquina-superior-derecha">
-            ✦◈✦
-        </div>
-
-        <div class="ornamento esquina-inferior-izquierda">
-            ✦◈✦
-        </div>
-
-        <div class="ornamento esquina-inferior-derecha">
-            ✦◈✦
-        </div>
-
-        <!--BOTONES AUDIO/IDIOMA/SALIR-->
+        <!-- BOTONES SUPERIORES DE OPCIONES -->
         <div class="botones-menu">
             <button class="boton-menu" id="botonAudio" title="Audio">
-                <img src="img/audio.png">
-                <span>AUDIO</span>
+                <img src="img/audio.png" alt="Audio">
             </button>
-
             <button class="boton-menu" id="botonIdioma" title="Idioma">
-                <img src="img/idioma.png">
-                <span>ES</span>
+                <img src="img/idioma.png" alt="Idioma">
             </button>
-
             <button class="boton-menu" id="botonSalir" title="Salir">
-                <img src="img/salir.png">
+                <img src="img/salir.png" alt="Salir">
             </button>
         </div>
 
-        <!-- CONTENIDO PRINCIPAL -->
-
+        <!-- CONTENIDO PRINCIPAL DEL MENÚ -->
         <section class="contenido">
-
             <div class="anillo anillo-exterior"></div>
             <div class="anillo anillo-interior"></div>
-
-
-            <div class="eyebrow">
-                ✦ EL ORIGEN DE UN IMPERIO ✦
-            </div>
-
-
-            <h1>
-                <span>Mexi</span>
-                <span>Aventura</span>
-            </h1>
-
-
-            <div class="divisor">
-
-                <span></span>
-
-                <b>⬡</b>
-
-                <span></span>
-
-            </div>
-
-
-            <p class="tagline">
-                Aztecas, Mayas y Conquistadores
-            </p>
-
-
-            <button id="botonInicio" onclick="iniciarJuego()">
-                ⚔ INICIAR JUEGO ⚔
-            </button>
-
             
-
-            <div id="escenaBienvenida" style="display: none;">
-                <h2>Bienvenido a MexiAventura</h2>
-                <P>Tu aventura por la Historia de México está por comenzar...</P>
+            <div class="eyebrow">✦ EL ORIGEN DE UN IMPERIO ✦</div>
+            <h1 class="titulo-menu">MEXI<br>AVENTURA</h1>
+            
+            <div class="divisor">
+                <span></span><b>⬡</b><span></span>
             </div>
-
+            
+            <p class="tagline">Aztecas, Mayas y Conquistadores</p>
+            
+            <button class="btn-iniciar" id="botonInicio" onclick="iniciarJuego()">⚔ INICIAR JUEGO ⚔</button>
         </section>
 
+        <!-- CONTENEDOR DE PARTÍCULAS/DECORACIONES AL HACER CLIC -->
         <div id="decoraciones"></div>
-
     </main>
 
-    <script src="script.js"></script>
+    <!-- ==========================================
+         2. PANTALLA DEL MAPA DE NIVELES
+         ========================================== -->
+    <div id="pantallaMapa" style="display: none;">
+        <!-- TÍTULO EN EL MAPA -->
+        <div class="titulo">
+            <h1>MEXI AVENTURA</h1>
+            <p><i>Viaja por la historia de México prehispánico y la Conquista</i></p>
+        </div>
 
+        <!-- MAPA Y BOTONES DE NIVELES -->
+        <div class="mapa">
+            <button class="nivel nivel1" onclick="abrirNivel(1)">1 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel2" onclick="abrirNivel(2)">2 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel3" onclick="abrirNivel(3)">3 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel4" onclick="abrirNivel(4)">4 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel5" onclick="abrirNivel(5)">5 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel6" onclick="abrirNivel(6)">6 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel7" onclick="abrirNivel(7)">7 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel8" onclick="abrirNivel(8)">8 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel9" onclick="abrirNivel(9)">9 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel10" onclick="abrirNivel(10)">10 <span class="estrellas">⭐⭐⭐</span></button>
+        </div>
+
+        <!-- VENTANA MODAL (INFORMACIÓN DEL NIVEL) -->
+        <div class="modal" id="modal">
+            <div class="contenido-modal">
+                <h2 id="tituloNivel"></h2>
+                <p id="textoNivel"></p>
+                <button class="cerrar" onclick="cerrarNivel()">Cerrar ✖</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT JAVASCRIPT LOCAL -->
+    <script src="script.js"></script>
 </body>
 </html>
