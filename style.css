@@ -208,16 +208,18 @@ body {
 }
 
 .boton-menu {
-    width: 48px;
-    height: 48px;
+    width: 70px;
+    height: 75px;
     background: rgba(0, 0, 0, 0.35);
     border: 1px solid rgba(212, 175, 55, 0.6);
     border-radius: 8px;
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     cursor: pointer;
     transition: 0.3s ease;
+    gap: 5px;
 }
 
 .boton-menu img {
