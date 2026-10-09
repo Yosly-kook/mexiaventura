@@ -254,7 +254,7 @@ body {
    2. ESTILOS DEL MAPA Y NIVELES
    ========================================== */
 #pantallaMapa {
-    background-image: url("img/fondo a.png");
+    background-image: url("img/fondocaminito.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
