@@ -608,3 +608,16 @@ body {
         transform: scale(1);
     }
 }
+
+/* TEXTO DE LOS BOTONES SUPERIORES */
+.boton-menu span {
+    color: #d4af37;
+}
+
+/* TEXTO DEL BOTÓN SALIR */
+#botonSalir span {
+    color: #e04444;
+}
+#botonSalir:hover span {
+    color: #ff7777;
+}
