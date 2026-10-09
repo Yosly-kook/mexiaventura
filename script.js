@@ -104,3 +104,32 @@ document.getElementById("modal").addEventListener("click", function(event) {
         cerrarNivel();
     }
 });
+
+const botonSalir = document.getElementById("botonSalir");
+const ventanaSalir = document.getElementById("ventanaSalir");
+const botonQuedarse = document.getElementById("botonQuedarse");
+const confirmarSalir = document.getElementById("confirmarSalir");
+
+//Abrir la ventana de confirmación
+botonSalir.addEventListener("click", function(){
+    ventanaSalir.style.display = "flex";
+});
+//Cerrar la ventana y continuar jugando
+botonQuedarse.addEventListener("click", function(){
+    ventanaSalir.style.display = "none";
+});
+//Confirmar que deseas salir
+confirmarSalir.addEventListener("click", function(){
+    ventanaSalir.style.display = "none";
+    //Regresar a la pantalla de inicio del juego
+    const bienvenida = document.getElementById("escenaBienvenida");
+
+    if (bienvenida){
+        bienvenida.style.display = "none";
+    }
+    const botonInicio = document.getElementById("botonInicio");
+
+    if (botonInicio) {
+        botonInicio.style.display = "block";
+    }
+});
