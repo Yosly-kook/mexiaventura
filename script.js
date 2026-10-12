@@ -133,3 +133,15 @@ confirmarSalir.addEventListener("click", function(){
         botonInicio.style.display = "block";
     }
 });
+function iniciarJuego() {
+    reproducirAudio('brillos'); // <--- Aquí suenan los brillitos al entrar al mapa
+    document.getElementById("pantallaInicio").style.display = "none";
+    document.getElementById("pantallaMapa").style.display = "block";
+}
+function abrirNivel(numero) {
+    reproducirAudio('clic'); // <--- Aquí suena el clic al abrir cualquier nivel
+    const nivel = niveles[numero];
+    document.getElementById("tituloNivel").textContent = nivel.titulo;
+    document.getElementById("textoNivel").textContent = nivel.texto;
+    document.getElementById("modal").classList.add("activo");
+}

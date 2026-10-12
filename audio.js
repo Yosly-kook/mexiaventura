@@ -1,17 +1,20 @@
 // audio.js
 
-// Creamos los objetos de audio con la ruta exacta hacia tu carpeta 'audio'
+// Definimos los objetos de audio apuntando a tu carpeta 'audio'
 const efectos = {
     clic: new Audio('audio/clic.mp3'),
-    brillos: new Audio('audio/brillos.mp3') // Ajustado al nombre real de tu archivo
+    brillos: new Audio('audio/brillos.mp3')
 };
 
-// Función para reproducir el efecto que quieras
-function reproducirAudio(brillos) {
-    if (efectos[brillos]) {
-        efectos[brillos].currentTime = 0; // Reinicia el audio por si se repite rápido
-        efectos[brillos].play().catch(error => {
-            console.log("El navegador está esperando una interacción para reproducir el audio:", error);
+// Función general para reproducir el efecto que le indiques
+function reproducirAudio(nombre) {
+    if (efectos[nombre]) {
+        // Reiniciamos el audio para que pueda sonar rápido varias veces seguidas
+        efectos[nombre].currentTime = 0; 
+        
+        // Reproducimos y atrapamos cualquier aviso si el navegador bloquea el autoplay inicial
+        efectos[nombre].play().catch(error => {
+            console.log("Esperando interacción del usuario para reproducir audio:", error);
         });
     }
 }
