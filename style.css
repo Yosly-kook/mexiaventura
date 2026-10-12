@@ -6,9 +6,35 @@
 
 body {
     background: #0a0805;
-    font-family: Arial, sans-serif;
+    font-family: 'Crimson Text', serif;
     min-height: 100vh;
     overflow-x: hidden;
+}
+
+/* =====================================
+   TIPOGRAFÍA GENERAL DE MEXIAVENTURA
+   ===================================== */
+
+/* TÍTULOS PRINCIPALES */
+h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 900;
+}
+
+/* SUBTÍTULOS Y ENCABEZADOS */
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+}
+
+/* BOTONES */
+button {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
 }
 
 /* ==========================================
@@ -129,7 +155,7 @@ body {
 .titulo-menu {
     text-align: center;
     margin: 0;
-    font-family: "Cinzel", serif;
+    font-family: "Cinzel Decorative", serif;
     font-weight: 900;
     font-size: clamp(3rem, 8vw, 5.5rem);
     line-height: 0.9;
@@ -271,7 +297,7 @@ body {
 
 .titulo h1 {
     margin: 0;
-    font-family: "Cinzel", serif;
+    font-family: "Cinzel Decorative", serif;
     font-weight: 900;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     line-height: 0.9;
@@ -284,7 +310,7 @@ body {
 
 .titulo p {
     font-size: 22px;
-    font-family: cursive;
+    font-family: Cinzel;
     color: #000000;
 }
 
@@ -513,8 +539,12 @@ body {
     text-align: center;
     color: #e7bd35;
     background: rgba(23, 15, 5, 0.97);
-    border: 1px solid #9b7411;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), 0 0 20px rgba(212, 175, 55, 0.12);
+    border: 1px solid #d4af37;  
+    box-shadow:
+    0 0 8px rgba(212, 175, 55, 0.65),
+    0 0 20px rgba(212, 175, 55, 0.45),
+    0 0 40px rgba(212, 175, 55, 0.25),
+    0 12px 35px rgba(0, 0, 0, 0.65);
     animation: aparecerSalir 0.25s ease;
 }
 /* ADORNOS */
@@ -524,19 +554,22 @@ body {
     color: #d4af37;
 }
 
+
 .panel-salir h2 {
-    font-family: inherit;
+    font-family: 'Cinzel Decorative', serif;
     font-size: 19px;
-    line-height: 1.4;
+    font-weight: 700;
+    line-height: 1.5;
     letter-spacing: 1px;
-    margin: 0 0 12px;
+    margin: 0 0 16px;
 }
 
 .panel-salir p {
-    color: #a99a76;
-    font-size: 14px;
+    font-family: 'Crimson Text', serif;
+    color: #c8b995;
+    font-size: 17px;
     font-style: italic;
-    line-height: 1.7;
+    line-height: 1.6;
     margin-bottom: 35px;
 }
 
@@ -571,7 +604,7 @@ body {
 .acciones-salir button {
     min-width: 125px;
     padding: 12px 10px;
-    font-family: inherit;
+    font-family: 'Cinzel', serif;
     font-size: 13px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -579,7 +612,37 @@ body {
     background: #100c04;
     border: 1px solid #a17a12;
     cursor: pointer;
-    transition: 0.25s ease;
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+    transform: translateY(0);
+}
+
+/* LOS BOTONES SE LEVANTAN AL PASAR EL CURSOR */
+.acciones-salir button:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.45);
+}
+
+/* REBOTE AL HACER CLIC */
+.acciones-salir button:active {
+    animation: reboteBoton 0.35s ease;
+}
+
+/* ANIMACIÓN DEL REBOTE */
+@keyframes reboteBoton {
+    0% {
+        transform: scale(1.04) translateY(-5px);
+    }
+    35% {
+        transform: scale(0.90) translateY(2px);
+    }
+    65% {
+        transform: scale(1.08) translateY(-3px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
 }
 
 #botonQuedarse:hover {
