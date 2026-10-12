@@ -2,8 +2,8 @@
 
 // Definimos los objetos de audio apuntando a tu carpeta
 const efectos = {
-    clic: new Audio('audio/clic.mp3'),
-    brillitos: new Audio('audio/brillitos.mp3')
+    clic: new Audio("audio/clic.mp3"),
+    brillitos: new Audio("audio/brillos.mp3")
 };
 
 // Función general para reproducir cualquier efecto fácilmente
