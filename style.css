@@ -527,7 +527,7 @@ button {
     inset: 0;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.78);
-    backdrop-filter: blur(5px);
+    backdrop-filter: none;
     align-items: center;
     justify-content: center;
 }
@@ -545,7 +545,7 @@ button {
     0 0 20px rgba(212, 175, 55, 0.45),
     0 0 40px rgba(212, 175, 55, 0.25),
     0 12px 35px rgba(0, 0, 0, 0.65);
-    animation: aparecerSalir 0.25s ease;
+    animation: aparecerSalir 0.12s ease-out;
 }
 /* ADORNOS */
 .simbolos-salir {
@@ -612,16 +612,16 @@ button {
     background: #100c04;
     border: 1px solid #a17a12;
     cursor: pointer;
-    transition: transform 0.2s ease,
-                box-shadow 0.2s ease,
-                background 0.2s ease;
+    transition: transform 0.12s ease-out,
+                box-shadow 0.12s ease-out,
+                background-color 0.12s ease-out;
     transform: translateY(0);
 }
 
 /* LOS BOTONES SE LEVANTAN AL PASAR EL CURSOR */
 .acciones-salir button:hover {
-    transform: translateY(-5px) scale(1.04);
-    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.45);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
 }
 
 /* REBOTE AL HACER CLIC */
@@ -630,20 +630,22 @@ button {
 }
 
 /* ANIMACIÓN DEL REBOTE */
+
 @keyframes reboteBoton {
     0% {
-        transform: scale(1.04) translateY(-5px);
+        transform: translateY(-3px) scale(1.02);
     }
-    35% {
-        transform: scale(0.90) translateY(2px);
+    40% {
+        transform: translateY(1px) scale(0.96);
     }
-    65% {
-        transform: scale(1.08) translateY(-3px);
+    70% {
+        transform: translateY(-2px) scale(1.03);
     }
     100% {
-        transform: scale(1) translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
+
 
 #botonQuedarse:hover {
     background: rgba(212, 175, 55, 0.18);
