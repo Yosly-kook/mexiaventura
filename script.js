@@ -133,3 +133,4 @@ confirmarSalir.addEventListener("click", function(){
         botonInicio.style.display = "block";
     }
 });
+
