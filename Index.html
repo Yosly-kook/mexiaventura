@@ -136,15 +136,30 @@
         </div>
 
         <!-- VENTANA MODAL (INFORMACIÓN DEL NIVEL) -->
-        <div class="modal" id="modal">
-            <div class="contenido-modal">
-                <h2 id="tituloNivel"></h2>
-                <p id="textoNivel"></p>
-                <button class="cerrar" onclick="cerrarNivel()">Cerrar ✖</button>
-            </div>
-        </div>
+<div class="modal" id="modal">
+    <div class="contenido-modal-neon">
+        <!-- Título del Nivel -->
+        <h2 id="tituloNivel"></h2>
+        
+        <!-- Fecha centrada debajo del título -->
+        <p id="fechaNivel" class="card-fecha"></p>
+        
+        <!-- Divisor decorativo -->
+        <div class="card-divisor">◆ ❖ ◆</div>
+        
+        <!-- Información principal -->
+        <p id="textoNivel" class="card-descripcion"></p>
+        
+        <!-- Título del Dato Histórico -->
+        <h3 class="fact-title">✦ DATO HISTÓRICO ✦</h3>
+        
+        <!-- Info del dato histórico -->
+        <p id="datoNivel" class="card-descripcion"></p>
+        
+        <!-- Botón de Cerrar (Rojo neón) -->
+        <button class="cerrar-neon" onclick="cerrarNivel()">CERRAR ✖</button>
     </div>
-
+</div>
 
 <!-- VENTANA DE CONFIRMACIÓN PARA SALIR -->
 <div id="ventanaSalir" class="fondo-confirmacion">
