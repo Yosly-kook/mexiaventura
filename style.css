@@ -686,3 +686,169 @@ button {
 #botonSalir:hover span {
     color: #ff7777;
 }
+
+/* ==========================================
+   BIENVENIDA CINEMATOGRÁFICA
+   ========================================== */
+
+.escena-bienvenida {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    padding: 40px 20px;
+    color: #f8e7bd;
+    background: #160e09;
+}
+
+.fondo-cinematico {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(15, 9, 5, 0.45), rgba(15, 9, 5, 0.85)),
+        url("img/mundo.png") center / cover no-repeat;
+    transform: scale(1.04);
+}
+
+.velo-cinematico {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 10%,
+        rgba(10, 5, 2, 0.65) 100%
+    );
+}
+
+.contenido-bienvenida {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: min(900px, 100%);
+    text-align: center;
+    opacity: 0;
+}
+
+.subtitulo-bienvenida {
+    margin: 0;
+    color: #e9bd65;
+    font-family: "Cinzel", serif;
+    font-size: clamp(12px, 2vw, 17px);
+    letter-spacing: 4px;
+}
+
+.personaje-bienvenida {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px;
+}
+
+#personajeIntro {
+    display: block;
+    width: auto;
+    max-width: min(300px, 75vw);
+    max-height: 36vh;
+    object-fit: contain;
+    filter: drop-shadow(0 0 22px rgba(232, 177, 76, 0.3));
+    animation: respirarPersonaje 3s ease-in-out infinite;
+}
+
+@keyframes respirarPersonaje {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.dialogo-bienvenida {
+    width: min(760px, 100%);
+    padding: 24px;
+    background: rgba(25, 15, 8, 0.88);
+    border: 1px solid rgba(224, 177, 87, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(189, 128, 39, 0.15);
+}
+
+.dialogo-bienvenida h1 {
+    margin: 0 0 14px;
+    color: #edc477;
+    font-family: "Cinzel Decorative", "Cinzel", serif;
+    font-size: clamp(22px, 4vw, 36px);
+}
+
+#textoNarracion {
+    margin: 0;
+    color: #f8edda;
+    font-family: "Crimson Text", serif;
+    font-size: clamp(17px, 2.4vw, 22px);
+    line-height: 1.6;
+}
+
+.boton-explorar,
+.boton-omitir {
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.boton-explorar {
+    padding: 15px 28px;
+    color: #241307;
+    background: linear-gradient(135deg, #f4d58c, #bd8433);
+    border: 1px solid #ffe7a7;
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(221, 169, 72, 0.25);
+}
+
+.boton-explorar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 28px rgba(239, 190, 90, 0.55);
+}
+
+.boton-omitir {
+    padding: 8px 14px;
+    color: #e6c78d;
+    background: transparent;
+    border: 0;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.boton-omitir:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .escena-bienvenida {
+        padding: 24px 14px;
+    }
+
+    .contenido-bienvenida {
+        gap: 15px;
+    }
+
+    .personaje-bienvenida {
+        min-height: 120px;
+    }
+
+    #personajeIntro {
+        max-height: 25vh;
+    }
+
+    .dialogo-bienvenida {
+        padding: 18px;
+    }
+}
