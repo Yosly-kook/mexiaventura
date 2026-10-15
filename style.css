@@ -738,7 +738,7 @@ button {
 
 .subtitulo-bienvenida {
     margin: 0;
-    color: #e9bd65;
+    color: #f7b022;
     font-family: "Cinzel", serif;
     font-size: clamp(12px, 2vw, 17px);
     letter-spacing: 4px;
@@ -775,14 +775,14 @@ button {
     width: min(760px, 100%);
     padding: 24px;
     background: rgba(25, 15, 8, 0.88);
-    border: 1px solid rgba(224, 177, 87, 0.8);
+    border: 1px solid rgba(252, 197, 19, 0.8);
     border-radius: 12px;
     box-shadow: 0 0 30px rgba(189, 128, 39, 0.15);
 }
 
 .dialogo-bienvenida h1 {
     margin: 0 0 14px;
-    color: #edc477;
+    color: #ecb017;
     font-family: "Cinzel Decorative", "Cinzel", serif;
     font-size: clamp(22px, 4vw, 36px);
 }
@@ -807,8 +807,8 @@ button {
 .boton-explorar {
     padding: 15px 28px;
     color: #241307;
-    background: linear-gradient(135deg, #f4d58c, #bd8433);
-    border: 1px solid #ffe7a7;
+    background: linear-gradient(135deg, #f8c95b, #f7b017);
+    border: 1px solid #be8d04;
     border-radius: 6px;
     box-shadow: 0 0 20px rgba(221, 169, 72, 0.25);
 }
@@ -820,7 +820,7 @@ button {
 
 .boton-omitir {
     padding: 8px 14px;
-    color: #e6c78d;
+    color: #fdd244;
     background: transparent;
     border: 0;
     text-decoration: underline;
@@ -828,7 +828,7 @@ button {
 }
 
 .boton-omitir:hover {
-    color: #ffffff;
+    color: #f7e3a1;
 }
 
 @media (max-width: 600px) {
