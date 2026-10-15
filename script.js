@@ -218,6 +218,10 @@ function abrirNivel(numero) {
 }
 
 
+function cerrarNivel() {
+    document.getElementById("modal").classList.remove("activo");
+}
+
 // CERRAR AL HACER CLIC FUERA
 document.getElementById("modal").addEventListener("click", function(event) {
     if (event.target === this) {
