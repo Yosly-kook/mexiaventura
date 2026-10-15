@@ -1,10 +1,100 @@
-// ==========================================
-// 1. TRANSICIÓN DE MENÚ A MAPA
-// ==========================================
-function iniciarJuego() {
-    document.getElementById("pantallaInicio").style.display = "none";
-    document.getElementById("pantallaMapa").style.display = "block";
-}
+ // ==========================================
+ // 1. MENÚ Y BIENVENIDA CINEMATOGRÁFICA
+ // ==========================================
+
+ let narracionIntro = null;
+ function iniciarJuego() {
+     const pantallaInicio = document.getElementById("pantallaInicio");
+     const bienvenida = document.getElementById("escenaBienvenida");
+     const texto = document.getElementById("textoNarracion");
+     const botonExplorar = document.getElementById("botonExplorar");
+     const botonOmitir = document.getElementById("botonOmitirIntro");
+
+     // Ocultar el menú y mostrar la bienvenida
+     pantallaInicio.style.display = "none";
+     bienvenida.style.display = "flex";
+     // Ocultar el botón de continuar mientras habla
+     botonExplorar.style.display = "none";
+     // Mostrar el texto completo de la narración
+     texto.textContent =
+         "Prepárate para viajar al pasado, descubrir las grandes civilizaciones de México y conocer los acontecimientos que marcaron nuestra historia. ¿Estás list@ para comenzar esta aventura?";
+     // Animar la aparición de la escena y del personaje
+     if (typeof gsap !== "undefined") {
+         gsap.fromTo(".contenido-bienvenida",
+             { opacity: 0 },
+             { opacity: 1, duration: 1.2 }
+         );
+
+         gsap.fromTo("#personajeIntro",
+             { opacity: 0, x: -100, scale: 0.85 },
+             { opacity: 1, x: 0, scale: 1, duration: 1.3, delay: 0.3 }
+         );
+
+         gsap.fromTo(".dialogo-bienvenida",
+             { opacity: 0, y: 25 },
+             { opacity: 1, y: 0, duration: 1, delay: 0.6 }
+         );
+     }
+
+     // Iniciar la narración con la voz del navegador
+     if ("speechSynthesis" in window) {
+         window.speechSynthesis.cancel();
+
+         narracionIntro = new SpeechSynthesisUtterance(texto.textContent);
+         narracionIntro.lang = "es-MX";
+         narracionIntro.rate = 0.9;
+         narracionIntro.pitch = 1;
+
+         narracionIntro.onend = function () {
+             botonExplorar.style.display = "inline-block";
+         };
+
+         window.speechSynthesis.speak(narracionIntro);
+     } else {
+         // Si el navegador no admite voz, dejar continuar
+         botonExplorar.style.display = "inline-block";
+     }
+ }
+
+ // Omitir la voz y permitir continuar
+ document.getElementById("botonOmitirIntro").addEventListener("click", function () {
+     if ("speechSynthesis" in window) {
+         window.speechSynthesis.cancel();
+     }
+
+     document.getElementById("botonExplorar").style.display = "inline-block";
+ });
+
+ // Pasar de la bienvenida al mapa
+ document.getElementById("botonExplorar").addEventListener("click", function () {
+     if ("speechSynthesis" in window) {
+         window.speechSynthesis.cancel();
+     }
+
+     const bienvenida = document.getElementById("escenaBienvenida");
+     const mapa = document.getElementById("pantallaMapa");
+
+     if (typeof gsap !== "undefined") {
+         gsap.to(bienvenida, {
+             opacity: 0,
+             duration: 0.7,
+             onComplete: function () {
+                 bienvenida.style.display = "none";
+                 bienvenida.style.opacity = "1";
+                 mapa.style.display = "block";
+
+                 gsap.fromTo(mapa,
+                     { opacity: 0 },
+                     { opacity: 1, duration: 1 }
+                 );
+             }
+         });
+     } else {
+         bienvenida.style.display = "none";
+         mapa.style.display = "block";
+     }
+ });
+
 
 // ==========================================
 // 2. EFECTO DE PARTÍCULAS AL HACER CLIC

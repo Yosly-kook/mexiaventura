@@ -72,6 +72,46 @@
     </main>
 
     <!-- ==========================================
+         1.5. BIENVENIDA CINEMATOGRÁFICA
+         ========================================== -->
+    <section id="escenaBienvenida" class="escena-bienvenida" style="display: none;">
+
+        <!-- Fondo de la escena -->
+        <div class="fondo-cinematico"></div>
+        <div class="velo-cinematico"></div>
+
+        <!-- Contenido de la bienvenida -->
+        <div class="contenido-bienvenida">
+
+            <p class="subtitulo-bienvenida">✦ UNA NUEVA AVENTURA COMIENZA ✦</p>
+
+            <!-- Aquí aparecerá el personaje que ustedes diseñaron -->
+            <div class="personaje-bienvenida">
+                <img id="personajeIntro" src="img/personaje.png" alt="Guía de MexiAventura">
+            </div>
+
+            <div class="dialogo-bienvenida">
+                <h1>¡Bienvenid@ a MexiAventura!</h1>
+
+                <p id="textoNarracion">
+                    Prepárate para viajar al pasado, descubrir las grandes civilizaciones
+                    de México y conocer los acontecimientos que marcaron nuestra historia.
+                    ¿Estás lista para comenzar esta aventura?
+                </p>
+            </div>
+
+            <button id="botonExplorar" class="boton-explorar">
+                COMENZAR A EXPLORAR
+            </button>
+
+            <button id="botonOmitirIntro" class="boton-omitir">
+                OMITIR INTRODUCCIÓN
+            </button>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
          2. PANTALLA DEL MAPA DE NIVELES
          ========================================== -->
     <div id="pantallaMapa" style="display: none;">
@@ -133,6 +173,8 @@
 
 </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
 
     <!-- SCRIPT JAVASCRIPT LOCAL -->
     <script src="script.js"></script>
