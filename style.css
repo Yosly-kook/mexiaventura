@@ -757,7 +757,7 @@ button {
     max-width: min(300px, 75vw);
     max-height: 36vh;
     object-fit: contain;
-    filter: drop-shadow(0 0 22px rgba(232, 177, 76, 0.3));
+    filter: drop-shadow(0 0 40px rgba(250, 173, 31, 0.3));
     animation: respirarPersonaje 3s ease-in-out infinite;
 }
 
