@@ -134,61 +134,61 @@ document.addEventListener("click", function(event) {
 
 const niveles = {
     1: {
-        titulo: "🌿 El auge de la cultura olmeca",
+        titulo: "El auge de la cultura olmeca",
         fecha: "1200–400 a. C.",
         texto: "Los olmecas construyeron centros ceremoniales, cultivaron maíz y tallaron monumentales cabezas de piedra. Su cultura influyó en otros pueblos de Mesoamérica.",
         dato: "Son considerados una de las primeras grandes civilizaciones mesoamericanas."
     },
     2: {
-        titulo: "🏺 El esplendor de Teotihuacán",
+        titulo: "El esplendor de Teotihuacán",
         fecha: "100–650 d. C.",
         texto: "Teotihuacán fue una gran ciudad con impresionantes pirámides, barrios organizados y extensas redes comerciales que conectaban distintas regiones.",
         dato: "Sus construcciones más famosas son las pirámides del Sol y de la Luna."
     },
     3: {
-        titulo: "🌿 La transformación de las ciudades mayas",
+        titulo: "La transformación de las ciudades mayas",
         fecha: "800–900 d. C.",
         texto: "Numerosas ciudades mayas de las tierras bajas del sur perdieron población e influencia. Las sequías, los conflictos y otros factores contribuyeron a estos cambios.",
         dato: "La civilización maya no desapareció: sus pueblos y culturas continúan vivos."
     },
     4: {
-        titulo: "🦅 La fundación de Tenochtitlan",
+        titulo: "La fundación de Tenochtitlan",
         fecha: "1325 d. C. (fecha tradicional)",
         texto: "Según la tradición mexica, un águila sobre un nopal señaló el lugar donde fundarían México-Tenochtitlan, en un islote del lago de Texcoco.",
         dato: "La ciudad se convirtió en un importante centro político y económico."
     },
     5: {
-        titulo: "🛕 La Triple Alianza",
+        titulo: "La Triple Alianza",
         fecha: "1428 d. C.",
         texto: "Tenochtitlan, Texcoco y Tlacopan formaron una alianza política y militar que amplió su poder sobre numerosos pueblos.",
         dato: "Sus integrantes colaboraban, aunque Tenochtitlan llegó a ejercer una posición dominante."
     },
     6: {
-        titulo: "🤝 La alianza de Tlaxcala",
+        titulo: "La alianza de Tlaxcala",
         fecha: "Septiembre de 1519",
         texto: "Después de enfrentamientos, los tlaxcaltecas establecieron una alianza con Hernán Cortés y participaron en las campañas contra los mexicas.",
         dato: "Las alianzas indígenas fueron fundamentales durante la Conquista."
     },
     7: {
-        titulo: "🏙️ El encuentro en Tenochtitlan",
+        titulo: "El encuentro en Tenochtitlan",
         fecha: "8 de noviembre de 1519",
         texto: "Moctezuma Xocoyotzin recibió a Hernán Cortés en la capital mexica. El encuentro dio paso a una relación tensa.",
         dato: "Tenochtitlan impresionó por sus calzadas, canales y grandes construcciones."
     },
     8: {
-        titulo: "⚔️ La matanza del Templo Mayor",
+        titulo: "La matanza del Templo Mayor",
         fecha: "Mayo de 1520",
         texto: "Durante la fiesta de Tóxcatl, las tropas de Pedro de Alvarado atacaron a participantes mexicas, provocando una fuerte reacción contra los españoles.",
         dato: "El ataque agravó el conflicto dentro de Tenochtitlan."
     },
     9: {
-        titulo: "🌙 La Noche Triste",
+        titulo: "La Noche Triste",
         fecha: "30 de junio–1 de julio de 1520",
         texto: "Los españoles y sus aliados intentaron salir de Tenochtitlan durante la noche, pero fueron descubiertos y sufrieron grandes pérdidas.",
         dato: "Cuitláhuac asumió el liderazgo mexica tras la muerte de Moctezuma."
     },
     10: {
-        titulo: "🏆 La caída de Tenochtitlan",
+        titulo: "La caída de Tenochtitlan",
         fecha: "13 de agosto de 1521",
         texto: "Después de un asedio por tierra y agua, las fuerzas españolas y sus aliados indígenas conquistaron Tenochtitlan. Las epidemias, la falta de alimentos y los combates contribuyeron a la caída.",
         dato: "Cuauhtémoc fue capturado y terminó el poder imperial mexica."
