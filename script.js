@@ -133,8 +133,8 @@ document.addEventListener("click", function(event) {
 // ==========================================
 const niveles = {
     1: {
-        titulo: "🌽 Nivel 1: Los pueblos de Mesoamérica",
-        texto: `Mesoamérica fue una región cultural en la que se desarrollaron diferentes pueblos y culturas antes de la llegada de los españoles. Entre ellos estuvieron los olmecas, mayas, zapotecas, mixtecos, teotihuacanos y mexicas. Estos pueblos desarrollaron conocimientos de agricultura, arquitectura, astronomía, escritura, matemáticas y comercio.`
+        titulo: "Nivel 1: El auge olmeca 1200-400 a.n.e",
+        texto: `Los olmecas desarrollaron centros ceremoniales, cultivaron maíz y crearon esculturas monumentales, incluidas las famosas cabezas colosales. Su cultura influyó en otros pueblos mesoamericanos. Dato legendario: Se conoce a los olmecas como una de las primeras grandes civilizaciones de Mesoamérica.`
     },
     2: {
         titulo: "🏺 Nivel 2: Las grandes culturas prehispánicas",
