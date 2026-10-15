@@ -202,18 +202,13 @@ const niveles = {
 
 function abrirNivel(numero) {
     const nivel = niveles[numero];
-
     if (!nivel) return;
-
-    document.getElementById("tituloNivel").textContent =
-        nivel.titulo;
-
-    document.getElementById("textoNivel").textContent =
-        nivel.fecha + "\n\n" +
-        nivel.texto + "\n\n" +
-        "✦ DATO HISTÓRICO ✦\n" +
-        nivel.dato;
-
+    
+    document.getElementById("tituloNivel").textContent = nivel.titulo;
+    document.getElementById("fechaNivel").textContent = nivel.fecha;
+    document.getElementById("textoNivel").textContent = nivel.texto;
+    document.getElementById("datoNivel").textContent = nivel.dato;
+    
     document.getElementById("modal").classList.add("activo");
 }
 
