@@ -131,58 +131,87 @@ document.addEventListener("click", function(event) {
 // ==========================================
 // 3. INFORMACIÓN DE LOS NIVELES
 // ==========================================
+
 const niveles = {
     1: {
-        titulo: "Nivel 1: El auge olmeca 1200-400 a.n.e",
-        texto: `Los olmecas desarrollaron centros ceremoniales, cultivaron maíz y crearon esculturas monumentales, incluidas las famosas cabezas colosales. Su cultura influyó en otros pueblos mesoamericanos. Dato legendario: Se conoce a los olmecas como una de las primeras grandes civilizaciones de Mesoamérica.`
+        titulo: "🌿 El auge de la cultura olmeca",
+        fecha: "1200–400 a. C.",
+        texto: "Los olmecas construyeron centros ceremoniales, cultivaron maíz y tallaron monumentales cabezas de piedra. Su cultura influyó en otros pueblos de Mesoamérica.",
+        dato: "Son considerados una de las primeras grandes civilizaciones mesoamericanas."
     },
     2: {
-        titulo: "🏺 Nivel 2: Las grandes culturas prehispánicas",
-        texto: `Antes de la llegada de los españoles existieron numerosas culturas en Mesoamérica. Los olmecas son considerados una de las primeras grandes culturas mesoamericanas. Los mayas desarrollaron importantes conocimientos matemáticos y astronómicos. Teotihuacan destacó por su enorme ciudad y sus grandes pirámides. Cada cultura tuvo sus propias formas de organización, religión, economía y expresiones artísticas.`
+        titulo: "🏺 El esplendor de Teotihuacán",
+        fecha: "100–650 d. C.",
+        texto: "Teotihuacán fue una gran ciudad con impresionantes pirámides, barrios organizados y extensas redes comerciales que conectaban distintas regiones.",
+        dato: "Sus construcciones más famosas son las pirámides del Sol y de la Luna."
     },
     3: {
-        titulo: "🦅 Nivel 3: La peregrinación mexica y Aztlán",
-        texto: `Según la tradición mexica, los mexicas emprendieron una larga migración desde un lugar llamado Aztlán. Durante su recorrido llegaron a diferentes regiones hasta establecerse finalmente en el Valle de México. La tradición cuenta que Huitzilopochtli les indicó que debían buscar un lugar donde encontraran un águila sobre un nopal.`
+        titulo: "🌿 La transformación de las ciudades mayas",
+        fecha: "800–900 d. C.",
+        texto: "Numerosas ciudades mayas de las tierras bajas del sur perdieron población e influencia. Las sequías, los conflictos y otros factores contribuyeron a estos cambios.",
+        dato: "La civilización maya no desapareció: sus pueblos y culturas continúan vivos."
     },
     4: {
-        titulo: "🌵 Nivel 4: La fundación de México-Tenochtitlan",
-        texto: `De acuerdo con la tradición, los mexicas encontraron la señal indicada por Huitzilopochtli: un águila sobre un nopal. En ese lugar fundaron México-Tenochtitlan, tradicionalmente fechada en 1325. La ciudad fue construida sobre una zona lacustre del lago de Texcoco y con el tiempo se convirtió en uno de los principales centros políticos y económicos de Mesoamérica.`
+        titulo: "🦅 La fundación de Tenochtitlan",
+        fecha: "1325 d. C. (fecha tradicional)",
+        texto: "Según la tradición mexica, un águila sobre un nopal señaló el lugar donde fundarían México-Tenochtitlan, en un islote del lago de Texcoco.",
+        dato: "La ciudad se convirtió en un importante centro político y económico."
     },
     5: {
-        titulo: "🛕 Nivel 5: El Templo Mayor y la vida mexica",
-        texto: `El Templo Mayor fue uno de los principales centros religiosos de México-Tenochtitlan. En él se encontraban templos dedicados principalmente a Huitzilopochtli y Tláloc. La sociedad mexica tenía una organización política, económica, religiosa y militar compleja. El comercio y los mercados también tuvieron gran importancia en la vida de la ciudad.`
+        titulo: "🛕 La Triple Alianza",
+        fecha: "1428 d. C.",
+        texto: "Tenochtitlan, Texcoco y Tlacopan formaron una alianza política y militar que amplió su poder sobre numerosos pueblos.",
+        dato: "Sus integrantes colaboraban, aunque Tenochtitlan llegó a ejercer una posición dominante."
     },
     6: {
-        titulo: "⛵ Nivel 6: La llegada de los españoles en 1519",
-        texto: `En 1519, Hernán Cortés llegó a las costas del territorio que actualmente forma parte de México. Después de establecer contacto con diferentes pueblos indígenas, los españoles comenzaron su avance hacia el centro de Mesoamérica. Este proceso provocó importantes cambios políticos, sociales, económicos y culturales.`
+        titulo: "🤝 La alianza de Tlaxcala",
+        fecha: "Septiembre de 1519",
+        texto: "Después de enfrentamientos, los tlaxcaltecas establecieron una alianza con Hernán Cortés y participaron en las campañas contra los mexicas.",
+        dato: "Las alianzas indígenas fueron fundamentales durante la Conquista."
     },
     7: {
-        titulo: "🤝 Nivel 7: Cortés, Moctezuma y las alianzas indígenas",
-        texto: `Durante el avance español hacia Tenochtitlan se establecieron diferentes alianzas con pueblos indígenas que eran rivales de los mexicas. Los tlaxcaltecas fueron uno de los principales aliados de los españoles. En 1519, Cortés y sus hombres llegaron a Tenochtitlan y tuvieron contacto con Moctezuma II, gobernante mexica.`
+        titulo: "🏙️ El encuentro en Tenochtitlan",
+        fecha: "8 de noviembre de 1519",
+        texto: "Moctezuma Xocoyotzin recibió a Hernán Cortés en la capital mexica. El encuentro dio paso a una relación tensa.",
+        dato: "Tenochtitlan impresionó por sus calzadas, canales y grandes construcciones."
     },
     8: {
-        titulo: "⚔️ Nivel 8: La Noche Triste y la resistencia mexica",
-        texto: `En 1520 ocurrió un enfrentamiento conocido tradicionalmente como la Noche Triste. Los españoles y sus aliados tuvieron que abandonar Tenochtitlan después de fuertes combates con los mexicas. Sin embargo, los españoles regresarón posteriormente con nuevos aliados y prepararon un nuevo ataque contra la ciudad.`
+        titulo: "⚔️ La matanza del Templo Mayor",
+        fecha: "Mayo de 1520",
+        texto: "Durante la fiesta de Tóxcatl, las tropas de Pedro de Alvarado atacaron a participantes mexicas, provocando una fuerte reacción contra los españoles.",
+        dato: "El ataque agravó el conflicto dentro de Tenochtitlan."
     },
     9: {
-        titulo: "🏹 Nivel 9: El sitio y la caída de Tenochtitlan",
-        texto: `En 1521 comenzó el sitio de México-Tenochtitlan. Los españoles y sus aliados indígenas rodearon la ciudad y utilizaron también una fuerza naval en el lago de Texcoco. Después de meses de enfrentamientos, Tenochtitlan cayó el 13 de agosto de 1521, marcando un momento decisivo en el proceso de conquista.`
+        titulo: "🌙 La Noche Triste",
+        fecha: "30 de junio–1 de julio de 1520",
+        texto: "Los españoles y sus aliados intentaron salir de Tenochtitlan durante la noche, pero fueron descubiertos y sufrieron grandes pérdidas.",
+        dato: "Cuitláhuac asumió el liderazgo mexica tras la muerte de Moctezuma."
     },
     10: {
-        titulo: "🏆 Nivel 10: El inicio de la Nueva España",
-        texto: `Después de la caída de Tenochtitlan comenzó un nuevo periodo histórico. Los españoles establecieron instituciones políticas y económicas que dieron forma a la Nueva España. Al mismo tiempo, las culturas indígenas continuaron formando parte de la sociedad. La combinación de diferentes tradiciones, pueblos y culturas produjo profundas transformaciones que forman parte de la historia de México.`
+        titulo: "🏆 La caída de Tenochtitlan",
+        fecha: "13 de agosto de 1521",
+        texto: "Después de un asedio por tierra y agua, las fuerzas españolas y sus aliados indígenas conquistaron Tenochtitlan. Las epidemias, la falta de alimentos y los combates contribuyeron a la caída.",
+        dato: "Cuauhtémoc fue capturado y terminó el poder imperial mexica."
     }
 };
+
 
 // ==========================================
 // 4. FUNCIONES PARA EL MODAL
 // ==========================================
+
 function abrirNivel(numero) {
     const nivel = niveles[numero];
+    if (!nivel) return;
+    
     document.getElementById("tituloNivel").textContent = nivel.titulo;
+    document.getElementById("fechaNivel").textContent = nivel.fecha;
     document.getElementById("textoNivel").textContent = nivel.texto;
+    document.getElementById("datoNivel").textContent = nivel.dato;
+    
     document.getElementById("modal").classList.add("activo");
 }
+
 
 function cerrarNivel() {
     document.getElementById("modal").classList.remove("activo");

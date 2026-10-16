@@ -392,53 +392,98 @@ button {
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.75);
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 100;
     padding: 20px;
 }
-
 .modal.activo { display: flex; }
 
-.contenido-modal {
+/* NUEVO DISEÑO NEÓN JADE & DORADO */
+.contenido-modal-neon {
     width: 100%;
-    max-width: 600px;
-    background: #fff8df;
-    border: 8px solid #e8a83e;
-    border-radius: 25px;
-    padding: 30px;
+    max-width: 520px;
+    background-color: #0b130e;
+    border: 3px solid #f0c040;
+    border-radius: 16px;
+    padding: 35px 25px;
     text-align: center;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    color: #f3e5ab;
+    position: relative;
+    box-shadow: 
+        0 0 20px rgba(16, 185, 129, 0.4), 
+        inset 0 0 20px rgba(240, 192, 64, 0.2),
+        0 15px 40px rgba(0, 0, 0, 0.8);
     animation: aparecer 0.3s ease;
 }
 
-.contenido-modal h2 {
-    color: #7b3900;
-    font-size: 30px;
+.contenido-modal-neon h2 {
+    color: #fbbf24;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+}
+
+.card-fecha {
+    color: #d1d5db;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.card-divisor {
+    color: #f0c040;
+    font-size: 0.85rem;
+    margin: 10px 0 15px 0;
+    opacity: 0.85;
+}
+
+.card-descripcion {
+    color: #e5e7eb;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
     margin-bottom: 15px;
 }
 
-.contenido-modal p {
-    color: #493b30;
-    font-size: 17px;
-    line-height: 1.6;
+.fact-title {
+    color: #10b981;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    margin: 18px 0 6px 0;
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
 }
 
-.cerrar {
+.cerrar-neon {
     margin-top: 20px;
-    padding: 12px 28px;
-    border: none;
+    padding: 12px 32px;
+    border: 2px solid #f87171;
     border-radius: 25px;
-    background: #e84d77;
+    background: #dc2626;
     color: white;
-    font-size: 17px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
     font-weight: bold;
+    letter-spacing: 1px;
     cursor: pointer;
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.6);
+    transition: all 0.2s ease-in-out;
 }
 
-.cerrar:hover { background: #c9365e; }
+.cerrar-neon:hover {
+    background: #ef4444;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.9);
+    transform: scale(1.05);
+}
+
+.cerrar-neon:active {
+    transform: scale(0.98);
+}
 
 /* ANIMACIONES COMUNES */
 @keyframes aparecer-arriba {
