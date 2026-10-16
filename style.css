@@ -420,6 +420,19 @@ button {
     animation: aparecer 0.3s ease;
 }
 
+/* IMAGEN FLOTANTE LIBRE EN LA ESQUINA INFERIOR DERECHA */
+.img-esquina-derecha {
+    position: absolute;
+    bottom: 12px;
+    right: -22px;
+    width: 250px;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none; /* Para que no estorbe si le dan clic encima */
+    filter: drop-shadow(0 0 8px rgba(240, 192, 64, 0.5));
+    opacity: 0.9;
+}
+
 .contenido-modal-neon h2 {
     color: #fbbf24;
     font-family: 'Cinzel Decorative', serif;

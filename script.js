@@ -145,7 +145,8 @@ const niveles = {
         titulo: "El auge de la cultura olmeca",
         fecha: "1200–400 a. C.",
         texto: "Los olmecas construyeron centros ceremoniales, cultivaron maíz y tallaron monumentales cabezas de piedra. Su cultura influyó en otros pueblos de Mesoamérica.",
-        dato: "Son considerados una de las primeras grandes civilizaciones mesoamericanas."
+        dato: "Son considerados una de las primeras grandes civilizaciones mesoamericanas.",
+        imagen: "img/olmeca.png"
     },
     2: {
         titulo: "El esplendor de Teotihuacán",
@@ -169,25 +170,29 @@ const niveles = {
         titulo: "La Triple Alianza",
         fecha: "1428 d. C.",
         texto: "Tenochtitlan, Texcoco y Tlacopan formaron una alianza política y militar que amplió su poder sobre numerosos pueblos.",
-        dato: "Sus integrantes colaboraban, aunque Tenochtitlan llegó a ejercer una posición dominante."
+        dato: "Sus integrantes colaboraban, aunque Tenochtitlan llegó a ejercer una posición dominante.",
+        
     },
     6: {
         titulo: "La alianza de Tlaxcala",
         fecha: "Septiembre de 1519",
         texto: "Después de enfrentamientos, los tlaxcaltecas establecieron una alianza con Hernán Cortés y participaron en las campañas contra los mexicas.",
-        dato: "Las alianzas indígenas fueron fundamentales durante la Conquista."
+        dato: "Las alianzas indígenas fueron fundamentales durante la Conquista.",
+        imagen: "img/alianza.png"
     },
     7: {
         titulo: "El encuentro en Tenochtitlan",
         fecha: "8 de noviembre de 1519",
         texto: "Moctezuma Xocoyotzin recibió a Hernán Cortés en la capital mexica. El encuentro dio paso a una relación tensa.",
-        dato: "Tenochtitlan impresionó por sus calzadas, canales y grandes construcciones."
+        dato: "Tenochtitlan impresionó por sus calzadas, canales y grandes construcciones.",
+        imagen: "img/encuentro.png"
     },
     8: {
         titulo: "La matanza del Templo Mayor",
         fecha: "Mayo de 1520",
         texto: "Durante la fiesta de Tóxcatl, las tropas de Pedro de Alvarado atacaron a participantes mexicas, provocando una fuerte reacción contra los españoles.",
-        dato: "El ataque agravó el conflicto dentro de Tenochtitlan."
+        dato: "El ataque agravó el conflicto dentro de Tenochtitlan.",
+        imagen: "img/matanza.png"
     },
     9: {
         titulo: "La Noche Triste",
@@ -217,6 +222,11 @@ function abrirNivel(numero) {
     document.getElementById("textoNivel").textContent = nivel.texto;
     document.getElementById("datoNivel").textContent = nivel.dato;
     
+    // CARGAR LA IMAGEN DINÁMICA DE CADA TARJETA
+    const imgNivel = document.getElementById("imagenNivel");
+    if (imgNivel) {
+        imgNivel.src = nivel.imagen || ""; // Carga la ruta de la imagen o la deja vacía si no existe
+    }
 
     document.getElementById("modal").classList.add("activo");
 }
