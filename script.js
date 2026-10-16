@@ -4,7 +4,11 @@
 
  let narracionIntro = null;
  function iniciarJuego() {
-    
+    // LÍNEA DE SEGURIDAD: Asegurar que la ventana de salir esté cerrada al iniciar
+    const ventanaSalir = document.getElementById("ventanaSalir");
+    if (ventanaSalir) {
+        ventanaSalir.style.display = "none";
+    }
      const pantallaInicio = document.getElementById("pantallaInicio");
      const bienvenida = document.getElementById("escenaBienvenida");
      const texto = document.getElementById("textoNarracion");
@@ -14,11 +18,14 @@
      // Ocultar el menú y mostrar la bienvenida
      pantallaInicio.style.display = "none";
      bienvenida.style.display = "flex";
+
      // Ocultar el botón de continuar mientras habla
      botonExplorar.style.display = "none";
+
      // Mostrar el texto completo de la narración
      texto.textContent =
          "Prepárate para viajar al pasado, descubrir las grandes civilizaciones de México y conocer los acontecimientos que marcaron nuestra historia. ¿Estás listo para comenzar esta aventura?";
+
      // Animar la aparición de la escena y del personaje
      if (typeof gsap !== "undefined") {
          gsap.fromTo(".contenido-bienvenida",
@@ -219,38 +226,52 @@ function cerrarNivel() {
 }
 
 // CERRAR AL HACER CLIC FUERA
-document.getElementById("modal").addEventListener("click", function(event) {
-    if (event.target === this) {
-        cerrarNivel();
-    }
-});
-
+const modalNivel = document.getElementById("modal");
+if (modalNivel) {
+    modalNivel.addEventListener("click", function(event) {
+        if (event.target === this) {
+            cerrarNivel();
+        }
+    });
+}
+//5.CONTROL DE LA VENTANA SALIR
 const botonSalir = document.getElementById("botonSalir");
 const ventanaSalir = document.getElementById("ventanaSalir");
 const botonQuedarse = document.getElementById("botonQuedarse");
 const confirmarSalir = document.getElementById("confirmarSalir");
 
 //Abrir la ventana de confirmación
-botonSalir.addEventListener("click", function(){
-    ventanaSalir.style.display = "flex";
-});
-//Cerrar la ventana y continuar jugando
-botonQuedarse.addEventListener("click", function(){
-    ventanaSalir.style.display = "none";
-});
-//Confirmar que deseas salir
-confirmarSalir.addEventListener("click", function(){
-    ventanaSalir.style.display = "none";
-    //Regresar a la pantalla de inicio del juego
-    const bienvenida = document.getElementById("escenaBienvenida");
+if (botonSalir && ventanaSalir) {
+    botonSalir.addEventListener("click", function(event) {
+        event.stopPropagation();
+        ventanaSalir.style.display = "flex";
+    });
+}
 
-    if (bienvenida){
-        bienvenida.style.display = "none";
-    }
-    const botonInicio = document.getElementById("botonInicio");
+// Cerrar la ventana de confirmación y continuar jugando
+if (botonQuedarse && ventanaSalir) {
+    botonQuedarse.addEventListener("click", function() {
+        ventanaSalir.style.display = "none";
+    });
+}
 
-    if (botonInicio) {
-        botonInicio.style.display = "block";
-    }
-});
+// Confirmar salida (Regresar a la pantalla de inicio)
+if (confirmarSalir && ventanaSalir) {
+    confirmarSalir.addEventListener("click", function() {
+        ventanaSalir.style.display = "none";
+        
+        // Ocultar bienvenida y mapa
+        const bienvenida = document.getElementById("escenaBienvenida");
+        const pantallaMapa = document.getElementById("pantallaMapa");
+        const pantallaInicio = document.getElementById("pantallaInicio");
+
+        if (bienvenida) bienvenida.style.display = "none";
+        if (pantallaMapa) pantallaMapa.style.display = "none";
+        
+        // Mostrar de nuevo el menú principal
+        if (pantallaInicio) {
+            pantallaInicio.style.display = "flex";
+        }
+    });
+}
 
