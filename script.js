@@ -4,6 +4,7 @@
 
  let narracionIntro = null;
  function iniciarJuego() {
+    
      const pantallaInicio = document.getElementById("pantallaInicio");
      const bienvenida = document.getElementById("escenaBienvenida");
      const texto = document.getElementById("textoNarracion");
