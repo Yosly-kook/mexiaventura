@@ -18,7 +18,7 @@
      botonExplorar.style.display = "none";
      // Mostrar el texto completo de la narración
      texto.textContent =
-         "Prepárate para viajar al pasado, descubrir las grandes civilizaciones de México y conocer los acontecimientos que marcaron nuestra historia. ¿Estás list@ para comenzar esta aventura?";
+         "Prepárate para viajar al pasado, descubrir las grandes civilizaciones de México y conocer los acontecimientos que marcaron nuestra historia. ¿Estás listo para comenzar esta aventura?";
      // Animar la aparición de la escena y del personaje
      if (typeof gsap !== "undefined") {
          gsap.fromTo(".contenido-bienvenida",
