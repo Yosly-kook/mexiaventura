@@ -217,6 +217,7 @@ function abrirNivel(numero) {
     document.getElementById("textoNivel").textContent = nivel.texto;
     document.getElementById("datoNivel").textContent = nivel.dato;
     
+
     document.getElementById("modal").classList.add("activo");
 }
 
