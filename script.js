@@ -155,6 +155,7 @@ const niveles = {
         titulo: "El auge de la cultura olmeca",
         fecha: "1200–400 a. C.",
         texto: "Los olmecas construyeron centros ceremoniales, cultivaron maíz y crearon esculturas monumentales incluidas las famosas cabezas colosales. Su cultura influyó en otros pueblos mesoamericanos.",
+        factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "Son considerados una de las primeras grandes civilizaciones mesoamericanas.",
         imagen: "img/olmeca.png"
     },
@@ -162,6 +163,7 @@ const niveles = {
         titulo: "El esplendor de Teotihuacán",
         fecha: "100–650 d. C.",
         texto: "Teotihuacán fue una gran ciudad con impresionantes pirámides, barrios organizados y extensas redes comerciales que conectaban distintas regiones.",
+        factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "Su nombre en náhuatl suele interpretarse como <<Lugar donde nacen los dioses>>.",
         imagen: "img/teoticuacán.png"
     },
@@ -169,6 +171,7 @@ const niveles = {
         titulo: "La transformación de las ciudades mayas",
         fecha: "800–900 d. C.",
         texto: "Numerosas ciudades mayas de las tierras bajas del sur perdieron población y poder. Las sequías, los conflictos y otros factores contribuyeron a estos cambios.",
+        factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "La civilización maya no desapareció: sus pueblos y culturas continúan vivos.",
         imagen: "img/maya.png"
     },
@@ -176,6 +179,7 @@ const niveles = {
         titulo: "La fundación de Tenochtitlan",
         fecha: "1325 d. C. (fecha tradicional)",
         texto: "Los mexicas fundaron México-Tenochtitlan en un islote del lago de Texcoco. La tradición relata la señal de un águila sobre un nopal coo símbolo de su destino.",
+        factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "La ciudad se convirtió en un importante centro político y económico de un poderoso imperio.",
         imagen: "img/fundación.png"
     },
@@ -183,6 +187,7 @@ const niveles = {
         titulo: "La Triple Alianza",
         fecha: "1428 d. C.",
         texto: "Tenochtitlan, Texcoco y Tlacopan formaron una alianza política y militar. Juntos expandieron su infliencia y establecieron tributos sobre numerosos pueblos.",
+        factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "La alinaza cambió el equilibrio de poder en Mesoamérica, aunque Tenochtitlan llegó a ejercer una posición dominante.",
         imagen: "img/Talianza.png"
         
@@ -191,6 +196,7 @@ const niveles = {
         titulo: "La alianza de Tlaxcala",
         fecha: "Septiembre de 1519",
         texto: "Tras enfrentamientos con los españoles, los tlaxcaltecas establecieron una alianza con Hernán Cortés y participaron en las campañas contra los mexicas.",
+        factTitle: "✦ CLAVE HISTÓRICA ✦",
         dato: "La Conquista involucró alianzas indígenas, rivalidades políticas y diversos intereses.",
         imagen: "img/alianza.png"
     },
@@ -198,6 +204,7 @@ const niveles = {
         titulo: "El encuentro en Tenochtitlan",
         fecha: "8 de noviembre de 1519",
         texto: "Moctezuma Xocoyotzin recibió a Hernán Cortés en la capital mexica. El encuentro dio paso a una relación tensa que pronto se transformarías en conflicto.",
+        factTitle: "✦ CLAVE HISTÓRICA ✦",
         dato: "Tenochtitlan impresionó por sus calzadas, canales y grandes construcciones.",
         imagen: "img/encuentro.png"
     },
@@ -205,6 +212,7 @@ const niveles = {
         titulo: "La matanza del Templo Mayor",
         fecha: "Mayo de 1520",
         texto: "Durante la fiesta de Tóxcatl, las tropas de Pedro de Alvarado atacaron a participantes mexicas, provocando una grave crisis y aumentó la resistencia contra los españoles.",
+        factTitle: "✦ CLAVE HISTÓRICA ✦",
         dato: "El ataque agravó el conflicto dentro de Tenochtitlan.",
         imagen: "img/matanza.png"
     },
@@ -212,6 +220,7 @@ const niveles = {
         titulo: "La Noche Triste",
         fecha: "30 de junio–1 de julio de 1520",
         texto: "Los españoles y sus aliados intentaron escapar de Tenochtitlan durante la noche, pero fueron descubiertos mientras cruzaban las calzadas y sufrieron grandes pérdidas.",
+        factTitle: "✦ CLAVE HISTÓRICA ✦",
         dato: "Cuitláhuac asumió el liderazgo mexica tras la muerte de Moctezuma.",
         imagen:"img/nochetriste.png"
     },
@@ -219,6 +228,7 @@ const niveles = {
         titulo: "La caída de Tenochtitlan",
         fecha: "13 de agosto de 1521",
         texto: "Después de un asedio por tierra y agua, las fuerzas españolas y sus aliados indígenas conquistaron Tenochtitlan. Las epidemias, la falta de alimentos y los combates contribuyeron a la caída. Cuahutémoc fue capturado.",
+        factTitle: "✦ FINAL DE CAMPAÑA ✦",
         dato: "La caída de Tenochtitlan puso fin al Imperio Mexica e inició la colonización española, transformando radicalmente la región.",
         imagen: "img/Caída.png"
     }
@@ -238,6 +248,11 @@ function abrirNivel(numero) {
     document.getElementById("textoNivel").textContent = nivel.texto;
     document.getElementById("datoNivel").textContent = nivel.dato;
     
+    // AQUÍ ACTUALIZAMOS EL TÍTULO DINÁMICO DEL DATO
+    document.getElementById("tituloFact").textContent = nivel.factTitle || "✦ DATO HISTÓRICO ✦";
+    
+    document.getElementById("datoNivel").textContent = nivel.dato;
+
     // CARGAR LA IMAGEN DINÁMICA DE CADA TARJETA
     const imgNivel = document.getElementById("imagenNivel");
     if (imgNivel) {
