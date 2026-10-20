@@ -5,9 +5,9 @@
  let narracionIntro = null;
  function iniciarJuego() {
     // LÍNEA DE SEGURIDAD: Asegurar que la ventana de salir esté cerrada al iniciar
-    const ventanaSalir = document.getElementById("ventanaSalir");
-    if (ventanaSalir) {
-        ventanaSalir.style.display = "none";
+    const ventana = document.getElementById("ventanaSalir");
+    if (ventana) {
+        ventana.style.display = "none";
     }
      const pantallaInicio = document.getElementById("pantallaInicio");
      const bienvenida = document.getElementById("escenaBienvenida");
@@ -15,16 +15,36 @@
      const botonExplorar = document.getElementById("botonExplorar");
      const botonOmitir = document.getElementById("botonOmitirIntro");
 
-     // Ocultar el menú y mostrar la bienvenida
-     pantallaInicio.style.display = "none";
-     bienvenida.style.display = "flex";
+// Ocultar el menú y mostrar la vienvenida original
+pantallaInicio.style.display = "none";
+bienvenida.style.display = "flex";
 
-     // Ocultar el botón de continuar mientras habla
-     botonExplorar.style.display = "none";
+// Ocultar continuar mientras habla, pero dejar visible omitir
+if (botonExplorar) botonExplorar.style.display = "none";
+if (botonOmitir) botonOmitir.style.display = "inline-block";
+    
+  // Mostrar el texto original de la bienvenida
+  texto.textContent = "Prepárate para viajar al pasado, descubrir las grandes civilizaciones de México y conocer los acontecimientos que marcaron nuestra historia. ¿Estás listo para comenzar esta aventura?";
 
-     // Mostrar el texto completo de la narración
-     texto.textContent =
-         "Prepárate para viajar al pasado, descubrir las grandes civilizaciones de México y conocer los acontecimientos que marcaron nuestra historia. ¿Estás listo para comenzar esta aventura?";
+  // Recuperar la voz del navegador
+  if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+
+      narracionIntro = new SpeechSynthesisUtterance(texto.textContent);
+      narracionIntro.lang = "es-MX";
+      narracionIntro.rate = 0.92;
+      narracionIntro.pitch = 1.1;
+      narracionIntro.volume = 1;
+
+      narracionIntro.onend = function () {
+          botonExplorar.style.display = "inline-block";
+      };
+
+      window.speechSynthesis.speak(narracionIntro);
+  } else {
+      // Si el navegador no admite voz, permitir continuar
+      botonExplorar.style.display = "inline-block";
+  }
 
      // Animar la aparición de la escena y del personaje
      if (typeof gsap !== "undefined") {
@@ -44,65 +64,55 @@
          );
      }
 
-     // Iniciar la narración con la voz del navegador
-     if ("speechSynthesis" in window) {
-         window.speechSynthesis.cancel();
-
-         narracionIntro = new SpeechSynthesisUtterance(texto.textContent);
-         narracionIntro.lang = "es-MX";
-         narracionIntro.rate = 0.9;
-         narracionIntro.pitch = 1;
-
-         narracionIntro.onend = function () {
-             botonExplorar.style.display = "inline-block";
-         };
-
-         window.speechSynthesis.speak(narracionIntro);
-     } else {
-         // Si el navegador no admite voz, dejar continuar
-         botonExplorar.style.display = "inline-block";
-     }
  }
 
- // Omitir la voz y permitir continuar
- document.getElementById("botonOmitirIntro").addEventListener("click", function () {
-     if ("speechSynthesis" in window) {
-         window.speechSynthesis.cancel();
-     }
+ // Omitir la narración y mostrar el botón para continuar
+ const botonOmitirIntro = document.getElementById("botonOmitirIntro");
+ const botonExplorarIntro = document.getElementById("botonExplorar");
 
-     document.getElementById("botonExplorar").style.display = "inline-block";
- });
+ if (botonOmitirIntro) {
+     botonOmitirIntro.addEventListener("click", function () {
+         if ("speechSynthesis" in window) {
+             window.speechSynthesis.cancel();
+         }
+
+         if (botonExplorarIntro) {
+             botonExplorarIntro.style.display = "inline-block";
+         }
+     });
+ }
 
  // Pasar de la bienvenida al mapa
- document.getElementById("botonExplorar").addEventListener("click", function () {
-     if ("speechSynthesis" in window) {
-         window.speechSynthesis.cancel();
-     }
+ if (botonExplorarIntro) {
+     botonExplorarIntro.addEventListener("click", function () {
+         if ("speechSynthesis" in window) {
+             window.speechSynthesis.cancel();
+         }
 
-     const bienvenida = document.getElementById("escenaBienvenida");
-     const mapa = document.getElementById("pantallaMapa");
+         const bienvenida = document.getElementById("escenaBienvenida");
+         const mapa = document.getElementById("pantallaMapa");
 
-     if (typeof gsap !== "undefined") {
-         gsap.to(bienvenida, {
-             opacity: 0,
-             duration: 0.7,
-             onComplete: function () {
-                 bienvenida.style.display = "none";
-                 bienvenida.style.opacity = "1";
-                 mapa.style.display = "block";
+         if (typeof gsap !== "undefined") {
+             gsap.to(bienvenida, {
+                 opacity: 0,
+                 duration: 0.7,
+                 onComplete: function () {
+                     bienvenida.style.display = "none";
+                     bienvenida.style.opacity = "1";
+                     mapa.style.display = "block";
 
-                 gsap.fromTo(mapa,
-                     { opacity: 0 },
-                     { opacity: 1, duration: 1 }
-                 );
-             }
-         });
-     } else {
-         bienvenida.style.display = "none";
-         mapa.style.display = "block";
-     }
- });
-
+                     gsap.fromTo(mapa,
+                         { opacity: 0 },
+                         { opacity: 1, duration: 1 }
+                     );
+                 }
+             });
+         } else {
+             bienvenida.style.display = "none";
+             mapa.style.display = "block";
+         }
+     });
+ }
 
 // ==========================================
 // 2. EFECTO DE PARTÍCULAS AL HACER CLIC
