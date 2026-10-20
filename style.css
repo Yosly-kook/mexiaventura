@@ -420,17 +420,28 @@ button {
     animation: aparecer 0.3s ease;
 }
 
-/* IMAGEN FLOTANTE LIBRE EN LA ESQUINA INFERIOR DERECHA */
+    /* IMAGEN DE FONDO / MARCA DE AGUA CENTRADA */
 .img-esquina-derecha {
     position: absolute;
-    bottom: 12px;
-    right: -22px;
-    width: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la imagen de forma exacta en el medio */
+    width: 65%;                       /* Un tamaño perfecto que llena el fondo sin estorbar */
     height: auto;
     object-fit: contain;
-    pointer-events: none; /* Para que no estorbe si le dan clic encima */
-    filter: drop-shadow(0 0 8px rgba(240, 192, 64, 0.5));
-    opacity: 0.9;
+    z-index: 1;                       /* Detrás del texto, pero dentro de la tarjeta */
+    opacity: 0.35;                    /* Transparencia ideal para que las letras se lean al 100% */
+    filter: contrast(1.1) saturate(1.1); /* Esto aviva un poco los colores y la hace destacar más */
+    pointer-events: none;             /* Evita que bloquee clics en el texto o botones */
+}
+
+/* ASEGURAR QUE EL TEXTO ESTÉ POR ENCIMA DE LA IMAGEN */
+.contenido-modal-neon h2,
+.contenido-modal-neon p,
+.contenido-modal-neon h3,
+.contenido-modal-neon button {
+    position: relative;
+    z-index: 2; /* Todo el texto flota con claridad por encima de la ilustración */
 }
 
 .contenido-modal-neon h2 {

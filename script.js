@@ -144,7 +144,7 @@ const niveles = {
     1: {
         titulo: "El auge de la cultura olmeca",
         fecha: "1200–400 a. C.",
-        texto: "Los olmecas construyeron centros ceremoniales, cultivaron maíz y tallaron monumentales cabezas de piedra. Su cultura influyó en otros pueblos de Mesoamérica.",
+        texto: "Los olmecas construyeron centros ceremoniales, cultivaron maíz y crearon esculturas monumentales incluidas las famosas cabezas colosales. Su cultura influyó en otros pueblos mesoamericanos.",
         dato: "Son considerados una de las primeras grandes civilizaciones mesoamericanas.",
         imagen: "img/olmeca.png"
     },
@@ -152,59 +152,65 @@ const niveles = {
         titulo: "El esplendor de Teotihuacán",
         fecha: "100–650 d. C.",
         texto: "Teotihuacán fue una gran ciudad con impresionantes pirámides, barrios organizados y extensas redes comerciales que conectaban distintas regiones.",
-        dato: "Sus construcciones más famosas son las pirámides del Sol y de la Luna."
+        dato: "Su nombre en náhuatl suele interpretarse como <<Lugar donde nacen los dioses>>.",
+        imagen: "img/teoticuacán.png"
     },
     3: {
         titulo: "La transformación de las ciudades mayas",
         fecha: "800–900 d. C.",
-        texto: "Numerosas ciudades mayas de las tierras bajas del sur perdieron población e influencia. Las sequías, los conflictos y otros factores contribuyeron a estos cambios.",
-        dato: "La civilización maya no desapareció: sus pueblos y culturas continúan vivos."
+        texto: "Numerosas ciudades mayas de las tierras bajas del sur perdieron población y poder. Las sequías, los conflictos y otros factores contribuyeron a estos cambios.",
+        dato: "La civilización maya no desapareció: sus pueblos y culturas continúan vivos.",
+        imagen: "img/maya.png"
     },
     4: {
         titulo: "La fundación de Tenochtitlan",
         fecha: "1325 d. C. (fecha tradicional)",
-        texto: "Según la tradición mexica, un águila sobre un nopal señaló el lugar donde fundarían México-Tenochtitlan, en un islote del lago de Texcoco.",
-        dato: "La ciudad se convirtió en un importante centro político y económico."
+        texto: "Los mexicas fundaron México-Tenochtitlan en un islote del lago de Texcoco. La tradición relata la señal de un águila sobre un nopal coo símbolo de su destino.",
+        dato: "La ciudad se convirtió en un importante centro político y económico de un poderoso imperio.",
+        imagen: "img/fundación.png"
     },
     5: {
         titulo: "La Triple Alianza",
         fecha: "1428 d. C.",
-        texto: "Tenochtitlan, Texcoco y Tlacopan formaron una alianza política y militar que amplió su poder sobre numerosos pueblos.",
-        dato: "Sus integrantes colaboraban, aunque Tenochtitlan llegó a ejercer una posición dominante.",
+        texto: "Tenochtitlan, Texcoco y Tlacopan formaron una alianza política y militar. Juntos expandieron su infliencia y establecieron tributos sobre numerosos pueblos.",
+        dato: "La alinaza cambió el equilibrio de poder en Mesoamérica, aunque Tenochtitlan llegó a ejercer una posición dominante.",
+        imagen: "img/Talianza.png"
         
     },
     6: {
         titulo: "La alianza de Tlaxcala",
         fecha: "Septiembre de 1519",
-        texto: "Después de enfrentamientos, los tlaxcaltecas establecieron una alianza con Hernán Cortés y participaron en las campañas contra los mexicas.",
-        dato: "Las alianzas indígenas fueron fundamentales durante la Conquista.",
+        texto: "Tras enfrentamientos con los españoles, los tlaxcaltecas establecieron una alianza con Hernán Cortés y participaron en las campañas contra los mexicas.",
+        dato: "La Conquista involucró alianzas indígenas, rivalidades políticas y diversos intereses.",
         imagen: "img/alianza.png"
     },
     7: {
         titulo: "El encuentro en Tenochtitlan",
         fecha: "8 de noviembre de 1519",
-        texto: "Moctezuma Xocoyotzin recibió a Hernán Cortés en la capital mexica. El encuentro dio paso a una relación tensa.",
+        texto: "Moctezuma Xocoyotzin recibió a Hernán Cortés en la capital mexica. El encuentro dio paso a una relación tensa que pronto se transformarías en conflicto.",
         dato: "Tenochtitlan impresionó por sus calzadas, canales y grandes construcciones.",
         imagen: "img/encuentro.png"
     },
     8: {
         titulo: "La matanza del Templo Mayor",
         fecha: "Mayo de 1520",
-        texto: "Durante la fiesta de Tóxcatl, las tropas de Pedro de Alvarado atacaron a participantes mexicas, provocando una fuerte reacción contra los españoles.",
+        texto: "Durante la fiesta de Tóxcatl, las tropas de Pedro de Alvarado atacaron a participantes mexicas, provocando una grave crisis y aumentó la resistencia contra los españoles.",
         dato: "El ataque agravó el conflicto dentro de Tenochtitlan.",
         imagen: "img/matanza.png"
     },
     9: {
         titulo: "La Noche Triste",
         fecha: "30 de junio–1 de julio de 1520",
-        texto: "Los españoles y sus aliados intentaron salir de Tenochtitlan durante la noche, pero fueron descubiertos y sufrieron grandes pérdidas.",
-        dato: "Cuitláhuac asumió el liderazgo mexica tras la muerte de Moctezuma."
+        texto: "Los españoles y sus aliados intentaron escapar de Tenochtitlan durante la noche, pero fueron descubiertos mientras cruzaban las calzadas y sufrieron grandes pérdidas.",
+        dato: "Cuitláhuac asumió el liderazgo mexica tras la muerte de Moctezuma.",
+        imagen:"img/nochetriste.png"
     },
     10: {
         titulo: "La caída de Tenochtitlan",
         fecha: "13 de agosto de 1521",
-        texto: "Después de un asedio por tierra y agua, las fuerzas españolas y sus aliados indígenas conquistaron Tenochtitlan. Las epidemias, la falta de alimentos y los combates contribuyeron a la caída.",
-        dato: "Cuauhtémoc fue capturado y terminó el poder imperial mexica."
+        texto: "Después de un asedio por tierra y agua, las fuerzas españolas y sus aliados indígenas conquistaron Tenochtitlan. Las epidemias, la falta de alimentos y los combates contribuyeron a la caída. Cuahutémoc fue capturado.",
+        dato: "La caída de Tenochtitlan puso fin al Imperio Mexica e inició la colonización española, transformando radicalmente la región.",
+        imagen: "img/Caída.png"
     }
 };
 
