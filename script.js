@@ -317,3 +317,124 @@ if (confirmarSalir && ventanaSalir) {
     });
 }
 
+// ==========================================
+// 6. EFECTO CANVAS DE HOJAS VERDES CAYENDO
+// ==========================================
+let canvasHojas = null;
+let ctxHojas = null;
+let widthHojas = 0, heightHojas = 0;
+let arrayHojas = [];
+const cantidadHojas = 30; // Cantidad de hojas en pantalla
+
+// Paleta de tonos verdes mesoamericanos
+const coloresHojasVerdes = ['#2e8b57', '#228b22', '#32cd32', '#10b981', '#006400'];
+
+function initHojasCanvas() {
+    canvasHojas = document.getElementById('leaf-canvas');
+    if (!canvasHojas) return;
+
+    ctxHojas = canvasHojas.getContext('2d');
+    const contenedor = document.getElementById('pantallaMapa');
+    
+    widthHojas = contenedor ? contenedor.clientWidth : window.innerWidth;
+    heightHojas = contenedor ? contenedor.clientHeight : window.innerHeight;
+    
+    canvasHojas.width = widthHojas;
+    canvasHojas.height = heightHojas;
+    arrayHojas = [];
+
+    for (let i = 0; i < cantidadHojas; i++) {
+        arrayHojas.push({
+            x: Math.random() * widthHojas,
+            y: Math.random() * heightHojas - heightHojas,
+            size: Math.random() * 12 + 8,
+            color: coloresHojasVerdes[Math.floor(Math.random() * coloresHojasVerdes.length)],
+            speedY: Math.random() * 3 + 2,
+            speedX: Math.random() * 1.5 - 0.75,
+            rotation: Math.random() * 360,
+            rotationSpeed: Math.random() * 1.5 - 0.75,
+            oscillation: Math.random() * 0.02 + 0.01,
+            phase: Math.random() * Math.PI * 2
+        });
+    }
+}
+
+function dibujaHoja(l) {
+    if (!ctxHojas) return;
+    ctxHojas.save();
+    const currentX = l.x + Math.sin(l.phase) * 25;
+    ctxHojas.translate(currentX, l.y);
+    ctxHojas.rotate(l.rotation * Math.PI / 180);
+
+    ctxHojas.fillStyle = l.color;
+    ctxHojas.beginPath();
+    ctxHojas.moveTo(0, 0);
+    ctxHojas.quadraticCurveTo(l.size, -l.size, 0, -l.size * 2);
+    ctxHojas.quadraticCurveTo(-l.size, -l.size, 0, 0);
+    ctxHojas.fill();
+
+    ctxHojas.restore();
+}
+
+function animarHojasCanvas() {
+    if (!ctxHojas || !canvasHojas) return;
+    ctxHojas.clearRect(0, 0, widthHojas, heightHojas);
+
+    arrayHojas.forEach(l => {
+        l.y += l.speedY;
+        l.x += l.speedX;
+        l.rotation += l.rotationSpeed;
+        l.phase += l.oscillation;
+
+        if (l.y > heightHojas + 20) {
+            l.y = -30;
+            l.x = Math.random() * widthHojas;
+        }
+        dibujaHoja(l);
+    });
+
+    requestAnimationFrame(animarHojasCanvas);
+}
+
+window.addEventListener('resize', () => {
+    if (canvasHojas && canvasHojas.offsetParent !== null) {
+        initHojasCanvas();
+    }
+});
+// Pasar de la bienvenida al mapa
+    if (botonExplorarIntro) {
+        botonExplorarIntro.addEventListener("click", function () {
+            if ("speechSynthesis" in window) {
+                window.speechSynthesis.cancel();
+            }
+            const bienvenida = document.getElementById("escenaBienvenida");
+            const mapa = document.getElementById("pantallaMapa");
+            if (typeof gsap !== "undefined") {
+                gsap.to(bienvenida, {
+                    opacity: 0,
+                    duration: 0.7,
+                    onComplete: function () {
+                        bienvenida.style.display = "none";
+                        bienvenida.style.opacity = "1";
+                        mapa.style.display = "block";
+                        
+                        // 🍃 AGREGAR ESTAS DOS LÍNEAS AQUÍ:
+                        initHojasCanvas();
+                        animarHojasCanvas();
+
+                        gsap.fromTo(mapa,
+                            { opacity: 0 },
+                            { opacity: 1, duration: 1 }
+                        );
+                    }
+                });
+            } else {
+                bienvenida.style.display = "none";
+                mapa.style.display = "block";
+                
+                // 🍃 Y AGREGAR ESTAS DOS LÍNEAS AQUÍ TAMBIÉN (POR SI NO CARGA GSAP):
+                initHojasCanvas();
+                animarHojasCanvas();
+            }
+        });
+    }
