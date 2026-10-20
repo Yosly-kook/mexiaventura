@@ -75,7 +75,9 @@
          1.5. BIENVENIDA CINEMATOGRÁFICA
          ========================================== -->
     <section id="escenaBienvenida" class="escena-bienvenida" style="display: none;">
-
+<audio id="vozPersonaje" preload="auto">
+    <source src="audio/personaje bienvenida voz.mp3" type="audio/mpeg">
+</audio>
         <!-- Fondo de la escena -->
         <div class="fondo-cinematico"></div>
         <div class="velo-cinematico"></div>
@@ -85,10 +87,14 @@
 
             <p class="subtitulo-bienvenida">✦ UNA NUEVA AVENTURA COMIENZA ✦</p>
 
-            <!-- Aquí aparecerá el personaje que ustedes diseñaron -->
-            <div class="personaje-bienvenida">
-                <img id="personajeIntro" src="img/personaje.png" alt="Guía de MexiAventura">
-            </div>
+        <!-- Personaje de la bienvenida -->
+        <div class="personaje-bienvenida">
+            <img id="personajeIntro" src="img/personaje.png" alt="Guía de MexiAventura" style="display: none;">
+
+             <video id="videoBienvenida" playsinline preload="auto" style="display: none; max-width: min(300px, 75vw); max-height: 36vh; object-fit: contain;">
+                <source src="videos/personaje-bienvenida.mp4" type="video/mp4">
+             </video>
+        </div>
 
             <div class="dialogo-bienvenida">
                 <h1>¡Bienvenido a MexiAventura!</h1>

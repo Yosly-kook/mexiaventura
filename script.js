@@ -15,7 +15,7 @@
      const botonExplorar = document.getElementById("botonExplorar");
      const botonOmitir = document.getElementById("botonOmitirIntro");
 
-// Ocultar el menú y mostrar la vienvenida original
+// Ocultar el menú y mostrar la bienvenida original
 pantallaInicio.style.display = "none";
 bienvenida.style.display = "flex";
 
@@ -26,25 +26,67 @@ if (botonOmitir) botonOmitir.style.display = "inline-block";
   // Mostrar el texto original de la bienvenida
   texto.textContent = "Prepárate para viajar al pasado, descubrir las grandes civilizaciones de México y conocer los acontecimientos que marcaron nuestra historia. ¿Estás listo para comenzar esta aventura?";
 
-  // Recuperar la voz del navegador
-  if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
 
-      narracionIntro = new SpeechSynthesisUtterance(texto.textContent);
-      narracionIntro.lang = "es-MX";
-      narracionIntro.rate = 0.92;
-      narracionIntro.pitch = 1.1;
-      narracionIntro.volume = 1;
+const vozPersonaje = document.getElementById("vozPersonaje");
+const videoBienvenida = document.getElementById("videoBienvenida");
+const personajeIntro = document.getElementById("personajeIntro");
 
-      narracionIntro.onend = function () {
-          botonExplorar.style.display = "inline-block";
-      };
+// Mostrar el video y ocultar la imagen fija
+if (videoBienvenida) {
+    videoBienvenida.style.display = "block";
+    videoBienvenida.loop = false;
+    videoBienvenida.muted = true;
+}
 
-      window.speechSynthesis.speak(narracionIntro);
-  } else {
-      // Si el navegador no admite voz, permitir continuar
-      botonExplorar.style.display = "inline-block";
-  }
+if (personajeIntro) {
+    personajeIntro.style.display = "none";
+}
+
+// Preparar y reproducir la voz
+if (vozPersonaje) {
+    vozPersonaje.pause();
+    vozPersonaje.currentTime = 0;
+
+    
+vozPersonaje.onended = function () {
+    if (videoBienvenida) {
+        videoBienvenida.pause();
+    }
+
+    if (botonExplorar) {
+        botonExplorar.style.display = "inline-block";
+    }
+};
+
+
+    // Reproducir el video mientras habla el personaje
+    if (videoBienvenida) {
+        videoBienvenida.currentTime = 0;
+
+        videoBienvenida.play().catch(function (error) {
+            console.error("No se pudo reproducir el video:", error);
+        });
+    }
+
+    // La voz sigue siendo el audio principal
+    vozPersonaje.play().catch(function (error) {
+        console.error("No se pudo reproducir la voz:", error);
+
+        if (videoBienvenida) {
+            videoBienvenida.pause();
+        }
+
+        if (botonExplorar) {
+            botonExplorar.style.display = "inline-block";
+        }
+    });
+} else {
+    console.error("No se encontró el audio vozPersonaje.");
+
+    if (botonExplorar) {
+        botonExplorar.style.display = "inline-block";
+    }
+}
 
      // Animar la aparición de la escena y del personaje
      if (typeof gsap !== "undefined") {
@@ -72,10 +114,19 @@ if (botonOmitir) botonOmitir.style.display = "inline-block";
 
  if (botonOmitirIntro) {
      botonOmitirIntro.addEventListener("click", function () {
-         if ("speechSynthesis" in window) {
-             window.speechSynthesis.cancel();
-         }
+        
+        const voz = document.getElementById("vozPersonaje");
 
+if (voz) {
+    voz.pause();
+    voz.currentTime = 0;
+}
+const video = document.getElementById("videoBienvenida");
+
+if (video) {
+    video.pause();
+    video.currentTime = 0;
+}
          if (botonExplorarIntro) {
              botonExplorarIntro.style.display = "inline-block";
          }
@@ -85,10 +136,12 @@ if (botonOmitir) botonOmitir.style.display = "inline-block";
  // Pasar de la bienvenida al mapa
  if (botonExplorarIntro) {
      botonExplorarIntro.addEventListener("click", function () {
-         if ("speechSynthesis" in window) {
-             window.speechSynthesis.cancel();
-         }
+        const voz = document.getElementById("vozPersonaje");
 
+if (voz) {
+    voz.pause();
+    voz.currentTime = 0;
+}
          const bienvenida = document.getElementById("escenaBienvenida");
          const mapa = document.getElementById("pantallaMapa");
 
