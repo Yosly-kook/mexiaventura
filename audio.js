@@ -2,71 +2,97 @@
 // SISTEMA DE AUDIO DE MEXIAVENTURA
 // ==========================================
 
-const audioFondo = document.createElement("audio");
-audioFondo.src = "audio/fondo.mp3";
-audioFondo.loop = true;
-audioFondo.volume = 0.35;
+// 1. Cargamos las dos pistas de fondo y los efectos
+const audioInicio = new Audio("audio/fondo.mp3"); // Música de la pantalla de inicio
+audioInicio.loop = true;
+audioInicio.volume = 0.35;
 
-const audioClic = document.createElement("audio");
-audioClic.src = "audio/clic.mp3"; // Efecto general para botones
+const audioMapa = new Audio("audio/fondomapa.mp3");     // Música del mapa de niveles
+audioMapa.loop = true;
+audioMapa.volume = 0.35;
+
+const audioClic = new Audio("audio/clic.mp3");     // Clic para botones
 audioClic.volume = 0.5;
 
-// NUEVO: Audio exclusivo para los destellos de la pantalla de inicio
-const audioDestellos = document.createElement("audio");
-audioDestellos.src = "audio/brillos.mp3"; // Pon aquí la ruta de tu archivo de destellos
+const audioDestellos = new Audio("audio/brillitos.mp3"); // Efecto de inicio
 audioDestellos.volume = 0.6;
 
+// Variables de estado
 let musicaEncendida = false;
+let enPantallaInicio = true; // Empieza en la pantalla de inicio
 
-// Función para el clic general de botones
+// Función para el clic general
 function reproducirEfecto() {
     audioClic.currentTime = 0;
-    audioClic.play().catch(e => console.log("Audio de clic esperando interacción"));
+    audioClic.play().catch(e => console.log("Clic esperando interacción"));
 }
 
-// NUEVO: Función exclusiva para reproducir el sonido de destellos
+// Función para los destellos del inicio
 function reproducirDestellos() {
     audioDestellos.currentTime = 0;
-    audioDestellos.play().catch(e => console.log("Audio de destellos esperando interacción"));
+    audioDestellos.play().catch(e => console.log("Destellos esperando interacción"));
 }
 
+// Función que reproduce la música correcta según la pantalla activa
+function reproducirMusicaActual() {
+    if (!musicaEncendida) return;
+
+    if (enPantallaInicio) {
+        audioMapa.pause();
+        audioInicio.play().catch(e => console.log("Audio inicio bloqueado"));
+    } else {
+        audioInicio.pause();
+        audioMapa.play().catch(e => console.log("Audio mapa bloqueado"));
+    }
+}
+
+// ==========================================
+// EVENTOS Y CONEXIÓN DE BOTONES
+// ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     const botonAudio = document.getElementById("botonAudio");
-    
+    const botonIniciar = document.getElementById("btnIniciar"); // Ajusta el ID de tu botón de iniciar
+    const pantallaInicio = document.getElementById("pantallaInicio");
+
+    // A) BOTÓN DE AUDIO (Prende / Apaga la música)
     if (botonAudio) {
         botonAudio.addEventListener("click", () => {
             reproducirEfecto();
             musicaEncendida = !musicaEncendida;
-            
+
             if (musicaEncendida) {
-                audioFondo.play().then(() => {
-                    botonAudio.style.borderColor = "#00ffaa";
-                }).catch(err => {
-                    console.log("Error al reproducir música:", err);
-                    musicaEncendida = false;
-                });
+                reproducirMusicaActual();
+                botonAudio.style.borderColor = "#00ffaa"; // Indicador activo verde neón
             } else {
-                audioFondo.pause();
-                botonAudio.style.borderColor = "rgba(212, 175, 55, 0.6)";
+                audioInicio.pause();
+                audioMapa.pause();
+                botonAudio.style.borderColor = "rgba(212, 175, 55, 0.6)"; // Regresa a dorado
             }
         });
     }
 
-    // Sonido para botones normales y niveles
+    // B) AL DAR CLIC EN "INICIAR JUEGO" (Cambia de inicio.mp3 a mapa.mp3)
+    if (botonIniciar) {
+        botonIniciar.addEventListener("click", () => {
+            enPantallaInicio = false; // Pasamos al mapa
+            reproducirMusicaActual();
+        });
+    }
+
+    // C) DESTELLOS EN PANTALLA DE INICIO
+    if (pantallaInicio) {
+        pantallaInicio.addEventListener("click", (event) => {
+            // Si le dan clic a un botón, no suena el destello
+            if (event.target.tagName === "BUTTON" || event.target.closest("button")) return;
+            reproducirDestellos();
+        });
+    }
+
+    // D) EFECTO DE CLIC A TODOS LOS BOTONES Y NIVELES
     const elementosInteractivos = document.querySelectorAll("button, .nivel");
     elementosInteractivos.forEach(item => {
         item.addEventListener("click", () => {
             reproducirEfecto();
         });
     });
-
-    // NUEVO: Detectar clics en la pantalla de inicio para disparar el sonido de los destellos
-    const pantallaInicio = document.getElementById("pantallaInicio");
-    if (pantallaInicio) {
-        pantallaInicio.addEventListener("click", (event) => {
-            // Evitamos que suene doble si le dan clic directo a un botón dentro del inicio
-            if (event.target.tagName === "BUTTON" || event.target.closest("button")) return;
-            reproducirDestellos();
-        });
-    }
 });
