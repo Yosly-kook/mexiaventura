@@ -820,24 +820,12 @@ button {
     align-items: center;
     min-height: 180px;
 }
-#personajeIntro {
-    display: block;
-    width: auto;
-    max-width: min(300px, 75vw);
-    max-height: 36vh;
+
+#videoBienvenida {
+    width: min(600px, 80vw);
+    height: auto;
+    max-height: 55vh;
     object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(250, 173, 31, 0.3));
-    animation: respirarPersonaje 3s ease-in-out infinite;
-}
-
-@keyframes respirarPersonaje {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
 }
 
 .dialogo-bienvenida {
