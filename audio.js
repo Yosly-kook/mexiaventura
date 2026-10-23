@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // D) EFECTO DE CLIC EN TODOS LOS BOTONES Y NIVELES
-    const elementosInteractivos = document.querySelectorAll("button, .nivel");
+    const elementosInteractivos = document.querySelectorAll("button, .nivel, .btn-flotante");
     elementosInteractivos.forEach(item => {
         item.addEventListener("click", () => {
             reproducirEfecto();
