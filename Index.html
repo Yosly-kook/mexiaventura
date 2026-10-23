@@ -70,12 +70,14 @@
         <!-- CONTENEDOR DE PARTÍCULAS/DECORACIONES AL HACER CLIC -->
         <div id="decoraciones"></div>
     </main>
-
+    
     <!-- ==========================================
          1.5. BIENVENIDA CINEMATOGRÁFICA
          ========================================== -->
     <section id="escenaBienvenida" class="escena-bienvenida" style="display: none;">
-
+<audio id="vozPersonaje" preload="auto">
+    <source src="audio/personaje bienvenida voz.mp3" type="audio/mpeg">
+</audio>
         <!-- Fondo de la escena -->
         <div class="fondo-cinematico"></div>
         <div class="velo-cinematico"></div>
@@ -85,10 +87,12 @@
 
             <p class="subtitulo-bienvenida">✦ UNA NUEVA AVENTURA COMIENZA ✦</p>
 
-            <!-- Aquí aparecerá el personaje que ustedes diseñaron -->
-            <div class="personaje-bienvenida">
-                <img id="personajeIntro" src="img/personaje.png" alt="Guía de MexiAventura">
-            </div>
+        <!-- Personaje de la bienvenida -->
+        <div class="personaje-bienvenida">
+             <video id="videoBienvenida" playsinline preload="auto" style="display: none;">
+                <source src="videos/personaje-bienvenida.webm" type="video/webm">
+             </video>
+        </div>
 
             <div class="dialogo-bienvenida">
                 <h1>¡Bienvenido a MexiAventura!</h1>
@@ -115,6 +119,9 @@
          2. PANTALLA DEL MAPA DE NIVELES
          ========================================== -->
     <div id="pantallaMapa" style="display: none;">
+<!-- Canvas para las hojas verdes que caen sobre el mapa -->
+        <canvas id="leaf-canvas"></canvas>
+
         <!-- TÍTULO EN EL MAPA -->
         <div class="titulo">
             <h1>MEXI AVENTURA</h1>
@@ -150,8 +157,8 @@
         <!-- Información principal -->
         <p id="textoNivel" class="card-descripcion"></p>
         
-        <!-- Título del Dato Histórico -->
-        <h3 class="fact-title">✦ DATO HISTÓRICO ✦</h3>
+       <!-- Título del Dato Histórico / Legendario dinámico -->
+        <h3 id="tituloFact" class="fact-title">✦ DATO HISTÓRICO ✦</h3>    
         
         <!-- Info del dato histórico -->
         <p id="datoNivel" class="card-descripcion"></p>
@@ -193,7 +200,7 @@
 
 </div>
 
-
+<script src="audio.js"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>

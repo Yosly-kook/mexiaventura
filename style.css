@@ -159,10 +159,11 @@ button {
     font-weight: 900;
     font-size: clamp(3rem, 8vw, 5.5rem);
     line-height: 0.9;
-    background: linear-gradient(to bottom, #fac637, #ecb017, #c0810c);
+    background: linear-gradient(to bottom, #ffe680 0%, #fac637 35%, #ecb017 70%, #c0810c 100%);
     -webkit-background-clip: text;
     color: transparent;
-    text-shadow: 0 0 15px rgba(240, 192, 64, 0.25);
+    text-shadow:0 0 15px rgba(240, 192, 64, 0.25);
+    animation: aparecer-arriba 0.7s ease, brillo 3s infinite;
     animation: aparecer-arriba 0.7s ease, brillo 3s infinite;
 }
 
@@ -420,17 +421,28 @@ button {
     animation: aparecer 0.3s ease;
 }
 
-/* IMAGEN FLOTANTE LIBRE EN LA ESQUINA INFERIOR DERECHA */
+    /* IMAGEN DE FONDO / MARCA DE AGUA CENTRADA */
 .img-esquina-derecha {
     position: absolute;
-    bottom: 12px;
-    right: -22px;
-    width: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la imagen de forma exacta en el medio */
+    width: 65%;                       /* Un tamaño perfecto que llena el fondo sin estorbar */
     height: auto;
     object-fit: contain;
-    pointer-events: none; /* Para que no estorbe si le dan clic encima */
-    filter: drop-shadow(0 0 8px rgba(240, 192, 64, 0.5));
-    opacity: 0.9;
+    z-index: 1;                       /* Detrás del texto, pero dentro de la tarjeta */
+    opacity: 0.35;                    /* Transparencia ideal para que las letras se lean al 100% */
+    filter: contrast(1.1) saturate(1.1); /* Esto aviva un poco los colores y la hace destacar más */
+    pointer-events: none;             /* Evita que bloquee clics en el texto o botones */
+}
+
+/* ASEGURAR QUE EL TEXTO ESTÉ POR ENCIMA DE LA IMAGEN */
+.contenido-modal-neon h2,
+.contenido-modal-neon p,
+.contenido-modal-neon h3,
+.contenido-modal-neon button {
+    position: relative;
+    z-index: 2; /* Todo el texto flota con claridad por encima de la ilustración */
 }
 
 .contenido-modal-neon h2 {
@@ -537,10 +549,16 @@ button {
 }
 
 @keyframes brillo {
-    0%, 100% { filter: drop-shadow(0 0 5px rgba(240, 192, 64, 0.3)); }
-    50% { filter: drop-shadow(0 0 18px rgba(240, 192, 64, 0.8)); }
-}
+    0%, 100% {
+        filter: drop-shadow(0 0 5px rgba(240, 192, 64, 0.35));
+    }
 
+    50% {
+        filter:
+            drop-shadow(0 0 10px rgba(240, 192, 64, 0.85))
+            drop-shadow(0 0 22px rgba(240, 192, 64, 0.55));
+    }
+}
 @keyframes aparecer {
     from { transform: scale(0.7); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
@@ -836,24 +854,11 @@ button {
     min-height: 180px;
 }
 
-#personajeIntro {
-    display: block;
-    width: auto;
-    max-width: min(300px, 75vw);
-    max-height: 36vh;
+#videoBienvenida {
+    width: min(600px, 80vw);
+    height: auto;
+    max-height: 55vh;
     object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(250, 173, 31, 0.3));
-    animation: respirarPersonaje 3s ease-in-out infinite;
-}
-
-@keyframes respirarPersonaje {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
 }
 
 .dialogo-bienvenida {
@@ -936,4 +941,20 @@ button {
     .dialogo-bienvenida {
         padding: 18px;
     }
+}
+/* ==========================================
+   CANVAS DE HOJAS VERDES PARA EL MAPA
+   ========================================== */
+#pantallaMapa {
+    position: relative; /* Asegura posicionamiento correcto */
+}
+
+#leaf-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Flota sobre el fondo del camino pero por debajo de botones y textos */
+    pointer-events: none; /* Permite hacer clic en los botones del mapa sin interrupción */
 }
