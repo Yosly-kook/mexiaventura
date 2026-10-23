@@ -159,10 +159,11 @@ button {
     font-weight: 900;
     font-size: clamp(3rem, 8vw, 5.5rem);
     line-height: 0.9;
-    background: linear-gradient(to bottom, #fac637, #ecb017, #c0810c);
+    background: linear-gradient(to bottom, #ffe680 0%, #fac637 35%, #ecb017 70%, #c0810c 100%);
     -webkit-background-clip: text;
     color: transparent;
-    text-shadow: 0 0 15px rgba(240, 192, 64, 0.25);
+    text-shadow:0 0 15px rgba(240, 192, 64, 0.25);
+    animation: aparecer-arriba 0.7s ease, brillo 3s infinite;
     animation: aparecer-arriba 0.7s ease, brillo 3s infinite;
 }
 
@@ -522,10 +523,16 @@ button {
 }
 
 @keyframes brillo {
-    0%, 100% { filter: drop-shadow(0 0 5px rgba(240, 192, 64, 0.3)); }
-    50% { filter: drop-shadow(0 0 18px rgba(240, 192, 64, 0.8)); }
-}
+    0%, 100% {
+        filter: drop-shadow(0 0 5px rgba(240, 192, 64, 0.35));
+    }
 
+    50% {
+        filter:
+            drop-shadow(0 0 10px rgba(240, 192, 64, 0.85))
+            drop-shadow(0 0 22px rgba(240, 192, 64, 0.55));
+    }
+}
 @keyframes aparecer {
     from { transform: scale(0.7); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
@@ -820,24 +827,12 @@ button {
     align-items: center;
     min-height: 180px;
 }
-#personajeIntro {
-    display: block;
-    width: auto;
-    max-width: min(300px, 75vw);
-    max-height: 36vh;
+
+#videoBienvenida {
+    width: min(600px, 80vw);
+    height: auto;
+    max-height: 55vh;
     object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(250, 173, 31, 0.3));
-    animation: respirarPersonaje 3s ease-in-out infinite;
-}
-
-@keyframes respirarPersonaje {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
 }
 
 .dialogo-bienvenida {
