@@ -262,7 +262,7 @@ const niveles = {
         imagen: "img/encuentro.png"
     },
     8: {
-        titulo: "La matanza del Templo Mayor",
+        titulo: "La matanza en el Templo Mayor",
         fecha: "Mayo de 1520",
         texto: "Durante la fiesta de Tóxcatl, las tropas de Pedro de Alvarado atacaron a participantes mexicas, provocando una grave crisis y aumentó la resistencia contra los españoles.",
         factTitle: "✦ CLAVE HISTÓRICA ✦",
