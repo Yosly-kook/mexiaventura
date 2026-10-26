@@ -961,6 +961,86 @@ button {
     z-index: 2; /* Flota sobre el fondo del camino pero por debajo de botones y textos */
     pointer-events: none; /* Permite hacer clic en los botones del mapa sin interrupción */
 }
+<<<<<<< HEAD
+/* ==========================================
+   MENÚ FLOTANTE LATERAL DERECHO (CORREGIDO)
+   ========================================== */
+.menu-flotante-mapa {
+  position: fixed;
+  top: 120px;           /* Altura en la zona superior derecha */
+  right: 0;              /* Pegado al borde derecho de la pantalla */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;             /* Espacio fijo entre botones */
+  z-index: 1000;         
+  align-items: flex-end; /* ¡Clave! Mantiene los botones alineados al borde derecho */
+}
+
+.btn-flotante {
+  position: relative;    /* Para que el texto se posicione de forma independiente */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Alinea todo hacia la derecha */
+  height: 50px;
+  width: 60px;           /* Ancho fijo: solo se ve el ícono */
+  border-radius: 25px 0 0 25px; /* Curva elegante del lado izquierdo */
+  text-decoration: none;
+  color: #ffffff;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.4);
+  transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.27);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* EFECTO HOVER: Solo se expande el botón sobre el que pones el cursor */
+.btn-flotante:hover {
+  width: 190px;          /* Se abre hacia la izquierda de forma autónoma */
+}
+
+.icono-btn {
+  position: absolute;    /* Mantiene el ícono estático en su lugar a la derecha */
+  right: 0;
+  width: 60px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.texto-btn {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  margin-right: 65px;    /* Deja espacio exacto para que el texto quede ordenado junto al ícono */
+}
+
+.btn-flotante:hover .texto-btn {
+  opacity: 1;            /* Aparece el texto solo en el botón activo */
+}
+
+/* Colores temáticos para cada botón */
+.btn-inicio {
+  background: linear-gradient(135deg, #f0c040, #b8861a);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+}
+
+.btn-ajustes {
+  background: linear-gradient(135deg, #c65d3a, #8b3a1a) ;
+  border: 1px solid rgba(240, 192, 64, 0.6);
+}
+
+.btn-logros {
+  background: linear-gradient(135deg, #159a9c, #32c5c7);
+  border: 1px solid rgba(0, 255, 170, 0.6);
+}
+
+.btn-ayuda {
+  background: linear-gradient(135deg, #a22b1f, #e95b51);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+=======
 /* BRILLO DORADO DEL BOTÓN INICIAR */
 .btn-iniciar {
     animation:
@@ -1013,4 +1093,5 @@ button {
             drop-shadow(0 0 10px #d9a52e);
         opacity: 1;
     }
+>>>>>>> ebde138d1009818f09a309327eb30b637bbe5e92
 }
