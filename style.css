@@ -961,7 +961,7 @@ button {
     z-index: 2; /* Flota sobre el fondo del camino pero por debajo de botones y textos */
     pointer-events: none; /* Permite hacer clic en los botones del mapa sin interrupción */
 }
-<<<<<<< HEAD
+
 /* ==========================================
    MENÚ FLOTANTE LATERAL DERECHO (CORREGIDO)
    ========================================== */
