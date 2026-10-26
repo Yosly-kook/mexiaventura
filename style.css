@@ -147,7 +147,7 @@ button {
     font-family: "Cinzel", serif;
     font-size: 20px;
     letter-spacing: 0.35em;
-    color: #d4a017;
+    color: #f8ba1d;
     margin-bottom: 10px;
     animation: aparecer-arriba 0.7s ease forwards;
 }
@@ -193,8 +193,8 @@ button {
 .tagline {
     font-family: "Crimson Text", serif;
     font-style: italic;
-    font-size: 20px;
-    color: rgba(252, 251, 249, 0.75);
+    font-size: 30px;
+    color: rgba(252, 251, 249, 0.863);
     margin: 0 0 30px;
 }
 
@@ -204,14 +204,16 @@ button {
     cursor: pointer;
     padding: 18px 45px;
     font-family: "Cinzel", serif;
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: 0.15em;
-    color: #0a0805;
-    background: linear-gradient(135deg, #f0c040, #d4a017, #b8861a);
+    color: #383837;
+    background: linear-gradient(135deg, #dbaa23, #f0ba33, #b8861a);
     clip-path: polygon(10% 0, 90% 0, 100% 25%, 100% 75%, 90% 100%, 10% 100%, 0 75%, 0 25%);
     box-shadow: 0 0 25px rgba(240, 192, 64, 0.4);
     transition: 0.3s;
     animation: aparecer-abajo 0.7s ease 0.5s backwards;
+    filter: none;
+    isolation: isolate;
 }
 
 .btn-iniciar:hover {
@@ -959,6 +961,7 @@ button {
     z-index: 2; /* Flota sobre el fondo del camino pero por debajo de botones y textos */
     pointer-events: none; /* Permite hacer clic en los botones del mapa sin interrupción */
 }
+<<<<<<< HEAD
 /* ==========================================
    MENÚ FLOTANTE LATERAL DERECHO (CORREGIDO)
    ========================================== */
@@ -1037,4 +1040,58 @@ button {
 .btn-ayuda {
   background: linear-gradient(135deg, #a22b1f, #e95b51);
   border: 1px solid rgba(212, 175, 55, 0.5);
+=======
+/* BRILLO DORADO DEL BOTÓN INICIAR */
+.btn-iniciar {
+    animation:
+        aparecer-abajo 0.7s ease 0.5s backwards,
+        brillo-dorado 2s ease-in-out 1.2s infinite;
+}
+
+/*BRILLO DORADO DEGRADADO EN BTN INICIO DEL MENÚ */
+.btn-iniciar {
+    position: relative;
+    isolation: isolate;
+    overflow: visible;
+    z-index: 1;
+}
+
+.btn-iniciar::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    padding: 4px;
+    border-radius: 2px;
+
+    background: linear-gradient(
+        135deg,
+        #fff6cc,
+        #d6a333,
+        #fff0a3,
+        #bd841c
+    );
+
+    clip-path: polygon(
+        10% 0, 90% 0, 100% 25%, 100% 75%,
+        90% 100%, 10% 100%, 0 75%, 0 25%
+    );
+
+    z-index: -1;
+    opacity: 0.9;
+    animation: borde-pulsante 2s ease-in-out infinite;
+}
+
+@keyframes borde-pulsante {
+    0%, 100% {
+        filter: drop-shadow(0 0 3px #e3b84c);
+        opacity: 0.75;
+    }
+
+    50% {
+        filter:
+            drop-shadow(0 0 5px #ffe9a0)
+            drop-shadow(0 0 10px #d9a52e);
+        opacity: 1;
+    }
+>>>>>>> ebde138d1009818f09a309327eb30b637bbe5e92
 }
