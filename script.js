@@ -206,7 +206,7 @@ document.addEventListener("click", function(event) {
 const niveles = {
     1: {
         titulo: "El auge de la cultura olmeca",
-        fecha: "1200–400 a. C.",
+        fecha: "1200–400 d.n.e.(fecha aproximada)",
         texto: "Los olmecas construyeron centros ceremoniales, cultivaron maíz y crearon esculturas monumentales incluidas las famosas cabezas colosales. Su cultura influyó en otros pueblos mesoamericanos.",
         factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "Son considerados una de las primeras grandes civilizaciones mesoamericanas.",
@@ -214,15 +214,15 @@ const niveles = {
     },
     2: {
         titulo: "El esplendor de Teotihuacán",
-        fecha: "100–650 d. C.",
+        fecha: "100–650 d.n.e.(fecha aproximado)",
         texto: "Teotihuacán fue una gran ciudad con impresionantes pirámides, barrios organizados y extensas redes comerciales que conectaban distintas regiones.",
         factTitle: "✦ DATO LEGENDARIO ✦",
-        dato: "Su nombre en náhuatl suele interpretarse como <<Lugar donde nacen los dioses>>.",
+        dato: "Su nombre en náhuatl suele interpretarse como <<Lugar donde fueron hechos los dioses>>.",
         imagen: "img/teoticuacán.png"
     },
     3: {
         titulo: "La transformación de las ciudades mayas",
-        fecha: "800–900 d. C.",
+        fecha: "800–900 d.n.e.",
         texto: "Numerosas ciudades mayas de las tierras bajas del sur perdieron población y poder. Las sequías, los conflictos y otros factores contribuyeron a estos cambios.",
         factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "La civilización maya no desapareció: sus pueblos y culturas continúan vivos.",
@@ -230,7 +230,7 @@ const niveles = {
     },
     4: {
         titulo: "La fundación de Tenochtitlan",
-        fecha: "1325 d. C. (fecha tradicional)",
+        fecha: "1325 d.n.e.(fecha tradicional)",
         texto: "Los mexicas fundaron México-Tenochtitlan en un islote del lago de Texcoco. La tradición relata la señal de un águila sobre un nopal coo símbolo de su destino.",
         factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "La ciudad se convirtió en un importante centro político y económico de un poderoso imperio.",
@@ -238,7 +238,7 @@ const niveles = {
     },
     5: {
         titulo: "La Triple Alianza",
-        fecha: "1428 d. C.",
+        fecha: "1428 d.n.e.",
         texto: "Tenochtitlan, Texcoco y Tlacopan formaron una alianza política y militar. Juntos expandieron su infliencia y establecieron tributos sobre numerosos pueblos.",
         factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "La alinaza cambió el equilibrio de poder en Mesoamérica, aunque Tenochtitlan llegó a ejercer una posición dominante.",
