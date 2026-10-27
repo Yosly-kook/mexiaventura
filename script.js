@@ -245,7 +245,7 @@ const niveles = {
         imagen: "img/Talianza.png"
         
     },
-    6: {
+    7: {
         titulo: "La alianza de Tlaxcala",
         fecha: "Septiembre de 1519",
         texto: "Tras enfrentamientos con los españoles, los tlaxcaltecas establecieron una alianza con Hernán Cortés y participaron en las campañas contra los mexicas.",
@@ -253,7 +253,7 @@ const niveles = {
         dato: "La Conquista involucró alianzas indígenas, rivalidades políticas y diversos intereses.",
         imagen: "img/alianza.png"
     },
-    7: {
+    8: {
         titulo: "El encuentro en Tenochtitlan",
         fecha: "8 de noviembre de 1519",
         texto: "Moctezuma Xocoyotzin recibió a Hernán Cortés en la capital mexica. El encuentro dio paso a una relación tensa que pronto se transformarías en conflicto.",
@@ -261,7 +261,7 @@ const niveles = {
         dato: "Tenochtitlan impresionó por sus calzadas, canales y grandes construcciones.",
         imagen: "img/encuentro.png"
     },
-    8: {
+    9: {
         titulo: "La matanza en el Templo Mayor",
         fecha: "Mayo de 1520",
         texto: "Durante la fiesta de Tóxcatl, las tropas de Pedro de Alvarado atacaron a participantes mexicas, provocando una grave crisis y aumentó la resistencia contra los españoles.",
@@ -269,7 +269,7 @@ const niveles = {
         dato: "El ataque agravó el conflicto dentro de Tenochtitlan.",
         imagen: "img/matanza.png"
     },
-    9: {
+    10: {
         titulo: "La Noche Triste",
         fecha: "30 de junio–1 de julio de 1520",
         texto: "Los españoles y sus aliados intentaron escapar de Tenochtitlan durante la noche, pero fueron descubiertos mientras cruzaban las calzadas y sufrieron grandes pérdidas.",
@@ -277,7 +277,7 @@ const niveles = {
         dato: "Cuitláhuac asumió el liderazgo mexica tras la muerte de Moctezuma.",
         imagen:"img/nochetriste.png"
     },
-    10: {
+    11: {
         titulo: "La caída de Tenochtitlan",
         fecha: "13 de agosto de 1521",
         texto: "Después de un asedio por tierra y agua, las fuerzas españolas y sus aliados indígenas conquistaron Tenochtitlan. Las epidemias, la falta de alimentos y los combates contribuyeron a la caída. Cuahutémoc fue capturado.",

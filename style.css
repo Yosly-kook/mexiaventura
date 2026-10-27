@@ -1027,23 +1027,42 @@ button {
 /* Colores temáticos para cada botón */
 .btn-inicio {
   background: linear-gradient(135deg, #f0c040, #b8861a);
+  background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(212, 175, 55, 0.5);
+  cursor: pointer;
+}
+.btn-inicio:hover{
+    background: rgba(212, 175, 55, 0.30);
+    border-color: rgba(212, 175, 55, 1);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.45), inset 0 0 8px rgba(212, 175, 55, 0.15);
+    transform: translateY(-2px);
 }
 
 .btn-ajustes {
-  background: linear-gradient(135deg, #c65d3a, #8b3a1a) ;
-  border: 1px solid rgba(240, 192, 64, 0.6);
-}
-
-.btn-logros {
-  background: linear-gradient(135deg, #159a9c, #32c5c7);
-  border: 1px solid rgba(0, 255, 170, 0.6);
-}
-
-.btn-ayuda {
-  background: linear-gradient(135deg, #a22b1f, #e95b51);
+  background: linear-gradient(135deg, #f0c040, #b8861a);
+  background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(212, 175, 55, 0.5);
+  cursor: pointer;
 }
+.btn-ajustes:hover{
+       background: rgba(212, 175, 55, 0.30);
+    border-color: rgba(212, 175, 55, 1);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.45), inset 0 0 8px rgba(212, 175, 55, 0.15);
+    transform: translateY(-2px); 
+}
+.btn-logros {
+  background: linear-gradient(135deg, #f0c040, #b8861a);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  cursor: pointer;
+}
+.btn-logros:hover{
+    background: rgba(212, 175, 55, 0.30);
+    border-color: rgba(212, 175, 55, 1);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.45), inset 0 0 8px rgba(212, 175, 55, 0.15);
+    transform: translateY(-2px);
+}
+
 /* BRILLO DORADO DEL BOTÓN INICIAR */
 .btn-iniciar {
     animation:
