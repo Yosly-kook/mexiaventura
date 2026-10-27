@@ -90,7 +90,7 @@
         <!-- Personaje de la bienvenida -->
         <div class="personaje-bienvenida">
              <video id="videoBienvenida" playsinline preload="auto" style="display: none;">
-                <source src="videos/personaje-bienvenida.webm" type="video/webm">
+                <source src="videos/personaje-bienvenida.webm" type="video/webm" title="¡Hola! Mi nombre es Pablito">
              </video>
         </div>
 
@@ -224,6 +224,55 @@
     </div>
 
 </div>
+
+<!-- ESCENA CINEMATOGRÁFICA DE DESPEDIDA DE PABLITO -->
+<section id="escenaDespedida" class="escena-despedida" style="display: none;">
+
+    <!-- Fondo de la despedida -->
+    <div class="fondo-despedida"></div>
+    <div class="velo-despedida"></div>
+
+    <!-- Contenido de la despedida -->
+    <div class="contenido-despedida">
+
+        <p class="subtitulo-despedida">
+            ✦ EL FIN DE UNA GRAN AVENTURA ✦
+        </p>
+
+        <!-- Personaje Pablito -->
+    <div class="personaje-despedida">
+        <video
+            id="videoDespedidaPablito"
+            src="videos/pablito-despedida.mp4"
+            playsinline
+            muted
+            loop
+            preload="auto"
+            aria-label="Pablito despidiéndose con la mano">
+        </video>
+    </div>
+
+
+        <!-- Diálogo final -->
+        <div class="dialogo-despedida">
+            <h1>¡Hasta la próxima, explorador!</h1>
+
+            <p id="textoDespedida">
+                Gracias por acompañarme en este viaje
+                por la historia de México.
+                Las grandes leyendas nunca terminan.
+            </p>
+
+            <p class="firma-despedida">— Pablito, tu guía</p>
+        </div>
+
+        <button id="botonCerrarDespedida" class="boton-cerrar-despedida">
+            CERRAR AVENTURA
+        </button>
+
+    </div>
+
+</section>
 
 <script src="audio.js"></script>
 

@@ -329,13 +329,20 @@ if (modalNivel) {
         }
     });
 }
-//5.CONTROL DE LA VENTANA SALIR
+
+ // ==========================================
+ // 5. CONTROL DE SALIDA Y DESPEDIDA DE PABLITO
+ // ==========================================
+
 const botonSalir = document.getElementById("botonSalir");
 const ventanaSalir = document.getElementById("ventanaSalir");
 const botonQuedarse = document.getElementById("botonQuedarse");
 const confirmarSalir = document.getElementById("confirmarSalir");
 
-//Abrir la ventana de confirmación
+const escenaDespedida = document.getElementById("escenaDespedida");
+const botonCerrarDespedida = document.getElementById("botonCerrarDespedida");
+
+// Abrir la ventana de confirmación
 if (botonSalir && ventanaSalir) {
     botonSalir.addEventListener("click", function(event) {
         event.stopPropagation();
@@ -343,29 +350,75 @@ if (botonSalir && ventanaSalir) {
     });
 }
 
-// Cerrar la ventana de confirmación y continuar jugando
+// Cerrar la confirmación y continuar jugando
 if (botonQuedarse && ventanaSalir) {
     botonQuedarse.addEventListener("click", function() {
         ventanaSalir.style.display = "none";
     });
 }
 
-// Confirmar salida (Regresar a la pantalla de inicio)
-if (confirmarSalir && ventanaSalir) {
+// Confirmar salida y mostrar la despedida
+if (confirmarSalir && ventanaSalir && escenaDespedida) {
     confirmarSalir.addEventListener("click", function() {
+
         ventanaSalir.style.display = "none";
-        
-        // Ocultar bienvenida y mapa
+
         const bienvenida = document.getElementById("escenaBienvenida");
         const pantallaMapa = document.getElementById("pantallaMapa");
         const pantallaInicio = document.getElementById("pantallaInicio");
 
+        // Ocultar las pantallas anteriores
         if (bienvenida) bienvenida.style.display = "none";
         if (pantallaMapa) pantallaMapa.style.display = "none";
-        
-        // Mostrar de nuevo el menú principal
-        if (pantallaInicio) {
-            pantallaInicio.style.display = "flex";
+        if (pantallaInicio) pantallaInicio.style.display = "none";
+
+        // Detener el audio de la bienvenida
+        const vozBienvenida = document.getElementById("vozPersonaje");
+        if (vozBienvenida) {
+            vozBienvenida.pause();
+            vozBienvenida.currentTime = 0;
+        }
+
+        // Mostrar el escenario final
+        escenaDespedida.style.display = "flex";
+
+        if (typeof gsap !== "undefined") {
+            gsap.fromTo(escenaDespedida,
+                { opacity: 0 },
+                { opacity: 1, duration: 1.3 }
+            );
+
+            gsap.fromTo(".contenido-despedida",
+                { opacity: 0, y: 25 },
+                { opacity: 1, y: 0, duration: 1.2, delay: 0.3 }
+            );
+        } else {
+            escenaDespedida.style.opacity = "1";
+        }
+    });
+}
+
+if (botonCerrarDespedida && escenaDespedida) {
+    botonCerrarDespedida.addEventListener("click", function() {
+
+        // Detener cualquier voz que siga reproduciéndose
+        if ("speechSynthesis" in window) {
+            window.speechSynthesis.cancel();
+        }
+
+        const videoFinal = document.getElementById("videoDespedidaPablito");
+
+        // Convertir la escena en la despedida definitiva
+        escenaDespedida.classList.add("despedida-final");
+
+        // Mostrar únicamente a Pablito
+        if (videoFinal) {
+            videoFinal.currentTime = 0;
+            videoFinal.muted = true;
+            videoFinal.loop = true;
+            videoFinal.play().catch(function(error) {
+                console.error("No se pudo reproducir el video final:", error);
+            });
         }
     });
 }
