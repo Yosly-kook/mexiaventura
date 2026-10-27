@@ -1176,10 +1176,10 @@ button {
 #botonCerrarDespedida {
     display: inline-block;
     padding: 14px 30px;
-    border: 1px solid #e4c27a;
+    border: 3px solid #f7bd42;
     border-radius: 6px;
     background: linear-gradient(135deg, #76501f, #392311, #76501f);
-    color: #ffedc5;
+    color: #f5ca6e;
     font-family: 'Cinzel', serif;
     font-size: 14px;
     font-weight: 700;
