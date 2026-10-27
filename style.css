@@ -1040,7 +1040,8 @@ button {
 .btn-ayuda {
   background: linear-gradient(135deg, #a22b1f, #e95b51);
   border: 1px solid rgba(212, 175, 55, 0.5);
-=======
+ }
+
 /* BRILLO DORADO DEL BOTÓN INICIAR */
 .btn-iniciar {
     animation:
@@ -1093,5 +1094,5 @@ button {
             drop-shadow(0 0 10px #d9a52e);
         opacity: 1;
     }
->>>>>>> ebde138d1009818f09a309327eb30b637bbe5e92
-}
+ }
+
