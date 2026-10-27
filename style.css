@@ -350,23 +350,25 @@ button {
 .nivel:nth-child(3)  { background: linear-gradient(#E97850, #C65D3A); }
 .nivel:nth-child(4)  { background: linear-gradient(#32C5C7, #159A9C); }
 .nivel:nth-child(5)  { background: linear-gradient(#F35B9A, #E83E8C); }
-.nivel:nth-child(6)  { background: linear-gradient(#A477D8, #7547A8); }
-.nivel:nth-child(7)  { background: linear-gradient(#E95B51, #C93C35); }
-.nivel:nth-child(8)  { background: linear-gradient(#54B96F, #278A4B); }
-.nivel:nth-child(9)  { background: linear-gradient(#A22B1F, #b64439); }
-.nivel:nth-child(10) { background: linear-gradient(#73C2FB, #7fbfec); }
+.nivel:nth-child(6)   { background: linear-gradient(#f5c92c, #edbc0c); }
+.nivel:nth-child(7)  { background: linear-gradient(#A477D8, #7547A8); }
+.nivel:nth-child(8)  { background: linear-gradient(#E95B51, #C93C35); }
+.nivel:nth-child(9)  { background: linear-gradient(#54B96F, #278A4B); }
+.nivel:nth-child(10)  { background: linear-gradient(#A22B1F, #b64439); }
+.nivel:nth-child(11) { background: linear-gradient(#73C2FB, #7fbfec); }
 
 /* HOVERS MAPA */
-.nivel1:hover  { transform: scale(1.12); border-color: #006847; filter: brightness(1.25); box-shadow: 0 0 8px #00ffaa, 0 0 18px #00ff88, 0 0 30px #00a870, 0 0 45px rgba(0, 168, 84, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
-.nivel2:hover  { transform: scale(1.12); border-color: #d4c81c; filter: brightness(1.25); box-shadow: 0 0 8px #fffb00, 0 0 18px #fbff00, 0 0 30px #a5a800, 0 0 45px rgba(165, 168, 0, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
-.nivel3:hover  { transform: scale(1.12); border-color: #E97850; filter: brightness(1.25); box-shadow: 0 0 8px #ff5e00, 0 0 18px #ff5e00, 0 0 30px #a85f00, 0 0 45px rgba(168, 76, 0, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
-.nivel4:hover  { transform: scale(1.12); border-color: #32C5C7; filter: brightness(1.25); box-shadow: 0 0 8px #00f7ff, 0 0 18px #00fff2, 0 0 30px #00a8a8, 0 0 45px rgba(0, 162, 168, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
-.nivel5:hover  { transform: scale(1.12); border-color: #F35B9A; filter: brightness(1.25); box-shadow: 0 0 8px #ff0095, 0 0 18px #ff00aa, 0 0 30px #a80084, 0 0 45px rgba(168, 0, 126, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
-.nivel6:hover  { transform: scale(1.12); border-color: #A477D8; filter: brightness(1.25); box-shadow: 0 0 8px #8c00ff, 0 0 18px #a200ff, 0 0 30px #8600a8, 0 0 45px rgba(129, 0, 168, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
-.nivel7:hover  { transform: scale(1.12); border-color: #E95B51; filter: brightness(1.25); box-shadow: 0 0 10px #ff0800, 0 0 18px #ff0800, 0 0 30px #ff0800, 0 0 45px rgba(168, 39, 0, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
-.nivel8:hover  { transform: scale(1.12); border-color: #00a870; filter: brightness(1.30); box-shadow: 0 0 10px #00a870, 0 0 20px #00a870, 0 0 30px #00a870, 0 0 50px #019262, 0 9px 0 rgba(0, 0, 0, 0.15); }
-.nivel9:hover  { transform: scale(1.14); border-color: #A22B1F; filter: brightness(1.30); box-shadow: 0 0 10px #ff1500, 0 0 20px #ff1500, 0 0 30px #910c00, 0 0 50px #860b00a8, 0 9px 0 rgba(0, 0, 0, 0.15); }
-.nivel10:hover { transform: scale(1.12); border-color: #73C2FB; filter: brightness(1.30); box-shadow: 0 0 10px #008cff, 0 0 20px #0099ff, 0 0 30px #005791, 0 0 50px #004a86a8, 0 9px 0 rgba(0, 0, 0, 0.15); }
+.nivel1:hover  { transform: scale(1.12); border-color: #006847; filter: brightness(1.25); box-shadow: 0 0 10px #00ffaa, 0 0 18px #00ff88, 0 0 30px #00a870, 0 0 45px rgba(0, 168, 84, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel2:hover  { transform: scale(1.12); border-color: #d4c81c; filter: brightness(1.25); box-shadow: 0 0 10px #fffb00, 0 0 18px #fbff00, 0 0 30px #a5a800, 0 0 45px rgba(165, 168, 0, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel3:hover  { transform: scale(1.12); border-color: #E97850; filter: brightness(1.25); box-shadow: 0 0 10px #ff5e00, 0 0 18px #ff5e00, 0 0 30px #a85f00, 0 0 45px rgba(168, 76, 0, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel4:hover  { transform: scale(1.12); border-color: #32C5C7; filter: brightness(1.25); box-shadow: 0 0 10px #00f7ff, 0 0 18px #00fff2, 0 0 30px #00a8a8, 0 0 45px rgba(0, 162, 168, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel5:hover  { transform: scale(1.12); border-color: #F35B9A; filter: brightness(1.25); box-shadow: 0 0 10px #ff0095, 0 0 18px #ff00aa, 0 0 30px #a80084, 0 0 45px rgba(168, 0, 126, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel6:hover  { transform: scale(1.12); border-color: black; filter: brightness(1.25); box-shadow: 0 0 10px #000000, 0 0 18px #2a292b, 0 0 30px #1e1e1f, 0 0 45px rgba(7, 7, 7, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15);}
+.nivel7:hover  { transform: scale(1.12); border-color: #A477D8; filter: brightness(1.25); box-shadow: 0 0 10px #8c00ff, 0 0 18px #a200ff, 0 0 30px #8600a8, 0 0 45px rgba(129, 0, 168, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel8:hover  { transform: scale(1.12); border-color: #E95B51; filter: brightness(1.25); box-shadow: 0 0 10px #ff0800, 0 0 18px #ff0800, 0 0 30px #ff0800, 0 0 45px rgba(168, 39, 0, 0.6), 0 7px 0 rgba(0, 0, 0, 0.15); }
+.nivel9:hover  { transform: scale(1.12); border-color: #00a870; filter: brightness(1.30); box-shadow: 0 0 10px #00a870, 0 0 20px #00a870, 0 0 30px #00a870, 0 0 50px #019262, 0 9px 0 rgba(0, 0, 0, 0.15); }
+.nivel10:hover  { transform: scale(1.14); border-color: #A22B1F; filter: brightness(1.30); box-shadow: 0 0 10px #ff1500, 0 0 20px #ff1500, 0 0 30px #910c00, 0 0 50px #860b00a8, 0 9px 0 rgba(0, 0, 0, 0.15); }
+.nivel11:hover { transform: scale(1.12); border-color: #73C2FB; filter: brightness(1.30); box-shadow: 0 0 10px #008cff, 0 0 20px #0099ff, 0 0 30px #005791, 0 0 50px #004a86a8, 0 9px 0 rgba(0, 0, 0, 0.15); }
 
 /* POSICIONES DE ESCRITORIO */
 .nivel1  { left: 14%; top: 78%; }
@@ -374,11 +376,12 @@ button {
 .nivel3  { left: 41%; top: 73%; }
 .nivel4  { left: 58%; top: 74%; }
 .nivel5  { left: 73%; top: 68%; }
-.nivel6  { left: 83%; top: 50%; }
-.nivel7  { left: 64%; top: 49%; }
-.nivel8  { left: 42%; top: 51%; }
-.nivel9  { left: 24%; top: 46%; }
-.nivel10 { left: 12%; top: 26%; }
+.nivel6  { left: 90%; top: 11%; }
+.nivel7  { left: 73%; top: 49%; }
+.nivel8  { left: 52%; top: 55%; }
+.nivel9  { left: 30%; top: 48%; }
+.nivel10  { left: 22%; top: 25%; }
+.nivel11 { left: 15%; top: -9%; }
 
 .estrellas {
     position: absolute;
@@ -1040,7 +1043,7 @@ button {
 .btn-ayuda {
   background: linear-gradient(135deg, #a22b1f, #e95b51);
   border: 1px solid rgba(212, 175, 55, 0.5);
-=======
+}
 /* BRILLO DORADO DEL BOTÓN INICIAR */
 .btn-iniciar {
     animation:
