@@ -1043,12 +1043,9 @@ button {
 .btn-ayuda {
   background: linear-gradient(135deg, #a22b1f, #e95b51);
   border: 1px solid rgba(212, 175, 55, 0.5);
-<<<<<<< HEAD
+
  }
 
-=======
-}
->>>>>>> 36aa1e3b4de9e8b4d7e4e2259f5e81e042ff4e73
 /* BRILLO DORADO DEL BOTÓN INICIAR */
 .btn-iniciar {
     animation:
@@ -1101,12 +1098,9 @@ button {
             drop-shadow(0 0 10px #d9a52e);
         opacity: 1;
     }
-<<<<<<< HEAD
+
  }
 
-=======
-
-}
 
 /* PABLITO EN LA DESPEDIDA FINAL */
 .personaje-despedida {
@@ -1185,4 +1179,4 @@ button {
     transform: translateY(-2px);
 
 }
->>>>>>> 36aa1e3b4de9e8b4d7e4e2259f5e81e042ff4e73
+
