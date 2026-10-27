@@ -90,7 +90,7 @@
         <!-- Personaje de la bienvenida -->
         <div class="personaje-bienvenida">
              <video id="videoBienvenida" playsinline preload="auto" style="display: none;">
-                <source src="videos/personaje-bienvenida.webm" type="video/webm">
+                <source src="videos/personaje-bienvenida.webm" type="video/webm" title="¡Hola! Mi nombre es Pablito">
              </video>
         </div>
 
@@ -127,22 +127,22 @@
       <!-- Botón 1: Menú / Inicio -->
       <a href="#" class="btn-flotante btn-inicio">
         <span class="texto-btn">Menú Principal</span>
-        <span class="icono-btn">🏠</span>
+        <span class="icono-btn"></span>
       </a>
       <!-- Botón 2: Ajustes -->
       <a href="#" class="btn-flotante btn-ajustes">
         <span class="texto-btn">Ajustes</span>
-        <span class="icono-btn">⚙️</span>
+        <span class="icono-btn"></span>
       </a>
       <!-- Botón 3: Logros / Niveles -->
       <a href="#" class="btn-flotante btn-logros">
         <span class="texto-btn">Mis Logros</span>
-        <span class="icono-btn">🏆</span>
+        <span class="icono-btn"></span>
       </a>
       <!-- Botón 4: Ayuda / Historia -->
       <a href="#" class="btn-flotante btn-ayuda">
         <span class="texto-btn">Guía del Juego</span>
-        <span class="icono-btn">📜</span>
+        <span class="icono-btn"></span>
       </a>
     </div>
 
@@ -159,11 +159,12 @@
             <button class="nivel nivel3" onclick="abrirNivel(3)">3 <span class="estrellas">⭐⭐⭐</span></button>
             <button class="nivel nivel4" onclick="abrirNivel(4)">4 <span class="estrellas">⭐⭐⭐</span></button>
             <button class="nivel nivel5" onclick="abrirNivel(5)">5 <span class="estrellas">⭐⭐⭐</span></button>
-            <button class="nivel nivel6" onclick="abrirNivel(6)">6 <span class="estrellas">⭐⭐⭐</span></button>
-            <button class="nivel nivel7" onclick="abrirNivel(7)">7 <span class="estrellas">⭐⭐⭐</span></button>
-            <button class="nivel nivel8" onclick="abrirNivel(8)">8 <span class="estrellas">⭐⭐⭐</span></button>
-            <button class="nivel nivel9" onclick="abrirNivel(9)">9 <span class="estrellas">⭐⭐⭐</span></button>
-            <button class="nivel nivel10" onclick="abrirNivel(10)">10 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel6" onclick="abrirNivel(6)">⭐</button>
+            <button class="nivel nivel7" onclick="abrirNivel(7)">6 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel8" onclick="abrirNivel(8)">7 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel9" onclick="abrirNivel(9)">8 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel10" onclick="abrirNivel(10)">9 <span class="estrellas">⭐⭐⭐</span></button>
+            <button class="nivel nivel11" onclick="abrirNivel(11)">10 <span class="estrellas">⭐⭐⭐</span></button>
         </div>
 
         <!-- VENTANA MODAL (INFORMACIÓN DEL NIVEL) -->
@@ -224,6 +225,57 @@
 
 </div>
 
+<<<<<<< HEAD
+=======
+<!-- ESCENA CINEMATOGRÁFICA DE DESPEDIDA DE PABLITO -->
+<section id="escenaDespedida" class="escena-despedida" style="display: none;">
+
+    <!-- Fondo de la despedida -->
+    <div class="fondo-despedida"></div>
+    <div class="velo-despedida"></div>
+
+    <!-- Contenido de la despedida -->
+    <div class="contenido-despedida">
+
+        <p class="subtitulo-despedida">
+            ✦ EL FIN DE UNA GRAN AVENTURA ✦
+        </p>
+
+        <!-- Personaje Pablito -->
+    <div class="personaje-despedida">
+        <video
+            id="videoDespedidaPablito"
+            src="videos/pablito-despedida.mp4"
+            playsinline
+            muted
+            loop
+            preload="auto"
+            aria-label="Pablito despidiéndose con la mano">
+        </video>
+    </div>
+
+
+        <!-- Diálogo final -->
+        <div class="dialogo-despedida">
+            <h1>¡Hasta la próxima, explorador!</h1>
+
+            <p id="textoDespedida">
+                Gracias por acompañarme en este viaje
+                por la historia de México.
+                Las grandes leyendas nunca terminan.
+            </p>
+
+            <p class="firma-despedida">— Pablito, tu guía</p>
+        </div>
+
+        <button id="botonCerrarDespedida" class="boton-cerrar-despedida">
+            CERRAR AVENTURA
+        </button>
+
+    </div>
+
+</section>
+>>>>>>> 36aa1e3b4de9e8b4d7e4e2259f5e81e042ff4e73
 
 <script src="audio.js"></script>
 
