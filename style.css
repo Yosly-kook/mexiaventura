@@ -1042,6 +1042,7 @@ button {
   background: linear-gradient(135deg, #f0c040, #b8861a);
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(212, 175, 55, 0.5);
+
   cursor: pointer;
 }
 .btn-ajustes:hover{
@@ -1062,6 +1063,7 @@ button {
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.45), inset 0 0 8px rgba(212, 175, 55, 0.15);
     transform: translateY(-2px);
 }
+
 
 /* BRILLO DORADO DEL BOTÓN INICIAR */
 .btn-iniciar {
@@ -1116,7 +1118,8 @@ button {
         opacity: 1;
     }
 
-}
+ }
+
 
 /* PABLITO EN LA DESPEDIDA FINAL */
 .personaje-despedida {
@@ -1195,3 +1198,4 @@ button {
     transform: translateY(-2px);
 
 }
+
