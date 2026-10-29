@@ -67,6 +67,15 @@ function cambiarAMusicaMapa() {
     reproducirMusicaActual();
 }
 
+ // 5. DETENER LA MÚSICA DE FONDO AL SALIR
+function detenerMusicaDeFondo() {
+    audioInicio.pause();
+    audioMapa.pause();
+
+    audioInicio.currentTime = 0;
+    audioMapa.currentTime = 0;
+}
+
 // ==========================================
 // EVENTOS Y CONEXIÓN
 // ==========================================
