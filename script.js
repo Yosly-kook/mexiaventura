@@ -570,15 +570,34 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. Botón Ajustes (⚙️)
-    const btnAjustes = document.querySelector(".btn-ajustes");
-    if (btnAjustes) {
-        btnAjustes.addEventListener("click", (e) => {
-            e.preventDefault();
-            alert("⚙️ Menú de Ajustes: Aquí puedes configurar el volumen o preferencias pronto.");
-            // Si creas un modal de ajustes en el HTML, puedes abrirlo aquí igual que el modal de niveles.
-        });
-    }
+// ==========================================
+// CONTROL DE LA VENTANA DE AJUSTES
+// ==========================================
+const btnAjustesMenu = document.querySelector(".btn-ajustes");
+if (btnAjustesMenu) {
+    btnAjustesMenu.addEventListener("click", (e) => {
+        e.preventDefault();
+        const modal = document.getElementById("modalAjustes");
+        if (modal) {
+            modal.classList.add("activo");
+        }
+    });
+    const btnAjustesMenu = document.querySelector(".btn-ajustes");
+if (btnAjustesMenu) {
+    btnAjustesMenu.addEventListener("click", (e) => {
+        e.preventDefault();
+        const modal = document.getElementById("modalAjustes");
+        const selectPistas = document.getElementById("selectPistas");
+        
+        // Sincronizar el selector desplegable con la pista actual
+        if (selectPistas) {
+            selectPistas.value = indicePistaActual;
+        }
+
+        if (modal) modal.classList.add("activo");
+    });
+}
+}
 
     // 3. Botón Mis Logros (🏆)
     const btnLogros = document.querySelector(".btn-logros");
@@ -587,15 +606,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             alert("🏆 ¡Tus Logros! Has avanzado por la historia de México prehispánico.");
             // Aquí puedes programar que se abra una ventana con las estrellas acumuladas.
-        });
-    }
-
-    // 4. Botón Guía del Juego (📜)
-    const btnAyuda = document.querySelector(".btn-ayuda");
-    if (btnAyuda) {
-        btnAyuda.addEventListener("click", (e) => {
-            e.preventDefault();
-            alert("📜 Guía: Haz clic en cada nivel numerado del mapa para descubrir los acontecimientos históricos y datos clave.");
         });
     }
 });
