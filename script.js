@@ -331,7 +331,7 @@ if (modalNivel) {
 }
 
  // ==========================================
- // 5. CONTROL DE SALIDA Y DESPEDIDA DE PABLITO
+ // 5. CONTROL DE SALIDA Y VIDEO FINAL
  // ==========================================
 
 const botonSalir = document.getElementById("botonSalir");
@@ -340,7 +340,7 @@ const botonQuedarse = document.getElementById("botonQuedarse");
 const confirmarSalir = document.getElementById("confirmarSalir");
 
 const escenaDespedida = document.getElementById("escenaDespedida");
-const botonCerrarDespedida = document.getElementById("botonCerrarDespedida");
+const videoFinal = document.getElementById("videoDespedidaPablito");
 
 // Abrir la ventana de confirmación
 if (botonSalir && ventanaSalir) {
@@ -357,68 +357,71 @@ if (botonQuedarse && ventanaSalir) {
     });
 }
 
-// Confirmar salida y mostrar la despedida
-if (confirmarSalir && ventanaSalir && escenaDespedida) {
-    confirmarSalir.addEventListener("click", function() {
+// Confirmar salida y reproducir únicamente el video final
+if (confirmarSalir && ventanaSalir && escenaDespedida && videoFinal) {
+    confirmarSalir.addEventListener("click", async function() {
+        detenerMusicaDeFondo();
 
+        // Cerrar la ventana de confirmación
         ventanaSalir.style.display = "none";
 
-        const bienvenida = document.getElementById("escenaBienvenida");
-        const pantallaMapa = document.getElementById("pantallaMapa");
-        const pantallaInicio = document.getElementById("pantallaInicio");
+        // Ocultar las pantallas del juego
+        const elementosOcultar = [
+            "pantallaInicio",
+            "escenaBienvenida",
+            "pantallaMapa"
+        ];
 
-        // Ocultar las pantallas anteriores
-        if (bienvenida) bienvenida.style.display = "none";
-        if (pantallaMapa) pantallaMapa.style.display = "none";
-        if (pantallaInicio) pantallaInicio.style.display = "none";
+        elementosOcultar.forEach(function(id) {
+            const elemento = document.getElementById(id);
+            if (elemento) {
+                elemento.style.display = "none";
+            }
+        });
 
-        // Detener el audio de la bienvenida
+        // Detener el audio de bienvenida
         const vozBienvenida = document.getElementById("vozPersonaje");
         if (vozBienvenida) {
             vozBienvenida.pause();
             vozBienvenida.currentTime = 0;
         }
+        // Detener la música y los audios del juego
+        document.querySelectorAll("audio").forEach(function(audio) {
+            audio.pause();
+            audio.currentTime = 0;
+        });
 
-        // Mostrar el escenario final
-        escenaDespedida.style.display = "flex";
+        // Detener los videos anteriores, excepto la despedida
+        document.querySelectorAll("video").forEach(function(video) {
+            if (video.id !== "videoDespedidaPablito") {
+                video.pause();
+                video.currentTime = 0;
+            }
+        });
 
-        if (typeof gsap !== "undefined") {
-            gsap.fromTo(escenaDespedida,
-                { opacity: 0 },
-                { opacity: 1, duration: 1.3 }
-            );
-
-            gsap.fromTo(".contenido-despedida",
-                { opacity: 0, y: 25 },
-                { opacity: 1, y: 0, duration: 1.2, delay: 0.3 }
-            );
-        } else {
-            escenaDespedida.style.opacity = "1";
-        }
-    });
-}
-
-if (botonCerrarDespedida && escenaDespedida) {
-    botonCerrarDespedida.addEventListener("click", function() {
-
-        // Detener cualquier voz que siga reproduciéndose
+        // Cancelar cualquier voz del navegador
         if ("speechSynthesis" in window) {
             window.speechSynthesis.cancel();
         }
 
-        const videoFinal = document.getElementById("videoDespedidaPablito");
+        // Mostrar únicamente la escena del video
+        escenaDespedida.style.display = "flex";
+        escenaDespedida.style.opacity = "1";
 
-        // Convertir la escena en la despedida definitiva
-        escenaDespedida.classList.add("despedida-final");
+        // Preparar el video desde el principio
+        videoFinal.pause();
+        videoFinal.currentTime = 0;
+        videoFinal.loop = false;
+        videoFinal.controls = false;
+        videoFinal.muted = false;
+        videoFinal.playsInline = true;
+        videoFinal.style.display = "block";
 
-        // Mostrar únicamente a Pablito
-        if (videoFinal) {
-            videoFinal.currentTime = 0;
-            videoFinal.muted = true;
-            videoFinal.loop = true;
-            videoFinal.play().catch(function(error) {
-                console.error("No se pudo reproducir el video final:", error);
-            });
+        // Reproducir la despedida
+        try {
+            await videoFinal.play();
+        } catch (error) {
+            console.error("No se pudo reproducir el video final:", error);
         }
     });
 }
