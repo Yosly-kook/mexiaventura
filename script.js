@@ -199,6 +199,7 @@ document.addEventListener("click", function(event) {
     }
 });
 
+
 // ==========================================
 // 3. INFORMACIÓN DE LOS NIVELES
 // ==========================================
@@ -286,6 +287,8 @@ const niveles = {
         imagen: "img/Caída.png"
     }
 };
+
+
 
 
 // ==========================================
@@ -597,9 +600,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-const botonIniciarOlmeca = document.getElementById('iniciar-neon');
 
-botonIniciarOlmeca.addEventListener('click', () => {
-    // Reemplaza 'juego.html' o 'index2.html' por el nombre exacto de tu otro archivo
-    window.location.href = 'Niveles/NivelUno.html'; 
-});
+
