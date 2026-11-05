@@ -12,10 +12,11 @@ audioDestellos.volume = 0.6;
 // 2. PLAYLIST DE MÚSICA DE FONDO (Incluye inicio, mapa y las nuevas pistas)
 const playlist = [
     { nombre: "Fondo Inicial", archivo: new Audio("audio/fondo.mp3") },
+    { nombre: "Clásico", archivo: new Audio("audio/fondomapa.mp3") },
     { nombre: "Melodía Prehispánica", archivo: new Audio("audio/Prehispánico.mp3") },
     { nombre: "Aventura Épica", archivo: new Audio("audio/Aventura.mp3") },
-    { nombre: "Sendero del Sol", archivo: new Audio("audio/SenderoSol.mp3") },
-    { nombre: "Clásico", archivo: new Audio("audio/fondomapa.mp3") }
+    { nombre: "Sendero del Sol", archivo: new Audio("audio/SenderoSol.mp3") }
+    
 ];
 
 let indicePistaActual = 0; // 0 = Fondo de Inicio por defecto
