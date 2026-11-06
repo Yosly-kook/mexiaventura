@@ -127,22 +127,17 @@
       <!-- Botón 1: Menú / Inicio -->
       <a href="#" class="btn-flotante btn-inicio">
         <span class="texto-btn">Menú Principal</span>
-        <span class="icono-btn"></span>
+        <span class="icono-btn"><img src="img/inicio.png" alt="Inicio" class="img-btn"></span>
       </a>
       <!-- Botón 2: Ajustes -->
       <a href="#" class="btn-flotante btn-ajustes">
         <span class="texto-btn">Ajustes</span>
-        <span class="icono-btn"></span>
+        <span class="icono-btn"><img src="img/Engrane.png" alt="Engrane" class="img-btn"></span>
       </a>
       <!-- Botón 3: Logros / Niveles -->
       <a href="#" class="btn-flotante btn-logros">
         <span class="texto-btn">Mis Logros</span>
-        <span class="icono-btn"></span>
-      </a>
-      <!-- Botón 4: Ayuda / Historia -->
-      <a href="#" class="btn-flotante btn-ayuda">
-        <span class="texto-btn">Guía del Juego</span>
-        <span class="icono-btn"></span>
+        <span class="icono-btn"><img src="img/Logros.png" alt="Logros" class="img-btn"></span>
       </a>
     </div>
 
@@ -166,6 +161,56 @@
             <button class="nivel nivel10" onclick="abrirNivel(10)">9 <span class="estrellas">⭐⭐⭐</span></button>
             <button class="nivel nivel11" onclick="abrirNivel(11)">10 <span class="estrellas">⭐⭐⭐</span></button>
         </div>
+
+        <!-- VENTANA MODAL DE AJUSTES -->
+<div class="modal" id="modalAjustes">
+    <div class="contenido-modal-ajustes">
+        <!-- Botón de cerrar superior derecho (la "X") -->
+        <button class="cerrar-ajustes-cruz" onclick="cerrarAjustes()">✕</button>
+        
+        <!-- Título principal -->
+        <h2 class="titulo-ajustes">AJUSTES</h2>
+        
+        <div class="card-divisor">◆ ❖ ◆</div>
+        
+        <!-- Control de Sonido (Efectos) -->
+        <div class="control-fila">
+            <span class="label-control">EFECTOS</span>
+            <div class="contenedor-slider">
+                <span class="rango-num">0%</span>
+                <input type="range" id="sliderSound" min="0" max="100" value="50" oninput="actualizarVolumenSonido(this.value)">
+                <span class="rango-num">100%</span>
+            </div>
+        </div>
+        
+        <!-- Control de Música -->
+        <div class="control-fila">
+            <span class="label-control">MÚSICA</span>
+            <div class="contenedor-slider">
+                <span class="rango-num">0%</span>
+                <input type="range" id="sliderMusic" min="0" max="100" value="35" oninput="actualizarVolumenMusica(this.value)">
+                <span class="rango-num">100%</span>
+            </div>
+        </div>
+        <!-- Control de Selección de Pista Musical (Menú Desplegable) -->
+<div class="control-fila">
+    <span class="label-control">PISTA MUSICAL</span>
+    <div class="contenedor-select">
+        <select id="selectPistas" class="select-musica" onchange="seleccionarPistaMusical(this.value)">
+            <option value="0">Melodía Inicial</option>
+            <option value="1">Clásico</option>
+            <option value="2">Melodía Prehispánica</option>
+            <option value="3">Aventura Épica</option>
+            <option value="4">Sendero del Sol</option>
+            
+        </select>
+    </div>
+</div>
+        
+        <!-- Botón inferior "BACK TO GAME" -->
+        <button class="btn-back-game" onclick="cerrarAjustes()">VOLVER AL MAPA</button>
+    </div>
+</div>
 
         <!-- VENTANA MODAL (INFORMACIÓN DEL NIVEL) -->
 <div class="modal" id="modal">
@@ -225,7 +270,6 @@
 
 </div>
 
-=======
 <!-- ESCENA CINEMATOGRÁFICA DE DESPEDIDA DE PABLITO -->
 <section id="escenaDespedida" class="escena-despedida" style="display: none;">
 
@@ -273,6 +317,17 @@
 
     </div>
 
+</section>
+
+
+<!-- VIDEO FINAL DE DESPEDIDA -->
+<section id="escenaDespedida" style="display: none;">
+    <video
+        id="videoDespedidaPablito"
+        src="videos/pablito-despedida.mp4"
+        playsinline
+        preload="auto">
+    </video>
 </section>
 
 

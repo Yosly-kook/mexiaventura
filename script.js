@@ -246,7 +246,7 @@ const niveles = {
         imagen: "img/Talianza.png"
         
     },
-    6: {
+    7: {
         titulo: "La alianza de Tlaxcala",
         fecha: "Septiembre de 1519",
         texto: "Tras enfrentamientos con los españoles, los tlaxcaltecas establecieron una alianza con Hernán Cortés y participaron en las campañas contra los mexicas.",
@@ -254,7 +254,7 @@ const niveles = {
         dato: "La Conquista involucró alianzas indígenas, rivalidades políticas y diversos intereses.",
         imagen: "img/alianza.png"
     },
-    7: {
+    8: {
         titulo: "El encuentro en Tenochtitlan",
         fecha: "8 de noviembre de 1519",
         texto: "Moctezuma Xocoyotzin recibió a Hernán Cortés en la capital mexica. El encuentro dio paso a una relación tensa que pronto se transformarías en conflicto.",
@@ -262,7 +262,7 @@ const niveles = {
         dato: "Tenochtitlan impresionó por sus calzadas, canales y grandes construcciones.",
         imagen: "img/encuentro.png"
     },
-    8: {
+    9: {
         titulo: "La matanza en el Templo Mayor",
         fecha: "Mayo de 1520",
         texto: "Durante la fiesta de Tóxcatl, las tropas de Pedro de Alvarado atacaron a participantes mexicas, provocando una grave crisis y aumentó la resistencia contra los españoles.",
@@ -270,7 +270,7 @@ const niveles = {
         dato: "El ataque agravó el conflicto dentro de Tenochtitlan.",
         imagen: "img/matanza.png"
     },
-    9: {
+    10: {
         titulo: "La Noche Triste",
         fecha: "30 de junio–1 de julio de 1520",
         texto: "Los españoles y sus aliados intentaron escapar de Tenochtitlan durante la noche, pero fueron descubiertos mientras cruzaban las calzadas y sufrieron grandes pérdidas.",
@@ -278,7 +278,7 @@ const niveles = {
         dato: "Cuitláhuac asumió el liderazgo mexica tras la muerte de Moctezuma.",
         imagen:"img/nochetriste.png"
     },
-    10: {
+    11: {
         titulo: "La caída de Tenochtitlan",
         fecha: "13 de agosto de 1521",
         texto: "Después de un asedio por tierra y agua, las fuerzas españolas y sus aliados indígenas conquistaron Tenochtitlan. Las epidemias, la falta de alimentos y los combates contribuyeron a la caída. Cuahutémoc fue capturado.",
@@ -334,7 +334,7 @@ if (modalNivel) {
 }
 
  // ==========================================
- // 5. CONTROL DE SALIDA Y DESPEDIDA DE PABLITO
+ // 5. CONTROL DE SALIDA Y VIDEO FINAL
  // ==========================================
 
 const botonSalir = document.getElementById("botonSalir");
@@ -343,7 +343,7 @@ const botonQuedarse = document.getElementById("botonQuedarse");
 const confirmarSalir = document.getElementById("confirmarSalir");
 
 const escenaDespedida = document.getElementById("escenaDespedida");
-const botonCerrarDespedida = document.getElementById("botonCerrarDespedida");
+const videoFinal = document.getElementById("videoDespedidaPablito");
 
 // Abrir la ventana de confirmación
 if (botonSalir && ventanaSalir) {
@@ -360,68 +360,71 @@ if (botonQuedarse && ventanaSalir) {
     });
 }
 
-// Confirmar salida y mostrar la despedida
-if (confirmarSalir && ventanaSalir && escenaDespedida) {
-    confirmarSalir.addEventListener("click", function() {
+// Confirmar salida y reproducir únicamente el video final
+if (confirmarSalir && ventanaSalir && escenaDespedida && videoFinal) {
+    confirmarSalir.addEventListener("click", async function() {
+        detenerMusicaDeFondo();
 
+        // Cerrar la ventana de confirmación
         ventanaSalir.style.display = "none";
 
-        const bienvenida = document.getElementById("escenaBienvenida");
-        const pantallaMapa = document.getElementById("pantallaMapa");
-        const pantallaInicio = document.getElementById("pantallaInicio");
+        // Ocultar las pantallas del juego
+        const elementosOcultar = [
+            "pantallaInicio",
+            "escenaBienvenida",
+            "pantallaMapa"
+        ];
 
-        // Ocultar las pantallas anteriores
-        if (bienvenida) bienvenida.style.display = "none";
-        if (pantallaMapa) pantallaMapa.style.display = "none";
-        if (pantallaInicio) pantallaInicio.style.display = "none";
+        elementosOcultar.forEach(function(id) {
+            const elemento = document.getElementById(id);
+            if (elemento) {
+                elemento.style.display = "none";
+            }
+        });
 
-        // Detener el audio de la bienvenida
+        // Detener el audio de bienvenida
         const vozBienvenida = document.getElementById("vozPersonaje");
         if (vozBienvenida) {
             vozBienvenida.pause();
             vozBienvenida.currentTime = 0;
         }
+        // Detener la música y los audios del juego
+        document.querySelectorAll("audio").forEach(function(audio) {
+            audio.pause();
+            audio.currentTime = 0;
+        });
 
-        // Mostrar el escenario final
-        escenaDespedida.style.display = "flex";
+        // Detener los videos anteriores, excepto la despedida
+        document.querySelectorAll("video").forEach(function(video) {
+            if (video.id !== "videoDespedidaPablito") {
+                video.pause();
+                video.currentTime = 0;
+            }
+        });
 
-        if (typeof gsap !== "undefined") {
-            gsap.fromTo(escenaDespedida,
-                { opacity: 0 },
-                { opacity: 1, duration: 1.3 }
-            );
-
-            gsap.fromTo(".contenido-despedida",
-                { opacity: 0, y: 25 },
-                { opacity: 1, y: 0, duration: 1.2, delay: 0.3 }
-            );
-        } else {
-            escenaDespedida.style.opacity = "1";
-        }
-    });
-}
-
-if (botonCerrarDespedida && escenaDespedida) {
-    botonCerrarDespedida.addEventListener("click", function() {
-
-        // Detener cualquier voz que siga reproduciéndose
+        // Cancelar cualquier voz del navegador
         if ("speechSynthesis" in window) {
             window.speechSynthesis.cancel();
         }
 
-        const videoFinal = document.getElementById("videoDespedidaPablito");
+        // Mostrar únicamente la escena del video
+        escenaDespedida.style.display = "flex";
+        escenaDespedida.style.opacity = "1";
 
-        // Convertir la escena en la despedida definitiva
-        escenaDespedida.classList.add("despedida-final");
+        // Preparar el video desde el principio
+        videoFinal.pause();
+        videoFinal.currentTime = 0;
+        videoFinal.loop = false;
+        videoFinal.controls = false;
+        videoFinal.muted = false;
+        videoFinal.playsInline = true;
+        videoFinal.style.display = "block";
 
-        // Mostrar únicamente a Pablito
-        if (videoFinal) {
-            videoFinal.currentTime = 0;
-            videoFinal.muted = true;
-            videoFinal.loop = true;
-            videoFinal.play().catch(function(error) {
-                console.error("No se pudo reproducir el video final:", error);
-            });
+        // Reproducir la despedida
+        try {
+            await videoFinal.play();
+        } catch (error) {
+            console.error("No se pudo reproducir el video final:", error);
         }
     });
 }
@@ -570,15 +573,34 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. Botón Ajustes (⚙️)
-    const btnAjustes = document.querySelector(".btn-ajustes");
-    if (btnAjustes) {
-        btnAjustes.addEventListener("click", (e) => {
-            e.preventDefault();
-            alert("⚙️ Menú de Ajustes: Aquí puedes configurar el volumen o preferencias pronto.");
-            // Si creas un modal de ajustes en el HTML, puedes abrirlo aquí igual que el modal de niveles.
-        });
-    }
+// ==========================================
+// CONTROL DE LA VENTANA DE AJUSTES
+// ==========================================
+const btnAjustesMenu = document.querySelector(".btn-ajustes");
+if (btnAjustesMenu) {
+    btnAjustesMenu.addEventListener("click", (e) => {
+        e.preventDefault();
+        const modal = document.getElementById("modalAjustes");
+        if (modal) {
+            modal.classList.add("activo");
+        }
+    });
+    const btnAjustesMenu = document.querySelector(".btn-ajustes");
+if (btnAjustesMenu) {
+    btnAjustesMenu.addEventListener("click", (e) => {
+        e.preventDefault();
+        const modal = document.getElementById("modalAjustes");
+        const selectPistas = document.getElementById("selectPistas");
+        
+        // Sincronizar el selector desplegable con la pista actual
+        if (selectPistas) {
+            selectPistas.value = indicePistaActual;
+        }
+
+        if (modal) modal.classList.add("activo");
+    });
+}
+}
 
     // 3. Botón Mis Logros (🏆)
     const btnLogros = document.querySelector(".btn-logros");
@@ -589,16 +611,36 @@ document.addEventListener("DOMContentLoaded", () => {
             // Aquí puedes programar que se abra una ventana con las estrellas acumuladas.
         });
     }
-
-    // 4. Botón Guía del Juego (📜)
-    const btnAyuda = document.querySelector(".btn-ayuda");
-    if (btnAyuda) {
-        btnAyuda.addEventListener("click", (e) => {
-            e.preventDefault();
-            alert("📜 Guía: Haz clic en cada nivel numerado del mapa para descubrir los acontecimientos históricos y datos clave.");
-        });
-    }
 });
 
 
 
+
+botonIniciarOlmeca.addEventListener('click', () => {
+    // Reemplaza 'juego.html' o 'index2.html' por el nombre exacto de tu otro archivo
+    window.location.href = 'Niveles/NivelUno.html'; 
+});
+function ajustarEscalaMapa() {
+    const contenedor = document.getElementById("mapaProporcional");
+    if (!contenedor) return;
+
+    const anchoBase = 1200;
+    const altoBase = 800;
+
+    const anchoVentana = window.innerWidth;
+    const altoVentana = window.innerHeight;
+
+    // Calcular la escala según el ancho y alto disponibles
+    const escalaX = anchoVentana / anchoBase;
+    const escalaY = altoVentana / altoBase;
+    const escala = Math.min(escalaX, escalaY);
+
+    contenedor.style.transform = `scale(${escala})`;
+}
+
+// Ejecutar al cargar y al cambiar el tamaño de la ventana
+window.addEventListener("resize", ajustarEscalaMapa);
+document.addEventListener("DOMContentLoaded", ajustarEscalaMapa);
+
+// Asegurarse de llamarla también justo cuando se abre el mapa en tu transición:
+// (Puedes incluir 'ajustarEscalaMapa();' dentro de la función que muestra el mapa).
