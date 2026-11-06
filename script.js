@@ -616,3 +616,27 @@ botonIniciarOlmeca.addEventListener('click', () => {
     // Reemplaza 'juego.html' o 'index2.html' por el nombre exacto de tu otro archivo
     window.location.href = 'Niveles/NivelUno.html'; 
 });
+function ajustarEscalaMapa() {
+    const contenedor = document.getElementById("mapaProporcional");
+    if (!contenedor) return;
+
+    const anchoBase = 1200;
+    const altoBase = 800;
+
+    const anchoVentana = window.innerWidth;
+    const altoVentana = window.innerHeight;
+
+    // Calcular la escala según el ancho y alto disponibles
+    const escalaX = anchoVentana / anchoBase;
+    const escalaY = altoVentana / altoBase;
+    const escala = Math.min(escalaX, escalaY);
+
+    contenedor.style.transform = `scale(${escala})`;
+}
+
+// Ejecutar al cargar y al cambiar el tamaño de la ventana
+window.addEventListener("resize", ajustarEscalaMapa);
+document.addEventListener("DOMContentLoaded", ajustarEscalaMapa);
+
+// Asegurarse de llamarla también justo cuando se abre el mapa en tu transición:
+// (Puedes incluir 'ajustarEscalaMapa();' dentro de la función que muestra el mapa).
