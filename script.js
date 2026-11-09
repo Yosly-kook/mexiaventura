@@ -612,10 +612,16 @@ if (btnAjustesMenu) {
 
 const botonIniciarOlmeca = document.getElementById('iniciar-neon');
 
-botonIniciarOlmeca.addEventListener('click', () => {
-    // Reemplaza 'juego.html' o 'index2.html' por el nombre exacto de tu otro archivo
-    window.location.href = 'Niveles/NivelUno.html'; 
-});
+if (botonIniciarOlmeca) {
+    botonIniciarOlmeca.addEventListener('click', () => {
+        // Validamos dinámicamente según el nivel que abrió el usuario
+        if (nivelSeleccionado === 1) {
+            window.location.href = 'Niveles/NivelUno.html'; 
+        } else {
+            alert("¡Este nivel estará disponible muy pronto!");
+        }
+    });
+}
 function ajustarEscalaMapa() {
     const contenedor = document.getElementById("mapaProporcional");
     if (!contenedor) return;
@@ -657,15 +663,15 @@ function abrirNivel(numero) {
     document.getElementById("modal").classList.add("activo");
 }
 // Configurar el botón "INICIAR ▶" de la tarjeta
+const botonIniciar = document.getElementById('iniciar-neon');
 
-const botonIniciarOlmeca = document.getElementById('iniciar-neon');
-
-if (botonIniciarOlmeca) {
-    botonIniciarOlmeca.addEventListener('click', () => {
-        // Validamos dinámicamente según el nivel que abrió el usuario
+if (botonIniciar) {
+    botonIniciar.addEventListener('click', () => {
+        // Si es el nivel 1, lo mandamos a su archivo de juego
         if (nivelSeleccionado === 1) {
-            window.location.href = 'Niveles/NivelUno.html'; 
+            window.location.href = "Niveles/NivelUno.html";
         } else {
+            // Para los demás niveles que aún no tienen juego hecho
             alert("¡Este nivel estará disponible muy pronto!");
         }
     });
