@@ -363,7 +363,7 @@ if (botonQuedarse && ventanaSalir) {
 // Confirmar salida y reproducir únicamente el video final
 if (confirmarSalir && ventanaSalir && escenaDespedida && videoFinal) {
     confirmarSalir.addEventListener("click", async function() {
-        detenerMusicaDeFondo();
+        detenerTodaLaMusica();
 
         // Cerrar la ventana de confirmación
         ventanaSalir.style.display = "none";

@@ -269,6 +269,7 @@
     </div>
 
 </div>
+<<<<<<< HEAD
 
 <!-- ESCENA CINEMATOGRÁFICA DE DESPEDIDA DE PABLITO -->
 <section id="escenaDespedida" class="escena-despedida" style="display: none;">
@@ -322,14 +323,36 @@
 
 <!-- VIDEO FINAL DE DESPEDIDA -->
 <section id="escenaDespedida" style="display: none;">
+=======
+<!-- ESCENA FINAL DE DESPEDIDA DE PABLITO -->
+<section
+    id="escenaDespedida"
+    style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        justify-content: center;
+        align-items: center;
+        z-index: 999999;
+    "
+>
+>>>>>>> ee5d34ad4e1d34e890a75e97ce0d1cc0aa54fc90
     <video
         id="videoDespedidaPablito"
         src="videos/pablito-despedida.mp4"
         playsinline
-        preload="auto">
-    </video>
+        preload="auto"
+        style="
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        "
+    ></video>
 </section>
-
 
 <script src="audio.js"></script>
 
