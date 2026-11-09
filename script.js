@@ -649,10 +649,10 @@ window.addEventListener("resize", ajustarEscalaMapa);
 document.addEventListener("DOMContentLoaded", ajustarEscalaMapa);
 let nivelSeleccionado = 1; // Variable global para recordar el nivel
 
-<<<<<<< HEAD
+
 // Asegurarse de llamarla también justo cuando se abre el mapa en tu transición:
 // (Puedes incluir 'ajustarEscalaMapa();' dentro de la función que muestra el mapa).
-=======
+
 function abrirNivel(numero) {
     nivelSeleccionado = numero; // 👈 Asegúrate de guardar aquí el número que se abrió
     const nivel = niveles[numero];
@@ -684,4 +684,4 @@ if (botonIniciar) {
         }
     });
 }
->>>>>>> 9189cfaa8f28ae4d8b3c481c599e83873c9f475c
+
