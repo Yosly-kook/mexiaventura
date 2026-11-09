@@ -616,10 +616,16 @@ if (btnAjustesMenu) {
 
 
 
-botonIniciarOlmeca.addEventListener('click', () => {
-    // Reemplaza 'juego.html' o 'index2.html' por el nombre exacto de tu otro archivo
-    window.location.href = 'Niveles/NivelUno.html'; 
-});
+if (botonIniciarOlmeca) {
+    botonIniciarOlmeca.addEventListener('click', () => {
+        // Validamos dinámicamente según el nivel que abrió el usuario
+        if (nivelSeleccionado === 1) {
+            window.location.href = 'Niveles/NivelUno.html'; 
+        } else {
+            alert("¡Este nivel estará disponible muy pronto!");
+        }
+    });
+}
 function ajustarEscalaMapa() {
     const contenedor = document.getElementById("mapaProporcional");
     if (!contenedor) return;
@@ -641,6 +647,41 @@ function ajustarEscalaMapa() {
 // Ejecutar al cargar y al cambiar el tamaño de la ventana
 window.addEventListener("resize", ajustarEscalaMapa);
 document.addEventListener("DOMContentLoaded", ajustarEscalaMapa);
+let nivelSeleccionado = 1; // Variable global para recordar el nivel
 
+<<<<<<< HEAD
 // Asegurarse de llamarla también justo cuando se abre el mapa en tu transición:
 // (Puedes incluir 'ajustarEscalaMapa();' dentro de la función que muestra el mapa).
+=======
+function abrirNivel(numero) {
+    nivelSeleccionado = numero; // 👈 Asegúrate de guardar aquí el número que se abrió
+    const nivel = niveles[numero];
+    if (!nivel) return;
+    
+    document.getElementById("tituloNivel").textContent = nivel.titulo;
+    document.getElementById("fechaNivel").textContent = nivel.fecha;
+    document.getElementById("textoNivel").textContent = nivel.texto;
+    document.getElementById("datoNivel").textContent = nivel.dato;
+    document.getElementById("tituloFact").textContent = nivel.factTitle || "✦ DATO HISTÓRICO ✦";
+    
+    const imgNivel = document.getElementById("imagenNivel");
+    if (imgNivel) {
+        imgNivel.src = nivel.imagen || "";
+    }
+    document.getElementById("modal").classList.add("activo");
+}
+// Configurar el botón "INICIAR ▶" de la tarjeta
+const botonIniciar = document.getElementById('iniciar-neon');
+
+if (botonIniciar) {
+    botonIniciar.addEventListener('click', () => {
+        // Si es el nivel 1, lo mandamos a su archivo de juego
+        if (nivelSeleccionado === 1) {
+            window.location.href = "Niveles/NivelUno.html";
+        } else {
+            // Para los demás niveles que aún no tienen juego hecho
+            alert("¡Este nivel estará disponible muy pronto!");
+        }
+    });
+}
+>>>>>>> 9189cfaa8f28ae4d8b3c481c599e83873c9f475c

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MexiAventura - Nivel 1: Olmeca</title>
+    <link rel="stylesheet" href="nivelUno.css">
+</head>
+<body>
+
+    <div class="escenario-juego">
+        <!-- BARRA SUPERIOR (HUD) -->
+        <header class="hud-top">
+            <div class="logo-nivel">MEXI AVENTURA</div>
+            <div class="stats-container">
+                <div class="stat"><span class="icono">❤️</span> Vidas: <span id="vidas">3</span></div>
+                <div class="stat"><span class="icono">⭐</span> Puntos: <span id="puntos">0</span></div>
+                <div class="stat"><span class="icono">🗿</span> Piedras: <span id="piedras">0</span>/4</div>
+                <div class="stat"><span class="icono">🏛️</span> Nivel 1/10</div>
+            </div>
+        </header>
+
+        <!-- PERSONAJE (Pablito) -->
+        <div id="pablito" class="personaje"></div>
+
+        <!-- PIEDRAS RECOLECTABLES EN EL MAPA -->
+        <div class="item-piedra" id="piedra1" style="left: 250px; bottom: 120px;">🗿</div>
+        <div class="item-piedra" id="piedra2" style="left: 450px; bottom: 150px;">🗿</div>
+        <div class="item-piedra" id="piedra3" style="left: 650px; bottom: 120px;">🗿</div>
+        <div class="item-piedra" id="piedra4" style="left: 850px; bottom: 180px;">🗿</div>
+
+        <!-- ALTAR O ZONA FINAL PARA ARMAR LA CABEZA COLOSAL -->
+        <div id="altarOlmeca" class="altar-construccion">
+            <p>Construye la Cabeza Olmeca aquí</p>
+        </div>
+
+        <!-- CONTROLES TÁCTILES EN PANTALLA (Inspirados en tu imagen) -->
+        <div class="controles-tactiles">
+            <button class="btn-ctrl" id="btnIzquierda">◀</button>
+            <button class="btn-ctrl" id="btnDerecha">▶</button>
+            <button class="btn-ctrl" id="btnAbajo">▼</button>
+            <button class="btn-ctrl" id="btnArriba">▲</button>
+        </div>
+    </div>
+
+    <!-- AUDIOS -->
+    <audio id="audioClic" src="../audio/clic.mp3"></audio>
+    <audio id="audioGems" src="../audio/brillos.mp3"></audio>
+
+    <script src="nivelUno.js"></script>
+</body>
+</html>
