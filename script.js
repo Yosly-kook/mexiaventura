@@ -295,7 +295,7 @@ const niveles = {
 function abrirNivel(numero) {
     const nivel = niveles[numero];
     if (!nivel) return;
-    
+    window.nivelSeleccionado = numero;
     document.getElementById("tituloNivel").textContent = nivel.titulo;
     document.getElementById("fechaNivel").textContent = nivel.fecha;
     document.getElementById("textoNivel").textContent = nivel.texto;
@@ -610,69 +610,45 @@ if (btnAjustesMenu) {
     }
 });
 
-const botonIniciarOlmeca = document.getElementById('iniciar-neon');
+
+const botonIniciarOlmeca = document.getElementById("iniciar-neon");
+const escenaVideoNivel1 = document.getElementById("escenaVideoNivel1");
+const videoCinematicoNivel1 = document.getElementById("videoNivel1");
 
 if (botonIniciarOlmeca) {
-    botonIniciarOlmeca.addEventListener('click', () => {
-        // Validamos dinámicamente según el nivel que abrió el usuario
-        if (nivelSeleccionado === 1) {
-            window.location.href = 'Niveles/NivelUno.html'; 
-        } else {
+    botonIniciarOlmeca.addEventListener("click", async () => {
+
+        if (window.nivelSeleccionado !== 1) {
             alert("¡Este nivel estará disponible muy pronto!");
+            return;
         }
-    });
-}
-function ajustarEscalaMapa() {
-    const contenedor = document.getElementById("mapaProporcional");
-    if (!contenedor) return;
 
-    const anchoBase = 1200;
-    const altoBase = 800;
+        cerrarNivel();
 
-    const anchoVentana = window.innerWidth;
-    const altoVentana = window.innerHeight;
+        if (!escenaVideoNivel1 || !videoCinematicoNivel1) {
+            console.error("No se encontró el contenedor o el video.");
+            return;
+        }
 
-    // Calcular la escala según el ancho y alto disponibles
-    const escalaX = anchoVentana / anchoBase;
-    const escalaY = altoVentana / altoBase;
-    const escala = Math.min(escalaX, escalaY);
+        escenaVideoNivel1.style.display = "flex";
 
-    contenedor.style.transform = `scale(${escala})`;
-}
+        videoCinematicoNivel1.pause();
+        videoCinematicoNivel1.currentTime = 0;
 
-// Ejecutar al cargar y al cambiar el tamaño de la ventana
-window.addEventListener("resize", ajustarEscalaMapa);
-document.addEventListener("DOMContentLoaded", ajustarEscalaMapa);
-let nivelSeleccionado = 1; // Variable global para recordar el nivel
-
-function abrirNivel(numero) {
-    nivelSeleccionado = numero; // 👈 Asegúrate de guardar aquí el número que se abrió
-    const nivel = niveles[numero];
-    if (!nivel) return;
-    
-    document.getElementById("tituloNivel").textContent = nivel.titulo;
-    document.getElementById("fechaNivel").textContent = nivel.fecha;
-    document.getElementById("textoNivel").textContent = nivel.texto;
-    document.getElementById("datoNivel").textContent = nivel.dato;
-    document.getElementById("tituloFact").textContent = nivel.factTitle || "✦ DATO HISTÓRICO ✦";
-    
-    const imgNivel = document.getElementById("imagenNivel");
-    if (imgNivel) {
-        imgNivel.src = nivel.imagen || "";
-    }
-    document.getElementById("modal").classList.add("activo");
-}
-// Configurar el botón "INICIAR ▶" de la tarjeta
-const botonIniciar = document.getElementById('iniciar-neon');
-
-if (botonIniciar) {
-    botonIniciar.addEventListener('click', () => {
-        // Si es el nivel 1, lo mandamos a su archivo de juego
-        if (nivelSeleccionado === 1) {
+        videoCinematicoNivel1.onended = () => {
             window.location.href = "Niveles/NivelUno.html";
-        } else {
-            // Para los demás niveles que aún no tienen juego hecho
-            alert("¡Este nivel estará disponible muy pronto!");
+        };
+
+        videoCinematicoNivel1.onerror = () => {
+            console.error("No se pudo cargar el video. Revisa su ruta.");
+            alert("No se pudo cargar la cinemática. Revisa el archivo de video.");
+        };
+
+        try {
+            await videoCinematicoNivel1.play();
+        } catch (error) {
+            console.error("Error al reproducir la cinemática:", error);
+            alert("No se pudo reproducir el video. Revisa su formato y ubicación.");
         }
     });
 }

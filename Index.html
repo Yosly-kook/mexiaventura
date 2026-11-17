@@ -137,6 +137,15 @@
       </a>
     </div>
 
+<!-- ESCENA DE VIDEO ANTES DE ENTRAR AL NIVEL 1 -->
+<div id="escenaVideoNivel1" style="display: none; position: fixed; inset: 0; background: #000; z-index: 2000; align-items: center; justify-content: center;">
+    <video id="videoNivel1" playsinline preload="auto" style="width: 100%; height: 100%; object-fit: contain;">
+        <!-- Asegúrate de poner la ruta correcta de tu video -->
+        <source src="img/video-olmecas.mp4" type="video/mp4">
+        Tu navegador no soporta video.
+    </video>
+</div>
+
         <!-- TÍTULO EN EL MAPA -->
         <div class="titulo">
             <h1>MEXI AVENTURA</h1>
@@ -232,7 +241,7 @@
         
         <!-- Botón de Cerrar (Rojo neón) -->
         <button class="cerrar-neon" onclick="cerrarNivel()">CERRAR ✖</button>
-        <button class="iniciar-neon" id="iniciar-neon" onclick="abrirN1()">INICIAR ▶</button>
+        <button class="iniciar-neon" id="iniciar-neon">INICIAR ▶</button>
 
         <!-- IMAGEN FLOTANTE EN LA ESQUINA INFERIOR DERECHA -->
         <img id="imagenNivel" src="" alt="Ilustración" class="img-esquina-derecha">

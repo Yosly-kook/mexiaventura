@@ -1,67 +1,161 @@
-let posX = 100;
-let posY = 100;
-let piedrasRecolectadas = 0;
-let puntos = 0;
 
 const pablito = document.getElementById("pablito");
-const txtPiedras = document.getElementById("piedras");
-const txtPuntos = document.getElementById("puntos");
-const audioGems = document.getElementById("audioGems");
+const mundo = document.getElementById("mundo");
+const ventanaJuego = document.getElementById("ventanaJuego");
+const contadorPiedras = document.getElementById("contadorPiedras");
+const mensajeVictoria = document.getElementById("mensajeVictoria");
 
-// Movimiento por teclado (Flechas o WASD)
-window.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight" || e.key === "d") mover(30, 0);
-    if (e.key === "ArrowLeft" || e.key === "a") mover(-30, 0);
-    if (e.key === "ArrowUp" || e.key === "w") mover(0, 30);
-    if (e.key === "ArrowDown" || e.key === "s") mover(0, -30);
+let posicionX = 100;
+let posicionY = 200;
+
+let piedrasRecolectadas = 0;
+
+const velocidad = 4;
+const teclas = {};
+
+const fragmentos = [
+    document.getElementById("piedra1"),
+    document.getElementById("piedra2"),
+    document.getElementById("piedra3"),
+    document.getElementById("piedra4"),
+    document.getElementById("piedra5")
+];
+
+const anchoMundo = 2400;
+
+const anchoPersonaje = 75;
+const altoPersonaje = 100;
+
+const margen = 10;
+
+// Detectar las teclas presionadas
+document.addEventListener("keydown", (evento) => {
+    if (
+        ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(evento.key)
+    ) {
+        evento.preventDefault();
+        teclas[evento.key] = true;
+    }
 });
 
-// Movimiento por botones en pantalla (como en tu imagen)
-document.getElementById("btnDerecha").addEventListener("click", () => mover(30, 0));
-document.getElementById("btnIzquierda").addEventListener("click", () => mover(-30, 0));
-document.getElementById("btnArriba").addEventListener("click", () => mover(0, 30));
-document.getElementById("btnAbajo").addEventListener("click", () => mover(0, -30));
+// Detectar cuando se sueltan las teclas
+document.addEventListener("keyup", (evento) => {
+    teclas[evento.key] = false;
+});
 
-function mover(dx, dy) {
-    posX = Math.max(20, Math.min(window.innerWidth - 70, posX + dx));
-    posY = Math.max(50, Math.min(window.innerHeight - 150, posY + dy));
+// Evitar que las teclas sigan activas al cambiar de ventana
+window.addEventListener("blur", () => {
+    for (const tecla in teclas) {
+        teclas[tecla] = false;
+    }
+});
 
-    pablito.style.left = `${posX}px`;
-    pablito.style.bottom = `${posY}px`;
+// Movimiento del personaje
+function moverPablito() {
 
-    checarColisiones();
+    if (mensajeVictoria.hidden === false) {
+        return;
+    }
+
+    if (teclas["ArrowRight"]) {
+        posicionX += velocidad;
+    }
+
+    if (teclas["ArrowLeft"]) {
+        posicionX -= velocidad;
+    }
+
+    if (teclas["ArrowUp"]) {
+        posicionY -= velocidad;
+    }
+
+    if (teclas["ArrowDown"]) {
+        posicionY += velocidad;
+    }
+
+    // Limitar movimiento dentro del escenario
+    const altoMundo = ventanaJuego.clientHeight;
+
+    posicionX = Math.max(
+        0,
+        Math.min(posicionX, anchoMundo - anchoPersonaje)
+    );
+
+    posicionY = Math.max(
+        0,
+        Math.min(posicionY, altoMundo - altoPersonaje)
+    );
+
+    pablito.style.left = posicionX + "px";
+    pablito.style.top = posicionY + "px";
+
+    moverCamara();
+    revisarColisiones();
+
+    requestAnimationFrame(moverPablito);
 }
 
-function checarColisiones() {
-    for (let i = 1; i <= 4; i++) {
-        const piedra = document.getElementById(`piedra${i}`);
-        if (piedra && piedra.style.display !== "none") {
-            const rectPablito = pablito.getBoundingClientRect();
-            const rectPiedra = piedra.getBoundingClientRect();
+// Cámara que sigue a Pablito
+function moverCamara() {
 
-            // Detectar si Pablito toca una piedra
-            if (!(rectPablito.right < rectPiedra.left || 
-                  rectPablito.left > rectPiedra.right || 
-                  rectPablito.bottom < rectPiedra.top || 
-                  rectPablito.top > rectPiedra.bottom)) {
-                
-                // Recolectar piedra
-                piedra.style.display = "none";
-                piedrasRecolectadas++;
-                puntos += 25;
+    const anchoVentana = ventanaJuego.clientWidth;
 
-                if (audioGems) audioGems.play();
+    let desplazamiento = anchoVentana / 2 -
+        (posicionX + anchoPersonaje / 2);
 
-                txtPiedras.textContent = piedrasRecolectadas;
-                txtPuntos.textContent = puntos;
+    const desplazamientoMaximo = anchoVentana - anchoMundo;
 
-                if (piedrasRecolectadas === 4) {
-                    setTimeout(() => {
-                        alert("¡Felicidades! Juntaste todas las piedras basálticas. ¡Se ha construido la Cabeza Colosal Olmeca! 🗿✨");
-                        window.location.href = "../index.html"; // Regresa al mapa
-                    }, 300);
-                }
-            }
+    desplazamiento = Math.max(
+        desplazamientoMaximo,
+        Math.min(0, desplazamiento)
+    );
+
+    mundo.style.transform = `translateX(${desplazamiento}px)`;
+}
+
+// Detectar recolección de fragmentos
+function revisarColisiones() {
+
+    fragmentos.forEach((fragmento) => {
+
+        if (!fragmento || fragmento.dataset.recolectado === "true") {
+            return;
         }
+
+        const piedraX = fragmento.offsetLeft;
+        const piedraY = fragmento.offsetTop;
+
+        const piedraAncho = fragmento.offsetWidth;
+        const piedraAlto = fragmento.offsetHeight;
+
+        const hayColision =
+            posicionX + anchoPersonaje > piedraX + margen &&
+            posicionX < piedraX + piedraAncho - margen &&
+            posicionY + altoPersonaje > piedraY + margen &&
+            posicionY < piedraY + piedraAlto - margen;
+
+        if (hayColision) {
+            recogerFragmento(fragmento);
+        }
+    });
+}
+
+// Recoger un fragmento
+function recogerFragmento(fragmento) {
+
+    fragmento.dataset.recolectado = "true";
+    fragmento.style.display = "none";
+
+    piedrasRecolectadas++;
+
+    contadorPiedras.textContent =
+        `Fragmentos: ${piedrasRecolectadas}/5`;
+
+    // Cuando se reúnen los cinco fragmentos
+    if (piedrasRecolectadas === 5) {
+        mensajeVictoria.hidden = false;
     }
 }
+
+// Iniciar el juego
+moverPablito();

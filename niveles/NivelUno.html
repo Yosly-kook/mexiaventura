@@ -1,51 +1,50 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MexiAventura - Nivel 1: Olmeca</title>
+    <title>MexiAventura - Nivel 1</title>
     <link rel="stylesheet" href="nivelUno.css">
 </head>
 <body>
 
-    <div class="escenario-juego">
-        <!-- BARRA SUPERIOR (HUD) -->
-        <header class="hud-top">
-            <div class="logo-nivel">MEXI AVENTURA</div>
-            <div class="stats-container">
-                <div class="stat"><span class="icono">❤️</span> Vidas: <span id="vidas">3</span></div>
-                <div class="stat"><span class="icono">⭐</span> Puntos: <span id="puntos">0</span></div>
-                <div class="stat"><span class="icono">🗿</span> Piedras: <span id="piedras">0</span>/4</div>
-                <div class="stat"><span class="icono">🏛️</span> Nivel 1/10</div>
-            </div>
+    <main class="juego">
+        <header class="hud">
+            <h1>Nivel 1: El legado olmeca</h1>
+            <div id="contadorPiedras">Fragmentos: 0/5</div>
         </header>
 
-        <!-- PERSONAJE (Pablito) -->
-        <div id="pablito" class="personaje"></div>
+        <section class="ventana-juego" id="ventanaJuego">
+            <div class="mundo" id="mundo">
 
-        <!-- PIEDRAS RECOLECTABLES EN EL MAPA -->
-        <div class="item-piedra" id="piedra1" style="left: 250px; bottom: 120px;">🗿</div>
-        <div class="item-piedra" id="piedra2" style="left: 450px; bottom: 150px;">🗿</div>
-        <div class="item-piedra" id="piedra3" style="left: 650px; bottom: 120px;">🗿</div>
-        <div class="item-piedra" id="piedra4" style="left: 850px; bottom: 180px;">🗿</div>
+                <div id="pablito" class="personaje">
+                    <img src="../img/pablito.png" alt="Pablito">
+                </div>
 
-        <!-- ALTAR O ZONA FINAL PARA ARMAR LA CABEZA COLOSAL -->
-        <div id="altarOlmeca" class="altar-construccion">
-            <p>Construye la Cabeza Olmeca aquí</p>
+                <div class="fragmento" id="piedra1">🪨</div>
+                <div class="fragmento" id="piedra2">🪨</div>
+                <div class="fragmento" id="piedra3">🪨</div>
+                <div class="fragmento" id="piedra4">🪨</div>
+                <div class="fragmento" id="piedra5">🪨</div>
+
+                <div class="indicacion">
+                    Explora el lugar y reúne los cinco fragmentos.
+                </div>
+
+            </div>
+        </section>
+
+        <p class="instrucciones">
+            Utiliza las flechas del teclado para mover a Pablito.
+        </p>
+
+        <div id="mensajeVictoria" class="mensaje-victoria" hidden>
+            <h2>¡Lo lograste!</h2>
+            <p>Has reunido todos los fragmentos de piedra.</p>
+            <p>¡La cabeza colosal está lista para reconstruirse!</p>
         </div>
-
-        <!-- CONTROLES TÁCTILES EN PANTALLA (Inspirados en tu imagen) -->
-        <div class="controles-tactiles">
-            <button class="btn-ctrl" id="btnIzquierda">◀</button>
-            <button class="btn-ctrl" id="btnDerecha">▶</button>
-            <button class="btn-ctrl" id="btnAbajo">▼</button>
-            <button class="btn-ctrl" id="btnArriba">▲</button>
-        </div>
-    </div>
-
-    <!-- AUDIOS -->
-    <audio id="audioClic" src="../audio/clic.mp3"></audio>
-    <audio id="audioGems" src="../audio/brillos.mp3"></audio>
+    </main>
 
     <script src="nivelUno.js"></script>
 </body>

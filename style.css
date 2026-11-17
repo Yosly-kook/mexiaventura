@@ -1037,8 +1037,8 @@ button {
 
 .icono-btn {
     position: absolute;
-    right: 0;
-    width: 60px;
+    right: 1;
+    width: 70px;
     height: 50px;
     display: flex;
     align-items: center;
@@ -1046,8 +1046,8 @@ button {
 }
 
 .img-btn {
-    width: 28px;
-    height: 28px;
+    width: 25px;
+    height: 25px;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
@@ -1059,7 +1059,7 @@ button {
 .texto-btn {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    margin-right: 68px; /* Espacio para que el texto no tape al icono */
+    margin-right: 60px; /* Espacio para que el texto no tape al icono */
     color: #f8e7bd;
     font-family: 'Cinzel', serif;
     letter-spacing: 1px;
