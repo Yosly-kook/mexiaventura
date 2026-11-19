@@ -58,3 +58,63 @@ html, body {
 #mensajeCarga.oculto {
     display: none;
 }
+/* MARCADOR */
+
+#marcador {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    z-index: 10;
+
+    padding: 12px 22px;
+
+    background: rgba(35, 20, 8, 0.85);
+    border: 2px solid #e8bd58;
+    border-radius: 12px;
+
+    color: #ffe39b;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* PANTALLA FINAL */
+
+#pantallaFinal {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    background: rgba(20, 12, 5, 0.9);
+    color: #ffe39b;
+    text-align: center;
+}
+
+#pantallaFinal.oculto {
+    display: none;
+}
+
+#pantallaFinal h1 {
+    font-size: 38px;
+}
+
+#pantallaFinal h2 {
+    font-size: 50px;
+}
+
+#pantallaFinal button {
+    padding: 14px 28px;
+    border: 2px solid #e8bd58;
+    border-radius: 10px;
+
+    background: #986124;
+    color: white;
+
+    font-size: 18px;
+    cursor: pointer;
+}

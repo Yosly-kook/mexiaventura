@@ -196,6 +196,30 @@ function moverPablo(personaje, delta) {
     );
 
 }
+// ======================================
+// OBJETOS QUE CAEN
+// ======================================
+
+let estrellasCaida = [];
+let lanzasCaida = [];
+
+let tiempoPartida = 0;
+
+// ======================================
+// PUNTUACIÓN Y ESTADO DEL JUEGO
+// ======================================
+
+let puntuacion = 0;
+let juegoTerminado = false;
+
+const elementoPuntuacion =
+    document.getElementById("puntuacion");
+
+const pantallaFinal =
+    document.getElementById("pantallaFinal");
+
+const resultadoFinal =
+    document.getElementById("resultadoFinal");
 
 // ======================================
 // 4. CARGAR LOS RECURSOS
@@ -219,13 +243,8 @@ async function iniciarBonus() {
             -2.2
         );
 
-        // Estrellas de muestra
-        crearSprite(estrella, 0.8, 0, 1.5);
-        crearSprite(estrella, 0.8, 2.5, 0.5);
-        crearSprite(estrella, 0.8, 4, -1.5);
-
-        // Lanza de muestra
-        crearSprite(lanza, 1.8, 5, 2);
+       // Iniciar objetos que caerán
+        iniciarObjetos(estrella, lanza);
 
         mensajeCarga.classList.add("oculto");
 
@@ -242,7 +261,183 @@ async function iniciarBonus() {
 
     }
 }
+// ======================================
+// CREAR OBJETOS QUE CAEN
+// ======================================
 
+function crearObjetoCaida(textura, altura, tipo, velocidad, indice) {
+
+    const x = THREE.MathUtils.randFloat(-6.5, 6.5);
+    const y = 5.5 + indice * 3;
+
+    const sprite = crearSprite(
+        textura,
+        altura,
+        x,
+        y
+    );
+
+    return {
+        sprite: sprite,
+        velocidad: velocidad,
+        tipo: tipo
+    };
+}
+
+// ======================================
+// INICIAR ESTRELLAS Y LANZAS
+// ======================================
+
+function iniciarObjetos(estrella, lanza) {
+    estrellasCaida = [];
+    lanzasCaida = [];
+
+    for (let i = 0; i < 4; i++) {
+
+        estrellasCaida.push(
+            crearObjetoCaida(
+                estrella,
+                0.8,
+                "estrella",
+                2.5,
+                i
+            )
+        );
+
+    }
+
+    for (let i = 0; i < 2; i++) {
+
+        lanzasCaida.push(
+            crearObjetoCaida(
+                lanza,
+                1.8,
+                "lanza",
+                3.2,
+                i + 1
+            )
+        );
+
+    }
+
+}
+// ======================================
+// DETECTAR COLISIONES
+// ======================================
+
+function hayColision(objeto, personaje, zona) {
+
+    const anchoPersonaje = Math.min(
+        personaje.scale.x * 0.22,
+        0.85
+    );
+
+    const centroY = zona === "canasta"
+        ? personaje.position.y - personaje.scale.y * 0.20
+        : personaje.position.y;
+
+    const altoPersonaje = zona === "canasta"
+        ? 0.45
+        : personaje.scale.y * 0.42;
+
+    const anchoObjeto = objeto.scale.x * 0.4;
+    const altoObjeto = objeto.scale.y * 0.4;
+
+    return (
+        Math.abs(objeto.position.x - personaje.position.x)
+            < anchoPersonaje + anchoObjeto &&
+
+        Math.abs(objeto.position.y - centroY)
+            < altoPersonaje + altoObjeto
+    );
+
+}
+// ======================================
+// ACTUALIZAR OBJETOS Y COLISIONES
+// ======================================
+
+function actualizarObjetos(delta) {
+
+    const dificultad = Math.min(
+        1 + tiempoPartida / 60 * 0.3,
+        2.5
+    );
+
+    // ESTRELLAS
+    estrellasCaida.forEach(estrella => {
+
+        estrella.sprite.position.y -=
+            estrella.velocidad * dificultad * delta;
+
+        // Colisión con la canasta
+        if (
+            personaje &&
+            hayColision(
+                estrella.sprite,
+                personaje,
+                "canasta"
+            )
+        ) {
+
+            puntuacion += 10;
+
+            elementoPuntuacion.textContent = puntuacion;
+
+            estrella.sprite.position.y =
+                THREE.MathUtils.randFloat(7, 11);
+
+            estrella.sprite.position.x =
+                THREE.MathUtils.randFloat(-6.5, 6.5);
+
+        }
+
+        // Reaparecer si sale de la pantalla
+        else if (estrella.sprite.position.y < -6) {
+
+            estrella.sprite.position.y =
+                THREE.MathUtils.randFloat(7, 11);
+
+            estrella.sprite.position.x =
+                THREE.MathUtils.randFloat(-6.5, 6.5);
+
+        }
+
+    });
+
+    // LANZAS
+    lanzasCaida.forEach(lanza => {
+
+        lanza.sprite.position.y -=
+            lanza.velocidad * dificultad * delta;
+
+        // Colisión con Pablito
+        if (
+            personaje &&
+            hayColision(
+                lanza.sprite,
+                personaje,
+                "cuerpo"
+            )
+        ) {
+
+            terminarBonus();
+
+        }
+
+        // Reaparecer si sale de la pantalla
+        else if (lanza.sprite.position.y < -6) {
+
+            lanza.sprite.position.y =
+                THREE.MathUtils.randFloat(7, 11);
+
+            lanza.sprite.position.x =
+                THREE.MathUtils.randFloat(-6.5, 6.5);
+
+        }
+
+    });
+
+}
 // ======================================
 // 5. ANIMACIÓN PRINCIPAL
 // ======================================
@@ -255,8 +450,16 @@ function animar() {
 
     const delta = Math.min(reloj.getDelta(), 0.05);
 
-    if (personaje) {
-        moverPablo(personaje, delta);
+    if (!juegoTerminado) {
+
+        tiempoPartida += delta;
+
+        if (personaje) {
+            moverPablo(personaje, delta);
+        }
+
+        actualizarObjetos(delta);
+
     }
 
     renderizador.render(escena, camara);
@@ -290,3 +493,23 @@ window.addEventListener("resize", ajustarPantalla);
 // ======================================
 
 iniciarBonus();
+// ======================================
+// TERMINAR BONUS
+// ======================================
+
+function terminarBonus() {
+
+    if (juegoTerminado) return;
+
+    juegoTerminado = true;
+
+    resultadoFinal.textContent = puntuacion;
+
+    pantallaFinal.classList.remove("oculto");
+
+    console.log(
+        "Bonus terminado. Puntuación:",
+        puntuacion
+    );
+
+}

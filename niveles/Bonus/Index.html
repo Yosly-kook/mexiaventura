@@ -21,7 +21,20 @@
 
     <main id="contenedorJuego">
         <div id="escenario"></div>
+        
+        <div id="marcador">
+            ☆ Estrellas: <span id="puntuacion">0</span>
+        </div>
+
+        <div id="pantallaFinal" class="oculto">
+            <h1>¡Fin de la aventura!</h1>
+            <p>Tu puntuación:</p>
+            <h2 id="resultadoFinal">0</h2>
+            <button onclick="window.location.href='mexiaventura/Index.html'">Volver al Mapa</button>
+        </div>
+
         <div id="mensajeCarga">Preparando aventura...</div>
+
     </main>
 
     <script type="module" src="bonus.js"></script>
