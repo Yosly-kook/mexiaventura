@@ -207,7 +207,7 @@ document.addEventListener("click", function(event) {
 const niveles = {
     1: {
         titulo: "El auge de la cultura olmeca",
-        fecha: "1200–400 d.n.e.(fecha aproximada)",
+        fecha: "1200–400 a.n.e.(fecha aproximada)",
         texto: "Los olmecas construyeron centros ceremoniales, cultivaron maíz y crearon esculturas monumentales incluidas las famosas cabezas colosales. Su cultura influyó en otros pueblos mesoamericanos.",
         factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "Son considerados una de las primeras grandes civilizaciones mesoamericanas.",
@@ -232,7 +232,7 @@ const niveles = {
     4: {
         titulo: "La fundación de Tenochtitlan",
         fecha: "1325 d.n.e.(fecha tradicional)",
-        texto: "Los mexicas fundaron México-Tenochtitlan en un islote del lago de Texcoco. La tradición relata la señal de un águila sobre un nopal coo símbolo de su destino.",
+        texto: "Los mexicas fundaron México-Tenochtitlan en un islote del lago de Texcoco. La tradición relata la señal de un águila sobre un nopal como símbolo de su destino.",
         factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "La ciudad se convirtió en un importante centro político y económico de un poderoso imperio.",
         imagen: "img/fundación.png"
@@ -240,7 +240,7 @@ const niveles = {
     5: {
         titulo: "La Triple Alianza",
         fecha: "1428 d.n.e.",
-        texto: "Tenochtitlan, Texcoco y Tlacopan formaron una alianza política y militar. Juntos expandieron su infliencia y establecieron tributos sobre numerosos pueblos.",
+        texto: "Tenochtitlan, Texcoco y Tlacopan formaron una alianza política y militar. Juntos expandieron su influencia y establecieron tributos sobre numerosos pueblos.",
         factTitle: "✦ DATO LEGENDARIO ✦",
         dato: "La alinaza cambió el equilibrio de poder en Mesoamérica, aunque Tenochtitlan llegó a ejercer una posición dominante.",
         imagen: "img/Talianza.png"
@@ -257,7 +257,7 @@ const niveles = {
     8: {
         titulo: "El encuentro en Tenochtitlan",
         fecha: "8 de noviembre de 1519",
-        texto: "Moctezuma Xocoyotzin recibió a Hernán Cortés en la capital mexica. El encuentro dio paso a una relación tensa que pronto se transformarías en conflicto.",
+        texto: "Moctezuma Xocoyotzin recibió a Hernán Cortés en la capital mexica. El encuentro dio paso a una relación tensa que pronto se transformaría en conflicto.",
         factTitle: "✦ CLAVE HISTÓRICA ✦",
         dato: "Tenochtitlan impresionó por sus calzadas, canales y grandes construcciones.",
         imagen: "img/encuentro.png"
@@ -281,7 +281,7 @@ const niveles = {
     11: {
         titulo: "La caída de Tenochtitlan",
         fecha: "13 de agosto de 1521",
-        texto: "Después de un asedio por tierra y agua, las fuerzas españolas y sus aliados indígenas conquistaron Tenochtitlan. Las epidemias, la falta de alimentos y los combates contribuyeron a la caída. Cuahutémoc fue capturado.",
+        texto: "Después de un asedio por tierra y agua, las fuerzas españolas y sus aliados indígenas conquistaron Tenochtitlan. Las epidemias, la falta de alimentos y los combates contribuyeron a la caída. Cuauhtémoc fue capturado.",
         factTitle: "✦ FINAL DE CAMPAÑA ✦",
         dato: "La caída de Tenochtitlan puso fin al Imperio Mexica e inició la colonización española, transformando radicalmente la región.",
         imagen: "img/Caída.png"
@@ -304,26 +304,24 @@ function abrirNivel(numero) {
 
     const nivel = niveles[numero];
     if (!nivel) return;
+
     window.nivelSeleccionado = numero;
+
     document.getElementById("tituloNivel").textContent = nivel.titulo;
     document.getElementById("fechaNivel").textContent = nivel.fecha;
     document.getElementById("textoNivel").textContent = nivel.texto;
     document.getElementById("datoNivel").textContent = nivel.dato;
-    
-    // AQUÍ ACTUALIZAMOS EL TÍTULO DINÁMICO DEL DATO
-    document.getElementById("tituloFact").textContent = nivel.factTitle || "✦ DATO HISTÓRICO ✦";
-    
-    document.getElementById("datoNivel").textContent = nivel.dato;
+    document.getElementById("tituloFact").textContent =
+        nivel.factTitle || "✦ DATO HISTÓRICO ✦";
 
-    // CARGAR LA IMAGEN DINÁMICA DE CADA TARJETA
     const imgNivel = document.getElementById("imagenNivel");
+
     if (imgNivel) {
-        imgNivel.src = nivel.imagen || ""; // Carga la ruta de la imagen o la deja vacía si no existe
+        imgNivel.src = nivel.imagen || "";
     }
 
     document.getElementById("modal").classList.add("activo");
 }
-window.abrirNivel = abrirNivel;
 
 function cerrarNivel() {
     document.getElementById("modal").classList.remove("activo");
@@ -611,94 +609,104 @@ if (btnAjustesMenu) {
         });
     }
 });
-
-
-const botonIniciarOlmeca = document.getElementById("iniciar-neon");
-const escenaVideoNivel1 = document.getElementById("escenaVideoNivel1");
-const videoCinematicoNivel1 = document.getElementById("videoNivel1");
-
-if (botonIniciarOlmeca) {
-    botonIniciarOlmeca.addEventListener("click", async () => {
-
-        if (window.nivelSeleccionado !== 1) {
-            alert("¡Este nivel estará disponible muy pronto!");
-            return;
-        }
-
-        cerrarNivel();
-
-        if (!escenaVideoNivel1 || !videoCinematicoNivel1) {
-            console.error("No se encontró el contenedor o el video.");
-            return;
-        }
-
-        escenaVideoNivel1.style.display = "flex";
-
-        videoCinematicoNivel1.pause();
-        videoCinematicoNivel1.currentTime = 0;
+// ==========================================
+// 7. CINEMÁTICA Y ACCESO AL NIVEL 1
+// ==========================================
 
 const botonIniciarOlmeca = document.getElementById("iniciar-neon");
 const escenaVideoNivel1 = document.getElementById("escenaVideoNivel1");
 const videoCinematicoNivel1 = document.getElementById("videoNivel1");
 
 if (botonIniciarOlmeca) {
-    botonIniciarOlmeca.addEventListener("click", async () => {
 
+    botonIniciarOlmeca.addEventListener("click", async function () {
+
+        // Comprobar qué nivel seleccionó el jugador
         if (window.nivelSeleccionado !== 1) {
             alert("¡Este nivel estará disponible muy pronto!");
             return;
         }
 
+        // Cerrar la tarjeta del nivel
         cerrarNivel();
 
+        // Comprobar que existen los elementos de la cinemática
         if (!escenaVideoNivel1 || !videoCinematicoNivel1) {
             console.error("No se encontró el contenedor o el video.");
             return;
         }
 
+        // Mostrar la escena de video
         escenaVideoNivel1.style.display = "flex";
 
+        // Preparar el video
         videoCinematicoNivel1.pause();
         videoCinematicoNivel1.currentTime = 0;
+        videoCinematicoNivel1.loop = false;
 
-        videoCinematicoNivel1.onended = () => {
+        // Cuando termine la cinemática, entrar al Nivel 1
+        videoCinematicoNivel1.onended = function () {
+
+            escenaVideoNivel1.style.display = "none";
+
             window.location.href = "Niveles/NivelUno.html";
         };
 
-        videoCinematicoNivel1.onerror = () => {
-            console.error("No se pudo cargar el video. Revisa su ruta.");
-            alert("No se pudo cargar la cinemática. Revisa el archivo de video.");
+        // Si el video falla
+        videoCinematicoNivel1.onerror = function () {
+
+            console.error("No se pudo cargar la cinemática.");
+
+            escenaVideoNivel1.style.display = "none";
+
+            document.getElementById("pantallaMapa").style.display = "block";
+
+            alert("No se pudo cargar el video. Revisa su ubicación y formato.");
         };
 
+        // Reproducir la cinemática
         try {
+
             await videoCinematicoNivel1.play();
+
         } catch (error) {
+
             console.error("Error al reproducir la cinemática:", error);
-            alert("No se pudo reproducir el video. Revisa su formato y ubicación.");
+
+            escenaVideoNivel1.style.display = "none";
+
+            document.getElementById("pantallaMapa").style.display = "block";
+
+            alert("No se pudo reproducir el video.");
         }
+
     });
+
 }
 
-function actualizarProgresoBonus(estrellas) {
-    const progreso = Math.max(0, Math.min(3, estrellas));
 
-    localStorage.setItem("progresoBonus", progreso);
+// ==========================================
+// 8. AJUSTAR EL MAPA AL TAMAÑO DE LA VENTANA
+// ==========================================
 
-    const indicador = document.getElementById("progresoBonus");
+window.addEventListener("resize", function () {
 
-    if (indicador) {
-        indicador.textContent = progreso + "/3";
+    if (typeof ajustarEscalaMapa === "function") {
+        ajustarEscalaMapa();
     }
-}
 
-// Mostrar el progreso guardado al abrir el mapa
-document.addEventListener("DOMContentLoaded", () => {
-    const progresoGuardado =
-        Number(localStorage.getItem("progresoBonus")) || 0;
-
-    const indicador = document.getElementById("progresoBonus");
-
-    if (indicador) {
-        indicador.textContent = progresoGuardado + "/3";
-    }
 });
+
+if (typeof ajustarEscalaMapa === "function") {
+
+    if (document.readyState === "loading") {
+
+        document.addEventListener("DOMContentLoaded", ajustarEscalaMapa);
+
+    } else {
+
+        ajustarEscalaMapa();
+
+    }
+
+}
