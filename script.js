@@ -291,11 +291,17 @@ const niveles = {
 // ==========================================
 // 4. FUNCIONES PARA EL MODAL
 // ==========================================
-
 function abrirNivel(numero) {
+
+    // Si se presiona la estrella del bonus
+    if (numero === 6) {
+        window.location.href = "Niveles/Bonus/Index.html";
+        return;
+    }
+
     const nivel = niveles[numero];
     if (!nivel) return;
-    
+
     document.getElementById("tituloNivel").textContent = nivel.titulo;
     document.getElementById("fechaNivel").textContent = nivel.fecha;
     document.getElementById("textoNivel").textContent = nivel.texto;
@@ -314,7 +320,7 @@ function abrirNivel(numero) {
 
     document.getElementById("modal").classList.add("activo");
 }
-
+window.abrirNivel = abrirNivel;
 
 function cerrarNivel() {
     document.getElementById("modal").classList.remove("activo");
@@ -676,3 +682,30 @@ if (botonIniciar) {
         }
     });
 }
+// ==========================================
+// PROGRESO DEL BONUS
+// ==========================================
+
+function actualizarProgresoBonus(estrellas) {
+    const progreso = Math.max(0, Math.min(3, estrellas));
+
+    localStorage.setItem("progresoBonus", progreso);
+
+    const indicador = document.getElementById("progresoBonus");
+
+    if (indicador) {
+        indicador.textContent = progreso + "/3";
+    }
+}
+
+// Mostrar el progreso guardado al abrir el mapa
+document.addEventListener("DOMContentLoaded", () => {
+    const progresoGuardado =
+        Number(localStorage.getItem("progresoBonus")) || 0;
+
+    const indicador = document.getElementById("progresoBonus");
+
+    if (indicador) {
+        indicador.textContent = progresoGuardado + "/3";
+    }
+});
