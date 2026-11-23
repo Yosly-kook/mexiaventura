@@ -1,0 +1,120 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #17100b;
+    font-family: Georgia, serif;
+}
+
+#contenedorJuego {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    background-image: url("./Recursos/fondo_bonus.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#escenario {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#escenario canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#mensajeCarga {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #f5d78c;
+    background: rgba(20, 12, 5, 0.75);
+
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+#mensajeCarga.oculto {
+    display: none;
+}
+/* MARCADOR */
+
+#marcador {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    z-index: 10;
+
+    padding: 12px 22px;
+
+    background: rgba(35, 20, 8, 0.85);
+    border: 2px solid #e8bd58;
+    border-radius: 12px;
+
+    color: #ffe39b;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* PANTALLA FINAL */
+
+#pantallaFinal {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    background: rgba(20, 12, 5, 0.9);
+    color: #ffe39b;
+    text-align: center;
+}
+
+#pantallaFinal.oculto {
+    display: none;
+}
+
+#pantallaFinal h1 {
+    font-size: 38px;
+}
+
+#pantallaFinal h2 {
+    font-size: 50px;
+}
+
+#pantallaFinal button {
+    padding: 14px 28px;
+    border: 2px solid #e8bd58;
+    border-radius: 10px;
+
+    background: #986124;
+    color: white;
+
+    font-size: 18px;
+    cursor: pointer;
+}

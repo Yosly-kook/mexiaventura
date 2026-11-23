@@ -295,6 +295,13 @@ const niveles = {
 // 4. FUNCIONES PARA EL MODAL
 // ==========================================
 function abrirNivel(numero) {
+
+    // Si se presiona la estrella del bonus
+    if (numero === 6) {
+        window.location.href = "Niveles/Bonus/Index.html";
+        return;
+    }
+
     const nivel = niveles[numero];
     if (!nivel) return;
 
@@ -569,34 +576,27 @@ document.addEventListener("DOMContentLoaded", () => {
             reproducirMusicaActual();
         });
     }
-
 // ==========================================
 // CONTROL DE LA VENTANA DE AJUSTES
 // ==========================================
 const btnAjustesMenu = document.querySelector(".btn-ajustes");
+
 if (btnAjustesMenu) {
     btnAjustesMenu.addEventListener("click", (e) => {
         e.preventDefault();
-        const modal = document.getElementById("modalAjustes");
-        if (modal) {
-            modal.classList.add("activo");
-        }
-    });
-    const btnAjustesMenu = document.querySelector(".btn-ajustes");
-if (btnAjustesMenu) {
-    btnAjustesMenu.addEventListener("click", (e) => {
-        e.preventDefault();
+
         const modal = document.getElementById("modalAjustes");
         const selectPistas = document.getElementById("selectPistas");
-        
-        // Sincronizar el selector desplegable con la pista actual
+
+        // Sincronizar el selector con la pista actual
         if (selectPistas) {
             selectPistas.value = indicePistaActual;
         }
 
-        if (modal) modal.classList.add("activo");
+        if (modal) {
+            modal.classList.add("activo");
+        }
     });
-}
 }
 
     // 3. Botón Mis Logros (🏆)

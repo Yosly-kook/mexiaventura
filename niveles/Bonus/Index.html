@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEXIAVENTURA - Bonus</title>
+    <link rel="icon" href="mexiaventura/img/logo.png">
+    <link rel="stylesheet" href="bonus.css">
+
+    <!-- Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <main id="contenedorJuego">
+        <div id="escenario"></div>
+        
+        <div id="marcador">
+            ☆ Estrellas: <span id="puntuacion">0</span>
+        </div>
+
+        <div id="pantallaFinal" class="oculto">
+            <h1>¡Fin de la aventura!</h1>
+            <p>Tu puntuación:</p>
+            <h2 id="resultadoFinal">0</h2>
+            <button onclick="window.location.href='pantallaMapa'">Volver al Mapa</button>
+        </div>
+
+        <div id="mensajeCarga">Preparando aventura...</div>
+
+    </main>
+
+    <script type="module" src="bonus.js"></script>
+</body>
+</html>
