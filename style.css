@@ -350,7 +350,7 @@ button {
 .nivel:nth-child(3)  { background: linear-gradient(#E97850, #C65D3A); }
 .nivel:nth-child(4)  { background: linear-gradient(#32C5C7, #159A9C); }
 .nivel:nth-child(5)  { background: linear-gradient(#F35B9A, #E83E8C); }
-.nivel:nth-child(6)   { background: linear-gradient(#f5c92c, #edbc0c); }
+.nivel:nth-child(6)   { background: linear-gradient(to bottom, #ffe680 0%, #fac637 35%, #ecb017 70%, #c0810c 100%); }
 .nivel:nth-child(7)  { background: linear-gradient(#A477D8, #7547A8); }
 .nivel:nth-child(8)  { background: linear-gradient(#E95B51, #C93C35); }
 .nivel:nth-child(9)  { background: linear-gradient(#54B96F, #278A4B); }
