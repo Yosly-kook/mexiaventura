@@ -604,7 +604,7 @@ if (btnAjustesMenu) {
     if (btnLogros) {
         btnLogros.addEventListener("click", (e) => {
             e.preventDefault();
-            alert("🏆 ¡Tus Logros! Has avanzado por la historia de México prehispánico.");
+            
             // Aquí puedes programar que se abra una ventana con las estrellas acumuladas.
         });
     }

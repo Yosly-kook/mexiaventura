@@ -1,0 +1,50 @@
+#mensaje {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 16px;
+    z-index: 10;
+    display: none;
+}
+
+#dialogo {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    max-width: 90%;
+    background: rgba(35, 48, 29, 0.95);
+    color: white;
+    padding: 25px;
+    border-radius: 18px;
+    border: 2px solid #d4ad60;
+    z-index: 20;
+    display: none;
+    text-align: center;
+}
+
+#dialogo p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#cerrarDialogo {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #d4ad60;
+    color: #26331e;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#cerrarDialogo:hover {
+    background: #f0d18a;
+}
