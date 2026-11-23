@@ -9,12 +9,12 @@
 
     <!-- Three.js -->
     <script type="importmap">
-    {
-        "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
-        }
+{
+    "imports": {
+        "three": "./librerias/three.module.js"
     }
-    </script>
+}
+</script>
 </head>
 <body>
 
@@ -29,7 +29,12 @@
             <h1>¡Fin de la aventura!</h1>
             <p>Tu puntuación:</p>
             <h2 id="resultadoFinal">0</h2>
-            <button onclick="window.location.href='pantallaMapa'">Volver al Mapa</button>
+            <button onclick="
+                sessionStorage.setItem('regresarAlMapa', 'true');
+                window.location.href = '../../index.html';
+            ">
+                Volver al mapa
+            </button>
         </div>
 
         <div id="mensajeCarga">Preparando aventura...</div>

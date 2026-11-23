@@ -710,3 +710,42 @@ if (typeof ajustarEscalaMapa === "function") {
     }
 
 }
+// ==========================================
+// REGRESAR DEL BONUS DIRECTAMENTE AL MAPA
+// ==========================================
+
+function regresarDelBonus() {
+
+    const regresarAlMapa = sessionStorage.getItem("regresarAlMapa");
+
+    if (regresarAlMapa !== "true") return;
+
+    // Consumir la indicación para que no se repita al actualizar
+    sessionStorage.removeItem("regresarAlMapa");
+
+    const pantallaInicio = document.getElementById("pantallaInicio");
+    const bienvenida = document.getElementById("escenaBienvenida");
+    const mapa = document.getElementById("pantallaMapa");
+
+    // Ocultar las pantallas anteriores
+    if (pantallaInicio) pantallaInicio.style.display = "none";
+    if (bienvenida) bienvenida.style.display = "none";
+
+    // Mostrar directamente el mapa
+    if (mapa) {
+        mapa.style.display = "block";
+        mapa.style.opacity = "1";
+    }
+
+    // Recuperar la animación de las hojas
+    if (typeof initHojasCanvas === "function") {
+        initHojasCanvas();
+        animarHojasCanvas();
+    }
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", regresarDelBonus);
+} else {
+    regresarDelBonus();
+}
