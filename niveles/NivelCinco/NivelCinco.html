@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MexiAventura - Nivel 5</title>
+
+    <link rel="stylesheet" href="nivelCinco.css">
+</head>
+
+<body>
+
+    <main class="juego-nivel-cinco">
+
+        <!-- ENCABEZADO -->
+        <header class="encabezado-batalla">
+            <h1>La Triple Alianza</h1>
+            <p>Batalla contra Azcapotzalco</p>
+        </header>
+
+        <!-- CAMPO DE BATALLA -->
+        <section class="campo-batalla">
+
+            <!-- EQUIPO ALIADO -->
+            <div class="equipo-aliado">
+
+                <h2>Triple Alianza</h2>
+
+                <div class="barra-vida">
+                    <div id="vidaAliados" class="vida-progreso aliados"></div>
+                </div>
+
+                <p id="textoVidaAliados">Vida: 100 / 100</p>
+
+                <div class="personajes-aliados">
+
+                    <div class="personaje-guerrero" id="guerreroAguila">
+                        <div class="personaje-placeholder">🛡️</div>
+                        <p>Guerrero Águila</p>
+                    </div>
+
+                    <div class="personaje-guerrero" id="arquero">
+                        <div class="personaje-placeholder">🏹</div>
+                        <p>Arquero</p>
+                    </div>
+
+                    <div class="personaje-guerrero" id="ingeniero">
+                        <div class="personaje-placeholder">⚒️</div>
+                        <p>Ingeniero</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ENEMIGO -->
+            <div class="equipo-enemigo">
+
+                <h2>Azcapotzalco</h2>
+
+                <div class="barra-vida">
+                    <div id="vidaEnemigo" class="vida-progreso enemigo"></div>
+                </div>
+
+                <p id="textoVidaEnemigo">Vida: 100 / 100</p>
+
+                <div class="personaje-enemigo" id="azcapotzalco">
+                    <div class="personaje-placeholder">⚔️</div>
+                    <p>Azcapotzalco</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ZONA DE PREGUNTAS -->
+        <section class="zona-preguntas">
+
+            <div class="progreso-preguntas">
+                Pregunta <span id="numeroPregunta">1</span> de 12
+            </div>
+
+            <h2 id="pregunta">
+                ¡Prepárate para defender a la Triple Alianza!
+            </h2>
+
+            <div id="opcionesRespuesta" class="opciones-respuesta">
+
+                <button class="opcion">Opción A</button>
+                <button class="opcion">Opción B</button>
+                <button class="opcion">Opción C</button>
+                <button class="opcion">Opción D</button>
+
+            </div>
+
+            <p id="mensajeRespuesta"></p>
+
+            <button id="botonSiguiente" hidden>
+                Siguiente pregunta ▶
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="nivelCinco.js"></script>
+
+</body>
+</html>

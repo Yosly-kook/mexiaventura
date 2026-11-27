@@ -1,0 +1,231 @@
+
+/* =====================================
+   CONFIGURACIÓN GENERAL
+===================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #261b16;
+    color: #fff4dc;
+}
+
+.juego-nivel-cinco {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* =====================================
+   ENCABEZADO
+===================================== */
+
+.encabezado-batalla {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.encabezado-batalla h1 {
+    color: #e8b75c;
+    font-size: 32px;
+}
+
+.encabezado-batalla p {
+    margin-top: 8px;
+    color: #e5d1aa;
+}
+
+/* =====================================
+   CAMPO DE BATALLA
+===================================== */
+
+.campo-batalla {
+    min-height: 400px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    background:
+        linear-gradient(
+            rgba(38, 27, 22, 0.25),
+            rgba(38, 27, 22, 0.65)
+        ),
+        linear-gradient(135deg, #9b663b, #58412e, #263b32);
+
+    border: 4px solid #b78b48;
+    border-radius: 18px;
+}
+
+/* =====================================
+   EQUIPOS
+===================================== */
+
+.equipo-aliado,
+.equipo-enemigo {
+    flex: 1;
+    text-align: center;
+}
+
+.equipo-aliado h2,
+.equipo-enemigo h2 {
+    margin-bottom: 12px;
+    color: #f2d18b;
+}
+
+/* =====================================
+   BARRAS DE VIDA
+===================================== */
+
+.barra-vida {
+    width: 100%;
+    height: 20px;
+    background: #402b27;
+    border: 2px solid #e8d3a7;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.vida-progreso {
+    width: 100%;
+    height: 100%;
+    transition: width 0.4s ease;
+}
+
+.aliados {
+    background: #3da65a;
+}
+
+.enemigo {
+    background: #bd3d32;
+}
+
+.equipo-aliado > p,
+.equipo-enemigo > p {
+    margin: 8px 0 20px;
+}
+
+/* =====================================
+   PERSONAJES
+===================================== */
+
+.personajes-aliados {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 12px;
+}
+
+.personaje-guerrero,
+.personaje-enemigo {
+    text-align: center;
+}
+
+.personaje-placeholder {
+    width: 100px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 65px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid #d5ad68;
+    border-radius: 12px;
+}
+
+.personaje-enemigo .personaje-placeholder {
+    width: 150px;
+    height: 190px;
+    font-size: 90px;
+}
+
+.personaje-guerrero p,
+.personaje-enemigo p {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* =====================================
+   PREGUNTAS
+===================================== */
+
+.zona-preguntas {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 25px;
+    text-align: center;
+    background: #463226;
+    border: 2px solid #b78b48;
+    border-radius: 16px;
+}
+
+.progreso-preguntas {
+    color: #e8b75c;
+    margin-bottom: 15px;
+}
+
+.zona-preguntas h2 {
+    margin-bottom: 20px;
+    font-size: 21px;
+}
+
+.opciones-respuesta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.opcion {
+    padding: 15px;
+    color: #fff4dc;
+    background: #765333;
+    border: 2px solid #c69b5b;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.opcion:hover {
+    background: #9b7040;
+}
+
+#mensajeRespuesta {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#botonSiguiente {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #c28a36;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 700px) {
+
+    .campo-batalla {
+        flex-direction: column;
+    }
+
+    .personajes-aliados {
+        flex-wrap: wrap;
+    }
+
+    .opciones-respuesta {
+        grid-template-columns: 1fr;
+    }
+
+}

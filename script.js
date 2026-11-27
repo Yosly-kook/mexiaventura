@@ -620,15 +620,27 @@ const videoCinematicoNivel1 = document.getElementById("videoNivel1");
 if (botonIniciarOlmeca) {
 
     botonIniciarOlmeca.addEventListener("click", async function () {
-
+       
         // Comprobar qué nivel seleccionó el jugador
-        if (window.nivelSeleccionado !== 1) {
-            alert("¡Este nivel estará disponible muy pronto!");
+        const nivel = window.nivelSeleccionado;
+
+        // ACCESO DIRECTO AL NIVEL 5
+        if (nivel === 5) {
+
+            // Cerrar la tarjeta del nivel
+            cerrarNivel();
+
+            // Abrir el archivo del Nivel 5
+            window.location.href = "Niveles/NivelCinco/NivelCinco.html";
+
             return;
         }
 
-        // Cerrar la tarjeta del nivel
-        cerrarNivel();
+        // Mantener el acceso actual al Nivel 1
+        if (nivel !== 1) {
+            alert("¡Este nivel estará disponible muy pronto!");
+            return;
+        }
 
         // Comprobar que existen los elementos de la cinemática
         if (!escenaVideoNivel1 || !videoCinematicoNivel1) {
