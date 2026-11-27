@@ -240,9 +240,9 @@ const niveles = {
     5: {
         titulo: "La Triple Alianza",
         fecha: "1428 d.n.e.",
-        texto: "Tenochtitlan, Texcoco y Tlacopan formaron una alianza política y militar. Juntos expandieron su influencia y establecieron tributos sobre numerosos pueblos.",
+        texto: "Tenochtitlán, Texcoco y Tlacopan formaron una alianza política y militar que cambió el rumbo de Mesoamérica. Juntos derrotaron a Azcapotzalco y comenzaron a expandir su influencia sobre numerosos pueblos.",
         factTitle: "✦ DATO LEGENDARIO ✦",
-        dato: "La alinaza cambió el equilibrio de poder en Mesoamérica, aunque Tenochtitlan llegó a ejercer una posición dominante.",
+        dato: "Aunque las tres ciudades formaban una alianza, Tenochtitlán llegó a ejercer una posición dominante.",
         imagen: "img/Talianza.png"
         
     },
